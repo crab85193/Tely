@@ -11,6 +11,6 @@ then
 else
     # gunicornを起動させる時はプロジェクト名を指定します
     # 今回はdjangopjにします
-    gunicorn djangopj.wsgi:application --bind 0.0.0.0:8000
+    gunicorn shift_l.wsgi:application --bind 0.0.0.0:8000
 fi
 
