@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  db:
+    container_name: mysql
+    build:
+      context: .
+      dockerfile: containers/mysql/Dockerfile
+    platform: linux/x86_64
+    volumes:
+      - db_data:/var/lib/mysql
+    env_file:
+      - .env.dev
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: containers/django/Dockerfile
+    volumes:
+      - .:/code
+      - ./static:/static
+    ports:
+      - "8000:8000"
+    command: sh -c "/code/entrypoint.sh"
+    env_file:
+      - .env.dev
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  db_data:
+  static:
+
