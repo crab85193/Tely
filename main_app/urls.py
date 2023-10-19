@@ -15,8 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from . import views
+from .views.top import TopView
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", TopView.as_view(), name="top"),
 ]
