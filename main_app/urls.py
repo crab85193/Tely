@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.urls import path
 from .views.login import LoginView
+from .views.logout import Logout
 from .views.top import TopView
 
 app_name = 'main_app'
 
 urlpatterns = [
     path("", LoginView.as_view(), name="login"),
+    path("logout/", Logout.as_view(), name="logout"),
     path("top/", TopView.as_view(), name="top"),
 ]

@@ -5,7 +5,7 @@ from ..forms.login import LoginForm
 
 class LoginView(LoginView):
     form_class    = LoginForm
-    template_name = 'main_app/login.html'
+    template_name = 'main_app/login/login.html'
     
     def get(self, request):
         if request.user.is_authenticated:
