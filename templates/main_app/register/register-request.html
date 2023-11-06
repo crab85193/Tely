@@ -1,8 +1,8 @@
-{% extends 'main_app/login/base.html' %}
+{% extends 'main_app/register/base.html' %}
 {% load static %}
 
 {% block title %}
-Login
+Register
 {% endblock%}
 
 {% block main %}
@@ -25,8 +25,8 @@ Login
             <div class="card-body">
 
               <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">ログイン</h5>
-                <p class="text-center small">ユーザー名とパスワードを入力してログインしてください</p>
+                <h5 class="card-title text-center pb-0 fs-4">新規アカウント作成</h5>
+                <p class="text-center small">必要事項を入力してください</p>
               </div>
 
               <form class="row g-3 needs-validation" method="POST">
@@ -36,28 +36,24 @@ Login
                   <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
                   <div class="input-group has-validation">
                     {{ field }}
-                    {% comment %} <input type="text" name="{{ field.name }}" class="form-control" id="{{ field.name }}" required> {% endcomment %}
-                    {% comment %} <div class="invalid-feedback">メールアドレスを入力してください</div> {% endcomment %}
                   </div>
+                  
+                  {% if field.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
                 </div>
                 {% endfor %}
-
                 <div class="col-12">
-                  {% for error in form.non_field_errors %}
-                  <div class="alert alert-danger" role="alert">
-                      <p>{{ error }}</p>
-                  </div>
-                  {% endfor %}
-                </div>
-
-                <div class="col-12">
-                  <button class="btn btn-primary w-100" type="submit">ログイン</button>
+                  <button class="btn btn-primary w-100" type="submit">新規アカウントを作成する</button>
                 </div>
                 <div class="col-12">
-                  <p class="small mb-0"><a href="{% url 'main_app:register_request' %}">新規アカウントを作成する</a></p>
+                  <p class="small mb-0"><a href="{% url 'main_app:login' %}">ログインページへ</a></p>
                 </div>
               </form>
-
             </div>
           </div>
 
