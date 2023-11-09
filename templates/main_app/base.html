@@ -227,7 +227,7 @@
                 <hr class="dropdown-divider">
               </li>
   
-              <li>
+              {% comment %} <li>
                 <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                   <i class="bi bi-person"></i>
                   <span>My Profile</span>
@@ -235,19 +235,19 @@
               </li>
               <li>
                 <hr class="dropdown-divider">
-              </li>
+              </li> {% endcomment %}
   
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'main_app:password_change' %}">
                   <i class="bi bi-gear"></i>
-                  <span>Account Settings</span>
+                  <span>パスワード変更</span>
                 </a>
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
   
-              <li>
+              {% comment %} <li>
                 <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
                   <i class="bi bi-question-circle"></i>
                   <span>Need Help?</span>
@@ -255,12 +255,12 @@
               </li>
               <li>
                 <hr class="dropdown-divider">
-              </li>
+              </li> {% endcomment %}
   
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="{% url 'main_app:logout' %}">
                   <i class="bi bi-box-arrow-right"></i>
-                  <span>Sign Out</span>
+                  <span>ログアウト</span>
                 </a>
               </li>
   

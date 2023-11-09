@@ -19,6 +19,7 @@ from .views.login import LoginView
 from .views.logout import Logout
 from .views.register import RegisterRequestView, RegisterDoneView, RegisterCompleteView, RegisterErrorView
 from .views.top import TopView
+from .views.password_change import PasswordChangeView, PasswordChangeDoneView
 
 from .views.dev.charts import ChartsApexChartsView, ChartsChartjsView, ChartsEchartsView
 from .views.dev.components import ComponentsAccordionView, ComponentsAlertsView, ComponentsBadgesView, ComponentsBreadcrumbsView, ComponentsButtonsView, ComponentsCardsView, ComponentsCarouselView, ComponentsListGroupView, ComponentsModalView, ComponentsPaginationView, ComponentsProgressView, ComponentsSpinnersView, ComponentsTabsView, ComponentsTooltipsView
@@ -40,6 +41,9 @@ urlpatterns = [
     path('register/check/error/<int:error_code>/', RegisterErrorView.as_view()   , name='register_error'   ),
 
     path("top/", TopView.as_view(), name="top"),
+
+    path("settings/password/change/"     , PasswordChangeView.as_view()    , name="password_change"     ),
+    path("settings/password/change/done/", PasswordChangeDoneView.as_view(), name="password_change_done"),
 
     path("reservation/"     , ReservationView.as_view()    , name="reservation"     ),
     path("reservation/done/", ReservationDoneView.as_view(), name="reservation_done"),
