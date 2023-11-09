@@ -278,11 +278,18 @@
       <ul class="sidebar-nav" id="sidebar-nav">
   
         <li class="nav-item">
-          <a class="nav-link " href="{% url 'main_app:top' %}">
+          <a class="nav-link {% if 'top' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:top' %}">
             <i class="bi bi-grid"></i>
-            <span>Dashboard</span>
+            <span>トップ</span>
           </a>
         </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+          <a class="nav-link {% if 'reservation' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:reservation' %}">
+            <i class="bi bi-grid"></i>
+            <span>自動電話予約</span>
+          </a>
+        </li>
         
         {% if request.user.is_superuser %}
         

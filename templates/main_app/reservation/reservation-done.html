@@ -1,0 +1,63 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+Reservation Done
+{% endblock%}
+
+{% block main %}
+<div class="pagetitle">
+  <h1>Form Elements</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item">Forms</li>
+      <li class="breadcrumb-item active">Elements</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section min-vh-100 d-flex flex-column align-items-center py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10 flex-column align-items-center">
+
+        <div class="card mb-3">
+
+          <div class="card-body">
+
+            <div class="pt-4 pb-2">
+              <h5 class="card-title text-center pb-0 fs-4">予約が完了しました</h5>
+              <p class="text-center small">お店の電話番号を入力してください</p>
+            </div>
+
+            <div class="row g-3 needs-validation justify-content-center">
+              <div class="col-8 d-flex flex-column align-items-center py-2">
+                <button class="btn btn-primary w-100" type="submit">予約状況を見る</button>
+              </div>
+            </div>
+
+            {% comment %} <form class="row g-3 needs-validation justify-content-center" method="POST">
+              {% csrf_token %}
+              <div class="col-12">
+                <label for="id_tel" class="form-label">電話番号</label>
+                <div class="input-group has-validation">
+                  <input type="tel" name="tel" pattern="[\d]*" maxlength="11" class="form-control" id="tel" required>
+                  <div class="invalid-feedback">電話番号を入力してください</div>
+                </div>
+              </div>
+
+              <div class="col-8 d-flex flex-column align-items-center py-2">
+                <button class="btn btn-primary w-100" type="submit">予約する</button>
+              </div>
+            </form> {% endcomment %}
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}
