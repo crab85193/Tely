@@ -96,6 +96,24 @@
   height: 90px;
   width: 75px;
 }
+
+.Tely_display{
+  height: 500px;
+  weight: 900px
+}
+
+.img-fluid {
+  width: 400px; /* これでコンテナの幅いっぱいに画像を表示します */
+  height: 320px; /* これで画像のアスペクト比を維持します */
+}
+
+.use-time li{
+  font-size: 1000px;
+}
+
+
+
+
 /*ここまで*/
 body {
   margin: 0;
