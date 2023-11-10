@@ -19,6 +19,13 @@ Register
               <span class="d-none d-lg-block">Tely</span>
             </a>
           </div><!-- End Logo -->
+          
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
 
           <div class="card mb-3">
 
@@ -27,11 +34,18 @@ Register
               <div class="pt-4 pb-2">
                 <h5 class="card-title text-center pb-0 fs-4">メールアドレスをご確認ください</h5>
                 <p class="text-center small">認証メールを送信しました。メールをご確認ください。</p>
+                <p class="text-center small">メールが届かない場合、<br>迷惑メールに入っていないか確認してください。</p>
               </div>
 
-              <form class="row g-3 needs-validation">
+              
+
+              <form class="row g-3 needs-validation" name="form1" method="POST">
+                {% csrf_token %}
                 <div class="col-12">
                   <a href="{% url 'main_app:login' %}" class="btn btn-primary w-100" type="submit">ログインページへ</a>
+                </div>
+                <div class="col-12">
+                  <p class="small mb-0"><a href="javascript:form1.submit()">メールを再送する</a></p>
                 </div>
               </form>
 

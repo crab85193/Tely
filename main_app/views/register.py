@@ -7,6 +7,7 @@ from django.views.generic import CreateView, TemplateView
 from ..models.user import User
 from ..models.user_activate_tokens import UserActivateTokens
 from ..forms.register import Register
+from django.contrib import messages
 
 class RegisterRequestView(CreateView):
     form_class    = Register
@@ -37,11 +38,33 @@ class RegisterRequestView(CreateView):
 
         send_mail(subject, message, from_email, recipient_list)
 
-        return HttpResponseRedirect(reverse('main_app:register_done'))
+        return HttpResponseRedirect(reverse('main_app:register_done', args=[user_activate_token.user.id]))
 
 
 class RegisterDoneView(TemplateView):
-    template_name = 'main_app/register/register-done.html'    
+    template_name = 'main_app/register/register-done.html'
+    user_id = None
+
+    def get(self, request, user_id):
+        self.user_id = user_id
+        return super().get(request)
+    
+    def post(self, request, user_id):
+        instance = User.objects.get(id=str(user_id))
+        user_activate_token = UserActivateTokens.objects.get(user=instance)
+        subject = '【Tely】アカウントの認証'
+        message = f"こんにちは {instance.username} さん\n\nご登録いただきありがとうございます。アカウントを有効化するためには、以下のリンクをクリックしてください。\n\n{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:register_complete', args=[user_activate_token.activate_token])}\n\nもしこのメールが誤って届いた場合や、アカウント登録を行っていない場合は、このメールを無視していただいて結構です。\n\nご質問やお困りごとがあれば、お気軽にご連絡ください。\n\n[Tely] サポートチーム\n"
+
+        from_email = settings.DEFAULT_FROM_EMAIL
+        recipient_list = [
+            instance.email,
+        ]
+
+        send_mail(subject, message, from_email, recipient_list)
+        
+        messages.success(request, 'メールを再送しました。ご確認ください。')
+
+        return super().get(request)
     
 
 class RegisterCompleteView(TemplateView):

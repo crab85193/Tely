@@ -39,7 +39,7 @@ urlpatterns = [
     path("logout/", Logout.as_view()   , name="logout"),
 
     path("register/"                             , RegisterRequestView.as_view() , name="register_request" ),
-    path("register/done/"                        , RegisterDoneView.as_view()    , name="register_done"    ),
+    path("register/done/<uuid:user_id>/"         , RegisterDoneView.as_view()    , name="register_done"    ),
     path('register/check/<uuid:activate_token>/' , RegisterCompleteView.as_view(), name='register_complete'),
     path('register/check/error/<int:error_code>/', RegisterErrorView.as_view()   , name='register_error'   ),
 
