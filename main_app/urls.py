@@ -19,6 +19,7 @@ from .views.product_info import ProductInfoView
 from .views.login import LoginView
 from .views.logout import Logout
 from .views.register import RegisterRequestView, RegisterDoneView, RegisterCompleteView, RegisterErrorView
+from .views.password_forgot  import PasswordForgotView, PasswordForgotDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from .views.top import TopView
 from .views.password_change import PasswordChangeView, PasswordChangeDoneView
 
@@ -42,6 +43,12 @@ urlpatterns = [
     path("register/done/<uuid:user_id>/"         , RegisterDoneView.as_view()    , name="register_done"    ),
     path('register/check/<uuid:activate_token>/' , RegisterCompleteView.as_view(), name='register_complete'),
     path('register/check/error/<int:error_code>/', RegisterErrorView.as_view()   , name='register_error'   ),
+
+    # forgot-password
+    path('password/forgot/'                        , PasswordForgotView.as_view()       , name='password_forgot'        ),
+    path('password/forgot/done/'                   , PasswordForgotDoneView.as_view()   , name='password_forgot_done'   ),
+    path('password/reset/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view() , name='password_reset_confirm' ),
+    path('password/reset/complete/'                , PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
     path("top/", TopView.as_view(), name="top"),
 
