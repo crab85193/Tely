@@ -10892,6 +10892,8 @@ hr.divider-light {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   background-color: #fff;
   transition: background-color 0.2s ease;
+  box-shadow: none;
+  background-color: transparent;
 }
 #mainNav .navbar-brand { /*カーソルの位置によって、naviの色が変わる.*/
   font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10911,11 +10913,17 @@ hr.divider-light {
 #mainNav .navbar-nav .nav-item .nav-link.active {
   color: #f4623a !important;
 }
+
+#mainNav.navbar-shrink {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
 @media (min-width: 992px) {
-  #mainNav {
+  /* #mainNav {
     box-shadow: none;
     background-color: transparent;
-  }
+  } */
   #mainNav .navbar-brand {
     color: rgba(255, 255, 255, 0.7);
   }
@@ -10932,10 +10940,10 @@ hr.divider-light {
   #mainNav .navbar-nav .nav-item:last-child .nav-link {
     padding-right: 0;
   }
-  #mainNav.navbar-shrink {
+  /* #mainNav.navbar-shrink {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     background-color: #fff;
-  }
+  } */
   #mainNav.navbar-shrink .navbar-brand {
     color: #212529;
   }

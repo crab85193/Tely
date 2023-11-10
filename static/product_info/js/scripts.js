@@ -13,8 +13,7 @@ window.addEventListener('DOMContentLoaded', event => {
     var navbarShrink = function () {
         const logoImage = document.getElementById('logo');
         const navbarCollapsible = document.body.querySelector('#mainNav');
-        const logoWhite = './img/Tely_logo_3.png'; // ロゴ白色画像のパス
-        const logoBlack = './img/Tely_logo_1.png'; // ロゴ黒色画像のパス
+        
         if (!navbarCollapsible) {
             return;
         }
@@ -25,6 +24,8 @@ window.addEventListener('DOMContentLoaded', event => {
             navbarCollapsible.classList.add('navbar-shrink')
             logoImage.src = logoBlack;
         }
+        // navbarCollapsible.classList.add('navbar-shrink')
+        // logoImage.src = logoBlack;
 
     };
 
