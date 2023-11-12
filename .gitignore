@@ -10,3 +10,5 @@ venv.bak/
 
 migrations/
 .DS_Store
+
+containers/https-portal/ssl_certs/

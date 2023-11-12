@@ -14,6 +14,21 @@ services:
     command: sh -c "/code/entrypoint.sh"
     env_file:
       - .env.prod
+  https-portal:
+    container_name: https-portal
+    build:
+      context: .
+      dockerfile: containers/https-portal/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    environment:
+      DOMAINS: 'tely.st.ie.u-ryukyu.ac.jp -> http://web:8000'
+      STAGE: 'production'
+      #FORCE_RENEW: 'true'
+    volumes:
+      - ./containers/https-portal/ssl_certs:/var/lib/https-portal
   web:
     container_name: web
     build:
@@ -22,10 +37,10 @@ services:
     volumes:
       - ./static:/static
     ports:
-      - "80:80"
+      - "8000:8000"
     depends_on:
       - app
 volumes:
   db_data:
   static:
-
+  ssl_certs:
