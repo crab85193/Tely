@@ -1,0 +1,14 @@
+{% extends 'error/base.html' %}
+{% load static %}
+
+{% block title %}
+Internal Server Error
+{% endblock %}
+
+{% block error_number %}
+500
+{% endblock %}
+
+{% block error_message %}
+アクセスしようとしたページは表示できませんでした
+{% endblock %}
