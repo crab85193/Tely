@@ -21,6 +21,7 @@ from .views.logout import Logout
 from .views.register import RegisterRequestView, RegisterDoneView, RegisterCompleteView, RegisterErrorView
 from .views.password_forgot  import PasswordForgotView, PasswordForgotDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from .views.top import TopView
+from .views.user_settings import UserSettingsView
 from .views.password_change import PasswordChangeView, PasswordChangeDoneView
 
 from .views.dev.charts import ChartsApexChartsView, ChartsChartjsView, ChartsEchartsView
@@ -51,6 +52,8 @@ urlpatterns = [
     path('password/reset/complete/'                , PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
     path("top/", TopView.as_view(), name="top"),
+
+    path("settings/", UserSettingsView.as_view(), name="user_settings"),
 
     path("settings/password/change/"     , PasswordChangeView.as_view()    , name="password_change"     ),
     path("settings/password/change/done/", PasswordChangeDoneView.as_view(), name="password_change_done"),

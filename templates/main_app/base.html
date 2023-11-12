@@ -74,7 +74,7 @@
               <li class="dropdown-header">
                 {% comment %} You have 4 new notifications {% endcomment %}
                 新しいお知らせはありません
-                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a>
+                {% comment %} <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a> {% endcomment %}
               </li>
               <li>
                 <hr class="dropdown-divider">
@@ -151,7 +151,7 @@
               <li class="dropdown-header">
                 {% comment %} You have 3 new messages {% endcomment %}
                 新しいメッセージはありません
-                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a>
+                {% comment %} <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a> {% endcomment %}
               </li>
               <li>
                 <hr class="dropdown-divider">
@@ -235,9 +235,9 @@
               </li> {% endcomment %}
   
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="{% url 'main_app:password_change' %}">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'main_app:user_settings' %}">
                   <i class="bi bi-gear"></i>
-                  <span>パスワード変更</span>
+                  <span>ユーザー設定</span>
                 </a>
               </li>
               <li>

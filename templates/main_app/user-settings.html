@@ -1,0 +1,147 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+ユーザー設定
+{% endblock %}
+
+{% block main %}
+<div class="pagetitle">
+  <h1>ユーザー設定</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
+      <li class="breadcrumb-item">ユーザー設定</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section profile">
+  <div class="row">
+
+    <div class="col-xl-12">
+
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+
+    </div>
+
+    <div class="col-xl-4">
+
+      <div class="card">
+        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+          <img src="{% static 'img/profile-img.jpg' %}" alt="Profile" class="rounded-circle">
+          <h2>{{ request.user.username }}</h2>
+          <h3>{% if request.user.is_superuser %}Administrator{% endif %}</h3>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xl-8">
+
+      <div class="card">
+        <div class="card-body pt-3">
+          <!-- Bordered Tabs -->
+          <ul class="nav nav-tabs nav-tabs-bordered">
+
+            <li class="nav-item">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">プロフィール情報</button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">編集</button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">パスワード変更</button>
+            </li>
+
+          </ul>
+          <div class="tab-content pt-2">
+
+            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+              <h5 class="card-title">プロフィール</h5>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label ">ユーザー名</div>
+                <div class="col-lg-9 col-md-8">{{ request.user.username }}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">メールアドレス</div>
+                <div class="col-lg-9 col-md-8">{{ request.user.email }}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">ユーザー分類</div>
+                <div class="col-lg-9 col-md-8">
+                  {% if request.user.is_superuser %}
+                  管理者
+                  {% elif request.user.is_staff %}
+                  運営ユーザー
+                  {% elif request.user.is_active %}
+                  一般ユーザー
+                  {% else %}
+                  分類なし
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">管理ID</div>
+                <div class="col-lg-9 col-md-8">{{ request.user.id }}</div>
+              </div>
+
+            </div>
+
+            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+              <!-- Profile Edit Form -->
+              <form method="POST">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label">ユーザー名</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="username" type="text" class="form-control" id="username" value="{{ request.user.username }}">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">メールアドレス</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="email" type="email" class="form-control" id="Email" value="{{ request.user.email }}">
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+              </form><!-- End Profile Edit Form -->
+
+            </div>
+
+            <div class="tab-pane fade pt-3" id="profile-change-password">
+              <!-- Change Password Form -->
+              <form>
+                <div class="text-center">
+                  <a href="{% url 'main_app:password_change' %}" class="btn btn-primary">パスワード変更はこちらから</a>
+                </div>
+              </form><!-- End Change Password Form -->
+
+            </div>
+
+          </div><!-- End Bordered Tabs -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
