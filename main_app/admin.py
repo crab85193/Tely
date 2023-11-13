@@ -4,6 +4,7 @@ from .models.user_activate_tokens import UserActivateTokens
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models.user_notice import UserNotice
+from .models.reservation import ReservationParent, ReservationChild
 
 class UserAdmin(BaseUserAdmin):
     ordering = ('id',)
@@ -39,3 +40,5 @@ class UserActivateTokensAdmin(admin.ModelAdmin):
 admin.site.register(User)
 admin.site.register(UserActivateTokens)
 admin.site.register(UserNotice)
+admin.site.register(ReservationParent)
+admin.site.register(ReservationChild)
