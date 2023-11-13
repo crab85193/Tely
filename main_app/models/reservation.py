@@ -39,6 +39,6 @@ class ReservationChild(models.Model):
     id         = models.UUIDField(primary_key=True, editable=False, blank=False, null=False, default=uuid.uuid4)
     parent     = models.ForeignKey(ReservationParent, on_delete=models.CASCADE, blank=False, null=False, related_name="reservation_parent")
     datetime   = models.DateTimeField(blank=False, null=False, default=timezone.now)
-    status     = models.IntegerField(default=0, choices=CHILDSTATUS)
+    status     = models.IntegerField(blank=False, null=False, default=0, choices=CHILDSTATUS)
     title      = models.CharField(max_length=100, blank=False, null=False, default="No Title")
     message    = models.TextField(blank=False, null=False, default="No Message")
