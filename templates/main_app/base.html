@@ -1,4 +1,5 @@
 {% load static %}
+{% load tags %}
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -67,71 +68,49 @@
   
             <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-bell"></i>
-              {% comment %} <span class="badge bg-primary badge-number">4</span> {% endcomment %}
+              {% if request.user.notice_user.all|is_not_check_count %}
+                <span class="badge bg-primary badge-number">{{ request.user.notice_user.all|is_not_check_count }}</span>
+              {% endif %}
             </a><!-- End Notification Icon -->
   
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
               <li class="dropdown-header">
-                {% comment %} You have 4 new notifications {% endcomment %}
+                {% if request.user.notice_user.all|is_not_check_count %}
+                新しいお知らせが {{ request.user.notice_user.all|is_not_check_count }} 件あります
+                {% else %}
                 新しいお知らせはありません
+                {% endif %}
+                
                 {% comment %} <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a> {% endcomment %}
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-
-              {% comment %} 
+              {% for notice in request.user.notice_user.all %}
+              {% if not notice.is_check %}
               <li class="notification-item">
+                {% if notice.type == 0 %}
                 <i class="bi bi-exclamation-circle text-warning"></i>
-                <div>
-                  <h4>Lorem Ipsum</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>30 min. ago</p>
-                </div>
-              </li>
-  
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-  
-              <li class="notification-item">
+                {% elif notice.type == 1 %}
                 <i class="bi bi-x-circle text-danger"></i>
-                <div>
-                  <h4>Atque rerum nesciunt</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>1 hr. ago</p>
-                </div>
-              </li>
-  
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-  
-              <li class="notification-item">
+                {% elif notice.type == 2 %}
                 <i class="bi bi-check-circle text-success"></i>
-                <div>
-                  <h4>Sit rerum fuga</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>2 hrs. ago</p>
-                </div>
-              </li>
-  
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-  
-              <li class="notification-item">
+                {% elif notice.type == 3 %}
                 <i class="bi bi-info-circle text-primary"></i>
+                {% endif %}
                 <div>
-                  <h4>Dicta reprehenderit</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>4 hrs. ago</p>
+                  <h4>{{ notice.title }}</h4>
+                  <p>{{ notice.message }}</p>
+                  <p>{{ notice.datetime }}</p>
                 </div>
-              </li> 
+              </li>
   
               <li>
                 <hr class="dropdown-divider">
-              </li> {% endcomment %}
+              </li>
+              {% endif %}       
+              {% endfor %}
+
               <li class="dropdown-footer">
                 <a href="#">全てのお知らせを見る</a>
               </li>
@@ -140,24 +119,23 @@
   
           </li><!-- End Notification Nav -->
   
-          <li class="nav-item dropdown">
+          {% comment %} <li class="nav-item dropdown">
   
             <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
               <i class="bi bi-chat-left-text"></i>
-              {% comment %} <span class="badge bg-success badge-number">3</span> {% endcomment %}
+              <span class="badge bg-success badge-number">3</span>
             </a><!-- End Messages Icon -->
   
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
               <li class="dropdown-header">
-                {% comment %} You have 3 new messages {% endcomment %}
-                新しいメッセージはありません
-                {% comment %} <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a> {% endcomment %}
+                You have 3 new messages
+                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a>
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               
-              {% comment %}
+              
               <li class="message-item">
                 <a href="#">
                   <img src="{% static 'img/messages-1.jpg' %}" alt="" class="rounded-circle">
@@ -198,7 +176,7 @@
               </li>
               <li>
                 <hr class="dropdown-divider">
-              </li> {% endcomment %}
+              </li>
   
               <li class="dropdown-footer">
                 <a href="#">全てのメッセージを見る</a>
@@ -206,7 +184,7 @@
   
             </ul><!-- End Messages Dropdown Items -->
   
-          </li><!-- End Messages Nav -->
+          </li><!-- End Messages Nav --> {% endcomment %}
   
           <li class="nav-item dropdown pe-3">
   
