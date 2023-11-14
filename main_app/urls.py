@@ -31,6 +31,7 @@ from .views.dev.icons import IconsBootstrap, IconsBoxicons, IconsRemix
 from .views.dev.pages import Dashboard, PagesBlank, PagesContact, PagesError404, PagesFAQ, PagesLogin, PagesRegister, UsersProfile
 from .views.dev.tables import TablesData, TablesGeneral
 from .views.reservation import ReservationView, ReservationDoneView
+from .views.test_reserve import TestReserveView
 
 app_name = 'main_app'
 
@@ -60,6 +61,7 @@ urlpatterns = [
 
     path("reservation/"     , ReservationView.as_view()    , name="reservation"     ),
     path("reservation/done/", ReservationDoneView.as_view(), name="reservation_done"),
+    path("test_reserve/", TestReserveView.as_view(), name="test_reserve"),
 
     # Developer Contents
     ## Charts

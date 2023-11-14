@@ -260,6 +260,14 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
+          <a class="nav-link {% if 'test_reserve' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:test_reserve' %}">
+            <i class="bi bi-grid"></i>
+            <span>予約する</span>
+          </a>
+        </li>
+        
+
+        <li class="nav-item">
           <a class="nav-link {% if 'reservation' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:reservation' %}">
             <i class="bi bi-grid"></i>
             <span>自動電話予約</span>
