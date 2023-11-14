@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from ..call_manager import CallManager
 
-class ReservationView(LoginRequiredMixin, TemplateView):
-    template_name = "main_app/reservation/reservation.html"
+class PhoneReserveView(LoginRequiredMixin, TemplateView):
+    template_name = "main_app/reservation/phone_reserve.html"
 
     def post(self, request):
         call_manager = CallManager()

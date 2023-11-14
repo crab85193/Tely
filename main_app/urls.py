@@ -30,9 +30,8 @@ from .views.dev.forms import FormsEditors, FormsElements, FormsLayouts, FormsVal
 from .views.dev.icons import IconsBootstrap, IconsBoxicons, IconsRemix
 from .views.dev.pages import Dashboard, PagesBlank, PagesContact, PagesError404, PagesFAQ, PagesLogin, PagesRegister, UsersProfile
 from .views.dev.tables import TablesData, TablesGeneral
-from .views.reservation import ReservationView, ReservationDoneView
-from .views.test_reserve import TestReserveView
-
+from .views.reservation import PhoneReserveView, ReservationDoneView
+from .views.input_reserve import InputReserveView
 app_name = 'main_app'
 
 urlpatterns = [
@@ -59,9 +58,9 @@ urlpatterns = [
     path("settings/password/change/"     , PasswordChangeView.as_view()    , name="password_change"     ),
     path("settings/password/change/done/", PasswordChangeDoneView.as_view(), name="password_change_done"),
 
-    path("reservation/"     , ReservationView.as_view()    , name="reservation"     ),
+    path("phone_reservation/"     , PhoneReserveView.as_view()    , name="phone_reserve"     ),
     path("reservation/done/", ReservationDoneView.as_view(), name="reservation_done"),
-    path("test_reserve/", TestReserveView.as_view(), name="test_reserve"),
+    path("input_reserve/", InputReserveView.as_view(), name="input_reserve"),
 
     # Developer Contents
     ## Charts
