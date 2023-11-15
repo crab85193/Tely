@@ -1,8 +1,6 @@
 name: Bug Report
 description: バグに関するIssueのテンプレート
 title: "[Bug]: "
-labels: ""
-assignees: ""
 body:
   - type: markdown
     attributes:

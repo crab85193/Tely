@@ -1,8 +1,6 @@
 name: Feature Request
 description: 新機能に関するIssueのテンプレート
 title: "[Feature]: "
-labels: ""
-assigness: ""
 body:
   - type: markdown
     attributes: 
@@ -31,6 +29,5 @@ body:
     attributes:
       label: その他伝達事項
       description: 注意事項や伝達事項、メモがあれば記述して下さい
-      placeholder: ""
     validations:
       required: false
