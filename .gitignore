@@ -12,3 +12,5 @@ migrations/
 .DS_Store
 
 containers/https-portal/ssl_certs/
+
+maintenance_mode_state.txt
