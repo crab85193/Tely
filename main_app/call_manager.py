@@ -8,7 +8,7 @@ class CallManager:
         self.__client = Client(account_sid, auth_token)
 
     def call(self, message, phone_number):
-        _twiml = f'<Response><Say>{message}</Say></Response>'
+        _twiml = f'<Response><Say language="ja-jp">{message}</Say></Response>'
         _from  = os.environ.get("FROM_PHONE_NUMBER")
         _to    = f"+81{phone_number[1:]}"
 
