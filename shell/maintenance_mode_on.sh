@@ -1,0 +1,1 @@
+docker exec -it app python manage.py maintenance_mode on
