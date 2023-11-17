@@ -8,19 +8,20 @@ from django.urls import reverse
 
 @method_decorator(csrf_exempt, name='dispatch')
 class TwilioButtonView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse(f"Twilio Button View")
+
     def post(self, request, *args, **kwargs):
         next_url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:twilio_gather_response')}"
-        # next_url = "/twilio/handle-button/"
         call_manager = CallManager()
         result = call_manager.gather("ボタンを押して下さい","09055169212",next_url)
 
         return HttpResponse(f"Call initiated with SID: {result}")
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class HandleButtonView(View):
-    def post(self, request, *args, **kwargs):
-        digit_pressed = request.POST.get("Digits", None)
+    def get(self, request, *args, **kwargs):
+        digit_pressed = request.GET.get("Digits", None)
 
         # Twilioのレスポンスを初期化
         response = f'<Response>'
