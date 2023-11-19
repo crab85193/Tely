@@ -4,12 +4,18 @@ from django.utils import timezone
 from .user import User
 
 class ReservationParent(models.Model):
-    id              = models.UUIDField(primary_key=True, editable=False, blank=False, null=False, default=uuid.uuid4)
-    user            = models.OneToOneField(User, on_delete=models.CASCADE, blank=False, null=False, related_name="reservate_user")
-    tel_number      = models.CharField(blank=False, null=False, max_length=15, verbose_name='電話番号')
-    start_datetime  = models.DateTimeField(blank=False, null=False, default=timezone.now)
-    end_datetime    = models.DateTimeField(blank=True, null=True)
-    is_end          = models.BooleanField(blank=False, null=False, default=False)
+    id                   = models.UUIDField(primary_key=True, editable=False, blank=False, null=False, default=uuid.uuid4)
+    user                 = models.OneToOneField(User, on_delete=models.CASCADE, blank=False, null=False, related_name="reservate_user")
+    sid                  = models.CharField(blank=False, null=False, max_length=34, default="")
+    shop_tel_number     = models.CharField(blank=False, null=False, max_length=15, verbose_name='電話番号')
+    shop_name           = models.CharField(blank=True, null=True, max_length=100, verbose_name='店名')
+    reservation_datetime = models.DateTimeField(blank=False, null=False)
+    num_people           = models.PositiveSmallIntegerField(blank=False, null=False)
+    memo                 = models.TextField(blank=True, null=True)
+    start_datetime       = models.DateTimeField(blank=False, null=False, default=timezone.now)
+    end_datetime         = models.DateTimeField(blank=True, null=True)
+    is_end               = models.BooleanField(blank=False, null=False, default=False)
+    
 
 class ReservationChild(models.Model):
     NOSTATE = 0

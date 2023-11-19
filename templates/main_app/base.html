@@ -260,15 +260,29 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-          <a class="nav-link {% if 'reservation' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:reservation' %}">
-            <i class="bi bi-grid"></i>
-            <span>自動電話予約</span>
+          <a class="nav-link {% if 'shop' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:shop_list' %}">
+            <i class="bi bi-shop"></i>
+            <span>お店を選んで予約</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if 'reservation' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation' %}">
+            <i class="bi bi-telephone-forward-fill"></i>
+            <span>電話番号を指定して予約</span>
           </a>
         </li>
         
         {% if request.user.is_superuser %}
         
         <li class="nav-heading">Developer Contents</li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="{% url 'admin:index' %}">
+            <i class="bi bi-person-bounding-box"></i>
+            <span>Admin Page</span>
+          </a>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link collapsed" href="{% url 'main_app:dev_pages_dashboard' %}">

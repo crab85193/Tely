@@ -1,0 +1,42 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+お店を選んで予約
+{% endblock %}
+
+{% block main %}
+<div class="pagetitle">
+  <h1>お店を選んで予約</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
+      <li class="breadcrumb-item active">お店を選んで予約</li>
+    </ol>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="row">
+    {% for shop in shop_list %}
+    <div class="col-lg-4">
+      
+      <div class="card">
+        <img src="{{shop.img}}" class="card-img-top" alt="Shop Image">
+        <div class="card-body">
+          <h5 class="card-title">{{shop.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-shop"></i> {{ shop.type }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">営業時間 {{ shop.open }}</h6>
+          <p class="card-text">{{ shop.detail }}</p>
+          <p class="card-text"><a href="{% url 'main_app:twilio_gather' %}" class="btn btn-primary">予約する</a></p>
+          <a href="{% url 'main_app:shop_detail' %}" class="card-link">詳細を見る</a>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
