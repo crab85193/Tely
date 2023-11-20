@@ -30,8 +30,8 @@ from .views.dev.forms import FormsEditors, FormsElements, FormsLayouts, FormsVal
 from .views.dev.icons import IconsBootstrap, IconsBoxicons, IconsRemix
 from .views.dev.pages import Dashboard, PagesBlank, PagesContact, PagesError404, PagesFAQ, PagesLogin, PagesRegister, UsersProfile
 from .views.dev.tables import TablesData, TablesGeneral
-from .views.reservation import PhoneReserveView, ReservationDoneView
-from .views.input_reserve import InputReserveView
+from .views.reservation import ReservationPhoneView, ReservationDoneView
+from .views.reservation import ReservationAddView
 app_name = 'main_app'
 
 urlpatterns = [
@@ -58,10 +58,9 @@ urlpatterns = [
     path("settings/password/change/"     , PasswordChangeView.as_view()    , name="password_change"     ),
     path("settings/password/change/done/", PasswordChangeDoneView.as_view(), name="password_change_done"),
 
-    path("phone_reservation/"     , PhoneReserveView.as_view()    , name="phone_reserve"     ),
+    path("reservation_phone/"     , ReservationPhoneView.as_view()    , name="reservation_phone"     ),
     path("reservation/done/", ReservationDoneView.as_view(), name="reservation_done"),
-    path("input_reserve/", InputReserveView.as_view(), name="input_reserve"),
-
+    path("reservation_add/", ReservationAddView.as_view(), name="reservation_add"),
     # Developer Contents
     ## Charts
     path("dev/charts/apexcharts/", ChartsApexChartsView.as_view(), name="dev_charts_apexcharts"),

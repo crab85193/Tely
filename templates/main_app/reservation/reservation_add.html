@@ -1,0 +1,66 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+Pages / Contact Template
+{% endblock %}
+
+{% block main %}
+<div class="pagetitle">
+  <h1>予約する</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
+      <li class="breadcrumb-item">予約する</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section min-vh-100 d-flex flex-column align-items-center py-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 flex-column align-items-center">
+  
+          <div class="card mb-3">
+  
+            <div class="card-body">
+  
+              <div class="pt-4 pb-2">
+                
+              </div>
+  
+              <form class="row g-3 needs-validation justify-content-center" method="POST">
+
+                <div class="col-md-8">
+                  {% csrf_token %}
+                    <h5 class="card-title text-center pb-0 fs-4">予約情報入力</h5>
+                    <label for="id_tel" class="form-label">店舗名</label>
+                    <input type="text" name="store_name" class="form-control" placeholder="店舗を選択" required>
+                    
+                    <label for="id_tel" class="form-label">日付</label>
+                    <input type="date" name="date" class="form-control" placeholder="日付を指定：YYYY/MM/DD" required>
+
+                    <label for="id_tel" class="form-label">時間</label>
+                    <input type="time" class="form-control" name="time" placeholder="時間を指定：HH:MM" required>
+
+                    <label for="id_tel" class="form-label">人数</label>
+                    <input type="text" class="form-control" name="number-of-people" placeholder="予約人数" required>
+
+                    <label for="id_tel" class="form-label">メモ</label>
+                    <textarea type="text" class="form-control" required rows="5" name="memo" placeholder="店舗への伝達事項があれば、記入してください" required></textarea>
+                </div>
+  
+                <div class="col-8 d-flex flex-column align-items-center py-2">
+                  <button class="btn btn-primary w-100" type="submit">予約する</button>
+                </div>
+              </form>
+  
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  
+  </section>
+{% endblock %}
