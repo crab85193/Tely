@@ -30,7 +30,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</h6>
           <h6 class="card-subtitle mb-2 text-muted">営業時間 {{ shop.open }}</h6>
           <p class="card-text">{{ shop.detail }}</p>
-          <p class="card-text"><a href="{% url 'main_app:twilio_gather' %}" class="btn btn-primary">予約する</a></p>
+          <p class="card-text"><a href="{% url 'main_app:reservation_add' %}" class="btn btn-primary">予約する</a></p>
           <a href="{% url 'main_app:shop_detail' %}" class="card-link">詳細を見る</a>
         </div>
       </div>
