@@ -72,7 +72,7 @@ class GooglePlacesAPI:
 
 
 # 使用例
-api_key = os.environ['GoogleAPI']
+api_key = os.environ['../.env/GoogleAPI']
 google_places_api = GooglePlacesAPI(api_key)
 
 store_name = 'マック与那原'
