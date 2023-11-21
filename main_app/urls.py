@@ -32,8 +32,8 @@ from .views.dev.forms import FormsEditors, FormsElements, FormsLayouts, FormsVal
 from .views.dev.icons import IconsBootstrap, IconsBoxicons, IconsRemix
 from .views.dev.pages import Dashboard, PagesBlank, PagesContact, PagesError404, PagesFAQ, PagesLogin, PagesRegister, UsersProfile
 from .views.dev.tables import TablesData, TablesGeneral
-from .views.reservation import ReservationView, ReservationDoneView
-
+from .views.reservation import ReservationPhoneView, ReservationDoneView
+from .views.reservation import ReservationAddView
 app_name = 'main_app'
 
 urlpatterns = [
@@ -60,8 +60,9 @@ urlpatterns = [
     path("settings/password/change/"     , PasswordChangeView.as_view()    , name="password_change"     ),
     path("settings/password/change/done/", PasswordChangeDoneView.as_view(), name="password_change_done"),
 
-    path("reservation/"     , ReservationView.as_view()    , name="reservation"     ),
-    path("reservation/done/", ReservationDoneView.as_view(), name="reservation_done"),
+    path("reservation/phone/", ReservationPhoneView.as_view(), name="reservation_phone"),
+    path("reservation/done/" , ReservationDoneView.as_view() , name="reservation_done" ),
+    path("reservation/add/"  , ReservationAddView.as_view()  , name="reservation_add"  ),
 
     path("twilio/gather/",        TwilioButtonView.as_view(), name="twilio_gather"),
     path("twilio/handle-button/", HandleButtonView.as_view(), name="twilio_gather_response"),
