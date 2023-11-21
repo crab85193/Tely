@@ -267,7 +267,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if 'reservation' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation' %}">
+          <a class="nav-link {% if 'reservation' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation_phone' %}">
             <i class="bi bi-telephone-forward-fill"></i>
             <span>電話番号を指定して予約</span>
           </a>
