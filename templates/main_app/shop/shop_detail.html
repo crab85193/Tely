@@ -1,0 +1,85 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+お店を選んで予約 - {{ shop.name }}
+{% endblock %}
+
+{% block main %}
+<div class="pagetitle">
+  <h1>{{ shop.name }}</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
+      <li class="breadcrumb-item">お店を選んで予約</li>
+      <li class="breadcrumb-item">詳細</li>
+      <li class="breadcrumb-item active">{{ shop.name }}</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+  <div class="row">
+    <div class="col-lg-6">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+
+          <!-- Slides with controls -->
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for img in shop.img_list %}
+              {% if forloop.first %}
+              <div class="carousel-item active">
+              {% else %}
+              <div class="carousel-item">
+              {% endif %}
+                <img src={{ img }} class="d-block w-100">
+              </div>
+              {% endfor %}
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+          </div><!-- End Slides with controls -->
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ shop.name }}</h5>
+          <h5>カテゴリー</h5>
+          <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
+          <h5>店舗からのメッセージ</h5>
+          <p class="card-text">{{ shop.detail | linebreaksbr }}</p>
+          <h5>営業時間</h5>
+          <p class="card-text">{{ shop.open }}</p>
+          <h5>休業日</h5>
+          <p class="card-text">{{ shop.closed }}</p>
+          <h5>住所</h5>
+          <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
+          <h5>電話番号</h5>
+          <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
+          
+          <p class="card-text"><a href="{% url 'main_app:twilio_gather' %}" class="btn btn-primary">予約する</a></p>
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

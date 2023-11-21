@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tely',
+    'maintenance_mode',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'maintenance_mode.middleware.MaintenanceModeMiddleware',
 ]
 
 ROOT_URLCONF = 'tely.urls'
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'maintenance_mode.context_processors.maintenance_mode',
             ],
         },
     },
@@ -154,3 +156,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 AUTH_USER_MODEL = 'main_app.User'
 
 ACTIVATION_EXPIRED_DAYS = 3
+
+# Maintenance Mode Settings
+## メンテナンス中でも管理サイトへアクセスできるようにする
+MAINTENANCE_MODE_IGNORE_ADMIN_SITE = True
+## メンテナンス中でもスーパーユーザーのみ通常サイトを見れるようにする
+MAINTENANCE_MODE_IGNORE_SUPERUSER = True

@@ -23,6 +23,8 @@ from .views.password_forgot  import PasswordForgotView, PasswordForgotDoneView, 
 from .views.top import TopView
 from .views.user_settings import UserSettingsView
 from .views.password_change import PasswordChangeView, PasswordChangeDoneView
+from .views.twilio import TwilioButtonView, HandleButtonView
+from .views.shop import ShopListView, ShopDetailView
 
 from .views.dev.charts import ChartsApexChartsView, ChartsChartjsView, ChartsEchartsView
 from .views.dev.components import ComponentsAccordionView, ComponentsAlertsView, ComponentsBadgesView, ComponentsBreadcrumbsView, ComponentsButtonsView, ComponentsCardsView, ComponentsCarouselView, ComponentsListGroupView, ComponentsModalView, ComponentsPaginationView, ComponentsProgressView, ComponentsSpinnersView, ComponentsTabsView, ComponentsTooltipsView
@@ -58,9 +60,16 @@ urlpatterns = [
     path("settings/password/change/"     , PasswordChangeView.as_view()    , name="password_change"     ),
     path("settings/password/change/done/", PasswordChangeDoneView.as_view(), name="password_change_done"),
 
-    path("reservation_phone/"     , ReservationPhoneView.as_view()    , name="reservation_phone"     ),
-    path("reservation/done/", ReservationDoneView.as_view(), name="reservation_done"),
-    path("reservation_add/", ReservationAddView.as_view(), name="reservation_add"),
+    path("reservation/phone/", ReservationPhoneView.as_view(), name="reservation_phone"),
+    path("reservation/done/" , ReservationDoneView.as_view() , name="reservation_done" ),
+    path("reservation/add/"  , ReservationAddView.as_view()  , name="reservation_add"  ),
+
+    path("twilio/gather/",        TwilioButtonView.as_view(), name="twilio_gather"),
+    path("twilio/handle-button/", HandleButtonView.as_view(), name="twilio_gather_response"),
+
+    path("shop/list/", ShopListView.as_view(), name="shop_list"),
+    path("shop/detail/", ShopDetailView.as_view(), name="shop_detail"),
+
     # Developer Contents
     ## Charts
     path("dev/charts/apexcharts/", ChartsApexChartsView.as_view(), name="dev_charts_apexcharts"),
