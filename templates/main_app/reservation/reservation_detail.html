@@ -1,0 +1,120 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+予約完了
+{% endblock%}
+
+{% block main %}
+<div class="pagetitle">
+  <h1>予約する</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
+      <li class="breadcrumb-item">予約する</li>
+      <li class="breadcrumb-item active">予約完了</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section min-vh-100 d-flex flex-column align-items-center py-4">
+  <div class="container">
+    <div class="row">  
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body m-3">
+            <h5 class="card-title">{{ shop.name }}</h5>
+            <div id="carouselExampleControls" class="carousel slide mb-4" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                {% for img in shop.img_list %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                {% else %}
+                <div class="carousel-item">
+                {% endif %}
+                  <img src={{ img }} class="d-block w-100" style="height: 30vh; width: auto;">
+                </div>
+                {% endfor %}
+              </div>
+  
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+  
+            </div><!-- End Slides with controls -->
+
+            <h5>カテゴリー</h5>
+            <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
+            <h5>店舗からのメッセージ</h5>
+            <p class="card-text">{{ shop.detail | linebreaksbr }}</p>
+            <h5>営業時間</h5>
+            <p class="card-text">{{ shop.open }}</p>
+            <h5>休業日</h5>
+            <p class="card-text">{{ shop.closed }}</p>
+            <h5>住所</h5>
+            <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
+            <h5>電話番号</h5>
+            <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
+          
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6 dashboard">
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="card-body m-3">
+            <h5 class="card-title">予約状況</h5>
+
+            <div class="activity">
+              {% for state in status %}
+              <div class="activity-item d-flex">
+                <div class="activite-label"></div>
+                {% if state.status == 0 %}
+                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                {% elif state.status == 1 %}
+                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                {% elif state.status == 2 %}
+                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                {% elif state.status == 3 %}
+                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                {% elif state.status == 4 %}
+                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                {% elif state.status == 5 %}
+                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                {% elif state.status == 6 %}
+                <i class='bi bi-circle-fill activity-badge text-primary align-self-end'></i>
+                {% elif state.status == 7 %}
+                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                {% elif state.status == 8 %}
+                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                {% else %}
+                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                {% endif %}
+                
+                <div class="activity-content">
+                  <h6>{{ state.title }}</h6>
+                  {{ state.message }}
+                  <br>
+                  <span class="text-muted small pt-2 ps-1">{{ state.datetime }}</span>
+                </div>
+              </div><!-- End activity item-->
+              {% endfor %}
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{% endblock %}

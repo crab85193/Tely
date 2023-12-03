@@ -1,0 +1,467 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+予約状況確認 - List
+{% endblock%}
+
+{% block main %}
+<div class="pagetitle">
+  <h1>予約状況確認</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
+      <li class="breadcrumb-item active">予約状況確認（List）</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section min-vh-100 d-flex flex-column align-items-center py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+  
+            <!-- Default Tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">全予約</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="incomplete-tab" data-bs-toggle="tab" data-bs-target="#incomplete" type="button" role="tab" aria-controls="incomplete" aria-selected="false">未完了の予約</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="complete-tab" data-bs-toggle="tab" data-bs-target="#complete" type="button" role="tab" aria-controls="complete" aria-selected="false">完了済みの予約</button>
+              </li>
+            </ul>
+            <div class="tab-content pt-2" id="myTabContent">
+              <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                {% if objects %}
+                <div class="accordion pt-3" id="accordionAll">
+                  {% for object in objects %}
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="collapseAll{{object.id}}">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-all-{{object.id}}" aria-expanded="false" aria-controls="collapse-all-{{object.id}}">
+                        {{ object.start_datetime }} - {{ object.shop_name }}
+                      </button>
+                    </h2>
+                    <div id="collapse-all-{{object.id}}" class="accordion-collapse collapse" aria-labelledby="collapseAll{{object.id}}" data-bs-parent="#accordionAll">
+                      <div class="accordion-body">
+                        <div class="row dashboard">
+                          
+                          <div class="col-xxl-6 col-md-6">
+                            <div class="card info-card sales-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">店舗名</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-shop"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.shop_name }}</h6>
+                                    <span class="text-muted small pt-2 ps-1">Tel: {{ object.shop_tel_number }}</span>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-6 col-md-6">
+                            <div class="card info-card sales-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約時間</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-clock"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.reservation_datetime }}</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約人数</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.num_people }} 名</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">代表者名</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-person-circle"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.representative_name }}</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            {% if object.is_end %}
+                            <div class="card info-card revenue-card">
+                            {% else %}
+                            <div class="card info-card customers-card">
+                            {% endif%}
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約処理状態</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-check-circle"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    {% if object.is_end %}
+                                    <h6>完了済み</h6>
+                                    {% else %}
+                                    <h6>未完了</h6>
+                                    {% endif%}
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                        </div>
+                        <h5 class="accordion-subtitle"><a href="{% url 'main_app:reservation_detail' object.id %}">詳細を見る→</a></h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% else %}
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">過去の予約がありません</h5>
+                </div>
+                
+                {% endif %}
+              </div>
+
+              <div class="tab-pane fade" id="incomplete" role="tabpanel" aria-labelledby="incomplete-tab">
+                {% if incomplete %}
+                <div class="accordion pt-3" id="accordionIncomplete">
+                  {% for object in incomplete %}
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="collapseIncomplete{{object.id}}">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-incomplete-{{object.id}}" aria-expanded="false" aria-controls="collapse-incomplete-{{object.id}}">
+                        {{ object.start_datetime }} - {{ object.shop_name }}
+                      </button>
+                    </h2>
+                    <div id="collapse-incomplete-{{object.id}}" class="accordion-collapse collapse" aria-labelledby="collapseIncomplete{{object.id}}" data-bs-parent="#accordionIncomplete">
+                      <div class="accordion-body">
+                        <div class="row dashboard">
+                          
+                          <div class="col-xxl-6 col-md-6">
+                            <div class="card info-card sales-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">店舗名</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-shop"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.shop_name }}</h6>
+                                    <span class="text-muted small pt-2 ps-1">Tel: {{ object.shop_tel_number }}</span>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-6 col-md-6">
+                            <div class="card info-card sales-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約時間</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-clock"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.reservation_datetime }}</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約人数</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.num_people }} 名</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">代表者名</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-person-circle"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.representative_name }}</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            {% if object.is_end %}
+                            <div class="card info-card revenue-card">
+                            {% else %}
+                            <div class="card info-card customers-card">
+                            {% endif%}
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約処理状態</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-check-circle"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    {% if object.is_end %}
+                                    <h6>完了済み</h6>
+                                    {% else %}
+                                    <h6>未完了</h6>
+                                    {% endif%}
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                        </div>
+                        <h5 class="accordion-subtitle"><a href="">詳細を見る→</a></h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% else %}
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">未完了の予約はありません</h5>
+                </div>
+                {% endif %}
+              </div>
+
+              <div class="tab-pane fade" id="complete" role="tabpanel" aria-labelledby="complete-tab">
+                {% if complete %}
+                <div class="accordion pt-3" id="accordionComplete">
+                  {% for object in complete %}
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="collapseComplete{{object.id}}">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-complete-{{object.id}}" aria-expanded="false" aria-controls="collapse-complete-{{object.id}}">
+                        {{ object.start_datetime }} - {{ object.shop_name }}
+                      </button>
+                    </h2>
+                    <div id="collapse-complete-{{object.id}}" class="accordion-collapse collapse" aria-labelledby="collapseComplete{{object.id}}" data-bs-parent="#accordionComplete">
+                      <div class="accordion-body">
+                        <div class="row dashboard">
+                          
+                          <div class="col-xxl-6 col-md-6">
+                            <div class="card info-card sales-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">店舗名</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-shop"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.shop_name }}</h6>
+                                    <span class="text-muted small pt-2 ps-1">Tel: {{ object.shop_tel_number }}</span>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-6 col-md-6">
+                            <div class="card info-card sales-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約時間</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-clock"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.reservation_datetime }}</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約人数</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.num_people }} 名</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">代表者名</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-person-circle"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    <h6>{{ object.representative_name }}</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="col-xxl-4 col-md-4">
+                            {% if object.is_end %}
+                            <div class="card info-card revenue-card">
+                            {% else %}
+                            <div class="card info-card customers-card">
+                            {% endif%}
+
+                              <div class="card-body">
+                                <h5 class="card-title">予約処理状態</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-check-circle"></i>
+                                  </div>
+                                  <div class="ps-3">
+                                    {% if object.is_end %}
+                                    <h6>完了済み</h6>
+                                    {% else %}
+                                    <h6>未完了</h6>
+                                    {% endif%}
+
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                        </div>
+                        <h5 class="accordion-subtitle"><a href="">詳細を見る→</a></h5>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% else %}
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">完了した予約はありません</h5>
+                </div>
+                {% endif %}
+              </div>
+            </div><!-- End Default Tabs -->
+  
+          </div>
+        </div>
+        
+      </div>
+
+
+    </div>
+  </div>
+
+</section>
+{% endblock %}
