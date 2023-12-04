@@ -11,43 +11,84 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
-      <li class="breadcrumb-item">予約する</li>
+      <li class="breadcrumb-item active">予約する</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
 
 <section class="section min-vh-100 d-flex flex-column align-items-center py-4">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 flex-column align-items-center">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ shop.name }}</h5>
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  {% for img in shop.img_list %}
+                  {% if forloop.first %}
+                  <div class="carousel-item active">
+                  {% else %}
+                  <div class="carousel-item">
+                  {% endif %}
+                    <img src={{ img }} class="d-block mx-auto" style="height: 30vh; width: auto;">
+                  </div>
+                  {% endfor %}
+                </div>
+    
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+    
+              </div><!-- End Slides with controls -->
+
+            </div>
+          </div>
+        </div>
+
+       
+
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body m-4 mt-5">
+              <h5>カテゴリー</h5>
+              <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
+              <h5>店舗からのメッセージ</h5>
+              <p class="card-text">{{ shop.detail | linebreaksbr }}</p>
+              <h5>営業時間</h5>
+              <p class="card-text">{{ shop.open }}</p>
+              <h5>休業日</h5>
+              <p class="card-text">{{ shop.closed }}</p>
+              <h5>住所</h5>
+              <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
+              <h5>電話番号</h5>
+              <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
+            
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
   
           <div class="card mb-3">
-  
             <div class="card-body">
-  
-              <div class="pt-4 pb-2">
-                
-              </div>
-  
               <form class="row g-3 needs-validation justify-content-center" method="POST">
-
-                <div class="col-md-8">
+                <div class="col-10">
                   {% csrf_token %}
-                    <h5 class="card-title text-center pb-0 fs-4">予約情報入力</h5>
-                    <label for="id_tel" class="form-label">日付</label>
-                    <input type="date" name="date" class="form-control" placeholder="日付を指定：YYYY/MM/DD" required>
-
-                    <label for="id_tel" class="form-label">時間</label>
-                    <input type="time" class="form-control" name="time" placeholder="時間を指定：HH:MM" required>
-
-                    <label for="id_tel" class="form-label">人数</label>
-                    <input type="text" class="form-control" name="number-of-people" placeholder="予約人数" required>
-
-                    <label for="id_tel" class="form-label">メモ</label>
-                    <textarea type="text" class="form-control" required rows="5" name="memo" placeholder="店舗への伝達事項があれば、記入してください" required></textarea>
+                    <h5 class="card-title text-center mt-3 fs-4">予約情報入力</h5>
+                    <div class="mt-md-4">
+                      {{ form.as_p }}
+                    </div>
                 </div>
   
-                <div class="col-8 d-flex flex-column align-items-center py-2">
+                <div class="col-10 d-flex flex-column align-items-center py-2">
                   <button class="btn btn-primary w-100" type="submit">予約する</button>
                 </div>
               </form>

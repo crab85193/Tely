@@ -267,9 +267,16 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if 'reservation' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation_phone' %}">
+          <a class="nav-link {% if 'reservation/phone/' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation_phone' %}">
             <i class="bi bi-telephone-forward-fill"></i>
             <span>電話番号を指定して予約</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if 'reservation/list/' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation_list' %}">
+            <i class="bi bi-card-checklist"></i>
+            <span>予約状況確認</span>
           </a>
         </li>
         
