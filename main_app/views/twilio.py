@@ -106,6 +106,9 @@ class HandleButtonView(View):
                 message = '代理予約処理が完了しました。'
             )
 
+            obj_parent.status = ReservationParent.END
+            obj_parent.save()
+
         elif digit_pressed == "2":
             message = "承知いたしました。また機会があればよろしくお願いします。"
             response = call_manager.create_say_response_xml(message)
@@ -123,6 +126,9 @@ class HandleButtonView(View):
                 title   = '代理予約が完了しました',
                 message = '代理予約処理が完了しました。'
             )
+
+            obj_parent.status = ReservationParent.END
+            obj_parent.save()
 
         else:
             message = "こんにちは。本日の21時から3名で予約を取りたいのですが、可能でしょうか。予約可能の場合は1を、予約が不可能の場合は2を、この音声をもう1度聞く場合は3を押して下さい。"
