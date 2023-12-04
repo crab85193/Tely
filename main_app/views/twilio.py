@@ -1,4 +1,5 @@
 import datetime
+from django.utils import timezone
 from zoneinfo import ZoneInfo
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
@@ -30,12 +31,12 @@ class TwilioButtonView(View):
         n_month = n_datetime.month
         n_day = n_datetime.day
 
-        message = f"こんにちは、電話予約の代理アプリ、Telyです。"
+        message = f"こんにちは、電話予約の代理アプリ、テリーです。"
 
         if n_year == r_year and n_month == r_month and n_day == r_day:
             message += f"本日の"
         elif n_year == r_year and n_month == r_month:
-            message += f"今月{r_day}日の"
+            message += f"こんげつ{r_day}日の"
         elif n_year == r_year:
             message += f"{r_month}月{r_day}日の"
         else:
@@ -106,7 +107,8 @@ class HandleButtonView(View):
                 message = '代理予約処理が完了しました。'
             )
 
-            obj_parent.status = ReservationParent.END
+            obj_parent.is_end = True
+            obj_parent.end_datetime = timezone.now
             obj_parent.save()
 
         elif digit_pressed == "2":
@@ -127,7 +129,8 @@ class HandleButtonView(View):
                 message = '代理予約処理が完了しました。'
             )
 
-            obj_parent.status = ReservationParent.END
+            obj_parent.is_end = True
+            obj_parent.end_datetime = timezone.now
             obj_parent.save()
 
         else:
