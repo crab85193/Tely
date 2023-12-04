@@ -53,8 +53,8 @@ class ReservationAddView(LoginRequiredMixin, FormView):
 
         obj_parent = ReservationParent.objects.create(
             user = self.request.user,
-            shop_tel_number = "00000000000",
-            shop_name = "test",
+            shop_tel_number = "08042897797",
+            shop_name = "ガールズバー Macherie(マシェリ)",
             reservation_datetime = data["reservation_datetime"],
             num_people = data["num_people"],
             representative_name = data["representative_name"],
