@@ -108,7 +108,7 @@ class HandleButtonView(View):
             )
 
             obj_parent.is_end = True
-            obj_parent.end_datetime = timezone.now
+            obj_parent.end_datetime = timezone.now()
             obj_parent.save()
 
         elif digit_pressed == "2":
@@ -130,7 +130,7 @@ class HandleButtonView(View):
             )
 
             obj_parent.is_end = True
-            obj_parent.end_datetime = timezone.now
+            obj_parent.end_datetime = timezone.now()
             obj_parent.save()
 
         else:
