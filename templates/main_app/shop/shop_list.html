@@ -18,6 +18,17 @@
 
 <section class="section">
   <div class="row">
+    <div class="col-12">
+      <form method="GET">
+        {% csrf_token %}
+        <div class="row mb-3 justify-content-center">
+          <div class="col-sm-6">
+            <input type="text" name="keywords" class="form-control" placeholder="キーワードを入力" value={{ keywords }}>
+          </div>
+          <button class="col-sm-2 btn btn-primary" type="submit"><i class="bi bi-search me-1"></i> 検索</button>
+        </div>
+      </form>
+    </div>
     {% for shop in shop_list %}
     <div class="col-lg-4">
       
@@ -28,10 +39,9 @@
           <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-shop"></i> {{ shop.type }}</h6>
           <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</h6>
           <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">営業時間 {{ shop.open }}</h6>
-          <p class="card-text">{{ shop.detail }}</p>
-          <p class="card-text"><a href="{% url 'main_app:reservation_add' %}" class="btn btn-primary">予約する</a></p>
-          <a href="{% url 'main_app:shop_detail' %}" class="card-link">詳細を見る</a>
+          <h6 class="card-subtitle mb-2 text-muted">営業時間 <br>{{ shop.open|linebreaksbr }}</h6>
+          <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary">予約する</a></p>
+          <a href="{{ shop.detail_url }}" class="card-link">詳細を見る</a>
         </div>
       </div>
 

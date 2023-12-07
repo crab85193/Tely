@@ -1,0 +1,48 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}
+お知らせ - {{ title }}
+{% endblock %}
+
+{% block main %}
+<div class="pagetitle">
+    <h1>{{ title }}</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
+        <li class="breadcrumb-item">お知らせ</li>
+        <li class="breadcrumb-item active">{{ object.title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section class="section min-vh-100">
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ object.title }}</h5>
+
+        <div class="d-flex align-items-start pb-3">
+          <div class="nav flex-column nav-pills me-3">
+            {% for item in menu %}
+            {% if item.id == object.id%}
+            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link active">{{ item.title }}</a>
+            {% else %}
+            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link">{{ item.title }}</a>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <div class="tab-content px-2">
+            <div class="tab-pane fade show active">
+              {{ object.message|linebreaksbr }}
+              <br>
+              {{ object.datetime}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>
+{% endblock %}

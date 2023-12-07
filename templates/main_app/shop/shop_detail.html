@@ -63,18 +63,14 @@
           <h5 class="card-title">{{ shop.name }}</h5>
           <h5>カテゴリー</h5>
           <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
-          <h5>店舗からのメッセージ</h5>
-          <p class="card-text">{{ shop.detail | linebreaksbr }}</p>
           <h5>営業時間</h5>
-          <p class="card-text">{{ shop.open }}</p>
-          <h5>休業日</h5>
-          <p class="card-text">{{ shop.closed }}</p>
+          <p class="card-text">{{ shop.open|linebreaksbr }}</p>
           <h5>住所</h5>
           <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
           <h5>電話番号</h5>
           <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
           
-          <p class="card-text"><a href="{% url 'main_app:reservation_add' %}" class="btn btn-primary">予約する</a></p>
+          <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary">予約する</a></p>
         
         </div>
       </div>

@@ -12,7 +12,7 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
       <li class="breadcrumb-item">予約する</li>
-      <li class="breadcrumb-item active">予約完了</li>
+      <li class="breadcrumb-item active">予約詳細</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -50,12 +50,8 @@
 
             <h5>カテゴリー</h5>
             <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
-            <h5>店舗からのメッセージ</h5>
-            <p class="card-text">{{ shop.detail | linebreaksbr }}</p>
             <h5>営業時間</h5>
-            <p class="card-text">{{ shop.open }}</p>
-            <h5>休業日</h5>
-            <p class="card-text">{{ shop.closed }}</p>
+            <p class="card-text">{{ shop.open|linebreaksbr }}</p>
             <h5>住所</h5>
             <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
             <h5>電話番号</h5>

@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from ..models.reservation import ReservationParent, ReservationChild
+from ..models.notice import UserNotice
 
 @method_decorator(csrf_exempt, name='dispatch')
 class TwilioButtonView(View):
@@ -64,9 +65,11 @@ class TwilioButtonView(View):
 
         message = self.create_message(reservation_id)
 
+        obj_parent = ReservationParent.objects.get(id=reservation_id)
+
+        # sid = call_manager.gather(message, obj_parent.shop_tel_number, next_url)
         sid = call_manager.gather(message, "09055169212", next_url)
 
-        obj_parent = ReservationParent.objects.get(id=reservation_id)
         obj_parent.sid = sid
         obj_parent.save()
 
@@ -107,6 +110,16 @@ class HandleButtonView(View):
                 message = '代理予約処理が完了しました。'
             )
 
+            url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
+
+            UserNotice.objects.create(
+                user=self.request.user,
+                title="予約受付が承認しました",
+                message=f"店舗様が予約受付が承認しました。クリックすると、予約状況確認ページへリダイレクトします。",
+                type=UserNotice.SUCCESS,
+                url=url
+            )
+
             obj_parent.is_end = True
             obj_parent.end_datetime = timezone.now()
             obj_parent.save()
@@ -127,6 +140,16 @@ class HandleButtonView(View):
                 status  = ReservationChild.END,
                 title   = '代理予約が完了しました',
                 message = '代理予約処理が完了しました。'
+            )
+
+            url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
+
+            UserNotice.objects.create(
+                user=self.request.user,
+                title="予約受付が承認されませんでした",
+                message=f"店舗様が予約受付が承認しませんでした。クリックすると、予約状況確認ページへリダイレクトします。",
+                type=UserNotice.DANGER,
+                url=url
             )
 
             obj_parent.is_end = True
