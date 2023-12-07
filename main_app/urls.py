@@ -25,6 +25,7 @@ from .views.user_settings import UserSettingsView
 from .views.password_change import PasswordChangeView, PasswordChangeDoneView
 from .views.twilio import TwilioButtonView, HandleButtonView
 from .views.shop import ShopListView, ShopDetailView
+from .views.notice import NoticeListView, NoticeDetailView, UserNoticeListView, UserNoticeDetailView
 
 from .views.dev.charts import ChartsApexChartsView, ChartsChartjsView, ChartsEchartsView
 from .views.dev.components import ComponentsAccordionView, ComponentsAlertsView, ComponentsBadgesView, ComponentsBreadcrumbsView, ComponentsButtonsView, ComponentsCardsView, ComponentsCarouselView, ComponentsListGroupView, ComponentsModalView, ComponentsPaginationView, ComponentsProgressView, ComponentsSpinnersView, ComponentsTabsView, ComponentsTooltipsView
@@ -72,6 +73,9 @@ urlpatterns = [
 
     path("shop/list/", ShopListView.as_view(), name="shop_list"),
     path("shop/detail/", ShopDetailView.as_view(), name="shop_detail"),
+
+    path("notice/", NoticeListView.as_view(), name="notice_list"),
+    path("notice/detail/<uuid:pk>/", NoticeDetailView.as_view(), name="notice_detail"),
 
     # Developer Contents
     ## Charts

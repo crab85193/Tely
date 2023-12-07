@@ -257,7 +257,14 @@
             <i class="bi bi-grid"></i>
             <span>トップ</span>
           </a>
-        </li><!-- End Dashboard Nav -->
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if 'notice/' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:notice_list' %}">
+            <i class="bi bi-bell"></i>
+            <span>お知らせ</span>
+          </a>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link {% if 'shop' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:shop_list' %}">
