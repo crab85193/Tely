@@ -16,6 +16,7 @@ class ReservationParent(models.Model):
     start_datetime       = models.DateTimeField(blank=False, null=False, default=timezone.now)
     end_datetime         = models.DateTimeField(blank=True, null=True)
     is_end               = models.BooleanField(blank=False, null=False, default=False)
+    place_id             = models.CharField(blank=True, null=True, max_length=1000)
     
 
 class ReservationChild(models.Model):

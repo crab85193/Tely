@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block title %}
-Reservation
+電話番号を指定して予約
 {% endblock%}
 
 {% block main %}
 <div class="pagetitle">
-  <h1>自動電話予約</h1>
+  <h1>電話番号を指定して予約</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
-      <li class="breadcrumb-item">自動電話予約</li>
+      <li class="breadcrumb-item">電話番号を指定して予約</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -26,18 +26,33 @@ Reservation
           <div class="card-body">
 
             <div class="pt-4 pb-2">
-              <h5 class="card-title text-center pb-0 fs-4">自動電話予約</h5>
+              <h5 class="card-title text-center pb-0 fs-4">電話番号を指定して予約</h5>
               <p class="text-center small">お店の電話番号を入力してください</p>
             </div>
 
             <form class="row g-3 needs-validation justify-content-center" method="POST">
               {% csrf_token %}
               <div class="col-11 px-2">
-                <label for="id_tel" class="form-label">電話番号</label>
-                <div class="input-group has-validation">
-                  <input type="tel" name="tel" pattern="[\d]*" maxlength="11" minlength="7" class="form-control" id="tel" required>
-                  <div class="invalid-feedback">電話番号を入力してください</div>
-                </div>
+                <p>
+                  <label for="id_tel" class="form-label">電話番号</label>
+                  <input type="tel" name="tel" pattern="[\d]*" maxlength="11" minlength="7" class="form-control" placeholder="電話番号を入力して下さい" id="id_tel" required>
+                </p>
+                <p>
+                  <label for="id_reservation_datetime">予約日時:</label>
+                  <input type="datetime-local" name="reservation_datetime" class="form-control" id="id_reservation_datetime" required>
+                </p>
+                <p>
+                  <label for="id_num_people">予約人数:</label>
+                  <input type="number" name="num_people" min="0" class="form-control" placeholder="数字のみで入力して下さい" required id="id_num_people">
+                </p>
+                <p>
+                  <label for="id_representative_name">代表者名:</label>
+                  <input type="text" name="representative_name" maxlength="100" class="form-control" placeholder="代表者名を入力して下さい" required id="id_representative_name">
+                </p>
+                <p>
+                  <label for="id_memo">メモ:</label>
+                  <textarea name="memo" cols="40" rows="10" class="form-control" placeholder="店舗への要望がございましたら、入力して下さい" id="id_memo"></textarea>
+                </p>
               </div>
 
               <div class="col-8 d-flex flex-column align-items-center py-2">
