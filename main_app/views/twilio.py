@@ -93,7 +93,39 @@ class HandleButtonView(View):
         obj_parent = ReservationParent.objects.get(sid=sid)
         
         if digit_pressed == "1":
-            message = "予約受付ありがとうございました。本日の21時から3名で、よろしくお願いします。"
+            r_datetime   = obj_parent.reservation_datetime.astimezone(ZoneInfo(key='Asia/Tokyo'))
+            r_year       = r_datetime.year
+            r_month      = r_datetime.month
+            r_day        = r_datetime.day
+            r_hour       = r_datetime.hour
+            r_minute     = r_datetime.minute
+            r_num_people = obj_parent.num_people
+            r_name       = obj_parent.representative_name
+            n_datetime = datetime.datetime.now(ZoneInfo(key='Asia/Tokyo'))
+            n_year = n_datetime.year
+            n_month = n_datetime.month
+            n_day = n_datetime.day
+
+            message = "予約受付ありがとうございました。"
+
+            if n_year == r_year and n_month == r_month and n_day == r_day:
+                message += f"本日の"
+            elif n_year == r_year and n_month == r_month:
+                message += f"こんげつ{r_day}日の"
+            elif n_year == r_year:
+                message += f"{r_month}月{r_day}日の"
+            else:
+                message += f"{r_year}年{r_month}月{r_day}日の"
+
+            if r_minute == 0:
+                message += f"{r_hour}時に"
+            elif r_minute == 30:
+                message += f"{r_hour}時半に"
+            else:
+                message += f"{r_hour}時{r_minute}分に"
+
+            message += f"{r_num_people}名、代表者名は、{r_name}でよろしくお願いします。"
+            
             response = call_manager.create_say_response_xml(message)
 
             obj_child = ReservationChild.objects.create(
