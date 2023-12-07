@@ -30,6 +30,7 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 if not DEBUG:
     CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(" ")
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
@@ -162,5 +163,3 @@ ACTIVATION_EXPIRED_DAYS = 3
 MAINTENANCE_MODE_IGNORE_ADMIN_SITE = True
 ## メンテナンス中でもスーパーユーザーのみ通常サイトを見れるようにする
 MAINTENANCE_MODE_IGNORE_SUPERUSER = True
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
