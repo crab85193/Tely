@@ -113,7 +113,7 @@ class HandleButtonView(View):
             url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
 
             UserNotice.objects.create(
-                user=self.request.user,
+                user=obj_parent.user,
                 title="予約受付が承認しました",
                 message=f"店舗様が予約受付が承認しました。クリックすると、予約状況確認ページへリダイレクトします。",
                 type=UserNotice.SUCCESS,
@@ -145,7 +145,7 @@ class HandleButtonView(View):
             url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
 
             UserNotice.objects.create(
-                user=self.request.user,
+                user=obj_parent.user,
                 title="予約受付が承認されませんでした",
                 message=f"店舗様が予約受付が承認しませんでした。クリックすると、予約状況確認ページへリダイレクトします。",
                 type=UserNotice.DANGER,
