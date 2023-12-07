@@ -10,23 +10,27 @@ class ShopListView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         store_manager = StoreManager()
-
         shop_list = []
 
-        shop_detail_test = {
-            "img":"https://night-planet.s3.ap-northeast-1.amazonaws.com/shops/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f/top_image/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f.jpg",
-            "name":"ガールズバー Macherie(マシェリ)",
-            "type":"ガールズバー",
-            "address":"沖縄県与那原町与那原3178-3",
-            "tel_number":"080-4289-7797",
-            "open":"月〜土 9:00〜Last",
-            "detail_url": f"{reverse('main_app:shop_detail')}",
-            "add_url": f"{reverse('main_app:reservation_add')}",
-        }
+        if self.request.GET.get("keywords"):
+            keywords = self.request.GET.get("keywords")
+            context["keywords"] = keywords
+            search_results = store_manager.search_store(keywords)
+        else:
+            shop_detail_test = {
+                "img":"https://night-planet.s3.ap-northeast-1.amazonaws.com/shops/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f/top_image/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f.jpg",
+                "name":"ガールズバー Macherie(マシェリ)",
+                "type":"ガールズバー",
+                "address":"沖縄県与那原町与那原3178-3",
+                "tel_number":"080-4289-7797",
+                "open":"月〜土 9:00〜Last",
+                "detail_url": f"{reverse('main_app:shop_detail')}",
+                "add_url": f"{reverse('main_app:reservation_add')}",
+            }
 
-        shop_list.append(shop_detail_test)
+            shop_list.append(shop_detail_test)
 
-        search_results = store_manager.search_store("飲食店")
+            search_results = store_manager.search_store("飲食店")
 
         for store_info in search_results:
             detail = {}
