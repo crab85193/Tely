@@ -6,6 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, TemplateView
 from ..models.user import User
 from ..models.user_activate_tokens import UserActivateTokens
+from ..models.notice import UserNotice
 from ..forms.register import Register
 from django.contrib import messages
 
@@ -78,6 +79,13 @@ class RegisterCompleteView(TemplateView):
             
             if hasattr(activated_user, 'is_active'):
                 if activated_user.is_active:
+                    UserNotice.objects.create(
+                        user=activated_user,
+                        title="ユーザー登録が完了しました",
+                        message=f"{activated_user.username} 様\n ユーザー登録が完了しました。ご登録いただきありがとうございます。\nご利用中、ご質問や不明点がありましたら、お気軽にご連絡ください。\nサイトをご利用いただく際には、安全なパスワードの使用やセキュリティにご注意いただくようお願いいたします。\n\nご登録いただき、ありがとうございます。\n\n[Tely] サポートチーム\n",
+                        type=UserNotice.SUCCESS,
+                    )
+
                     subject = '【Tely】アカウント登録が完了しました'
                     message = f"こんにちは {activated_user.username} さん\n\nアカウントの有効化が正常に完了しました。これにより、Tely のメンバーとしてアクセスが可能となります。\n\n{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:login')}\n\nもしご質問や不明点がありましたら、お気軽にご連絡ください。\nサイトをご利用いただく際には、安全なパスワードの使用やセキュリティにご注意いただくようお願いいたします。\n\nご登録いただき、ありがとうございます。\n\n[Tely] サポートチーム\n"
 

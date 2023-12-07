@@ -76,6 +76,8 @@ urlpatterns = [
 
     path("notice/", NoticeListView.as_view(), name="notice_list"),
     path("notice/detail/<uuid:pk>/", NoticeDetailView.as_view(), name="notice_detail"),
+    path("user/notice/", UserNoticeListView.as_view(), name="user_notice_list"),
+    path("user/notice/detail/<uuid:pk>/", UserNoticeDetailView.as_view(), name="user_notice_detail"),
 
     # Developer Contents
     ## Charts

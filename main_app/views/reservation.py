@@ -7,6 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from ..store_manager import StoreManager
 from ..models.reservation import ReservationParent, ReservationChild
+from ..models.notice import UserNotice
 from ..forms.reservation import ReservationForm
 
 
@@ -35,6 +36,16 @@ class ReservationPhoneView(LoginRequiredMixin, TemplateView):
             status=ReservationChild.START,
             title="代理予約を受け付けました",
             message="店舗様に電話を発信中です。しばらくお待ちください。"
+        )
+        
+        url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
+
+        UserNotice.objects.create(
+            user=self.request.user,
+            title="代理予約を受け付けました",
+            message=f"クリックすると、予約状況確認ページへリダイレクトします。",
+            type=UserNotice.SUCCESS,
+            url=url
         )
         
         return HttpResponseRedirect(reverse('main_app:twilio_gather', args=[obj_parent.id])) 
@@ -134,6 +145,16 @@ class ReservationAddView(LoginRequiredMixin, FormView):
             status=ReservationChild.START,
             title="代理予約を受け付けました",
             message="店舗様に電話を発信中です。しばらくお待ちください。"
+        )
+
+        url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
+
+        UserNotice.objects.create(
+            user=self.request.user,
+            title="代理予約を受け付けました",
+            message=f"クリックすると、予約状況確認ページへリダイレクトします。",
+            type=UserNotice.SUCCESS,
+            url=url
         )
         
         return super().form_valid(form)

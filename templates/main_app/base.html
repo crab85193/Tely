@@ -88,22 +88,24 @@
               </li>
               {% for notice in request.user.notice_user.all %}
               {% if not notice.is_check %}
-              <li class="notification-item">
-                {% if notice.type == 0 %}
-                <i class="bi bi-exclamation-circle text-warning"></i>
-                {% elif notice.type == 1 %}
-                <i class="bi bi-x-circle text-danger"></i>
-                {% elif notice.type == 2 %}
-                <i class="bi bi-check-circle text-success"></i>
-                {% elif notice.type == 3 %}
-                <i class="bi bi-info-circle text-primary"></i>
-                {% endif %}
-                <div>
-                  <h4>{{ notice.title }}</h4>
-                  <p>{{ notice.message }}</p>
-                  <p>{{ notice.datetime }}</p>
-                </div>
-              </li>
+              <a href="{% url 'main_app:user_notice_detail' notice.id %}">
+                <li class="notification-item">
+                  {% if notice.type == 0 %}
+                  <i class="bi bi-exclamation-circle text-warning"></i>
+                  {% elif notice.type == 1 %}
+                  <i class="bi bi-x-circle text-danger"></i>
+                  {% elif notice.type == 2 %}
+                  <i class="bi bi-check-circle text-success"></i>
+                  {% elif notice.type == 3 %}
+                  <i class="bi bi-info-circle text-primary"></i>
+                  {% endif %}
+                  <div>
+                    <h4>{{ notice.title|truncatechars:20 }}</h4>
+                    <p>{{ notice.message|truncatechars:20 }}</p>
+                    <p>{{ notice.datetime }}</p>
+                  </div> 
+                </li>
+              </a>
   
               <li>
                 <hr class="dropdown-divider">
@@ -112,7 +114,7 @@
               {% endfor %}
 
               <li class="dropdown-footer">
-                <a href="#">全てのお知らせを見る</a>
+                <a href="{% url 'main_app:user_notice_list' %}">全てのお知らせを見る</a>
               </li>
   
             </ul><!-- End Notification Dropdown Items -->

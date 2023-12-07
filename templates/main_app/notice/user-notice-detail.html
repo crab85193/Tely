@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-お知らせ - {{ title }}
+{{ request.user.username }}様へのお知らせ - {{ title }}
 {% endblock %}
 
 {% block main %}
@@ -11,7 +11,7 @@
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
-        <li class="breadcrumb-item">お知らせ</li>
+        <li class="breadcrumb-item">{{ request.user.username }}様へのお知らせ</li>
         <li class="breadcrumb-item active">{{ object.title }}</li>
       </ol>
     </nav>
@@ -27,9 +27,9 @@
           <div class="nav flex-column nav-pills me-3">
             {% for item in menu %}
             {% if item.id == object.id%}
-            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link active">{{ item.title }}</a>
+            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link active">{{ item.title }}</a>
             {% else %}
-            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link">{{ item.title }}</a>
+            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link">{{ item.title }}</a>
             {% endif %}
             {% endfor %}
           </div>
