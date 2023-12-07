@@ -28,10 +28,9 @@
           <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-shop"></i> {{ shop.type }}</h6>
           <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</h6>
           <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">営業時間 {{ shop.open }}</h6>
-          <p class="card-text">{{ shop.detail }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">営業時間 <br>{{ shop.open|linebreaksbr }}</h6>
           <p class="card-text"><a href="{% url 'main_app:reservation_add' %}" class="btn btn-primary">予約する</a></p>
-          <a href="{% url 'main_app:shop_detail' %}" class="card-link">詳細を見る</a>
+          <a href="{{ shop.detail_url }}" class="card-link">詳細を見る</a>
         </div>
       </div>
 
