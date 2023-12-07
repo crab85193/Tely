@@ -80,17 +80,14 @@ class ReservationDoneView(LoginRequiredMixin, TemplateView):
     template_name = "main_app/reservation/reservation_done.html"
 
 
-class ReservationListView(LoginRequiredMixin, ListView):
+class ReservationListView(LoginRequiredMixin, TemplateView):
     template_name = "main_app/reservation/reservation_list.html"
-    model = ReservationParent
-    context_object_name = "objects"
-    ordering = ['-start_datetime']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
-        context["incomplete"] = ReservationParent.objects.filter(is_end=False).order_by("-start_datetime")
-        context["complete"] = ReservationParent.objects.filter(is_end=True).order_by("-start_datetime")
+        context["objects"]    = ReservationParent.objects.filter(user=self.request.user).order_by("-start_datetime")
+        context["incomplete"] = ReservationParent.objects.filter(user=self.request.user, is_end=False).order_by("-start_datetime")
+        context["complete"]   = ReservationParent.objects.filter(user=self.request.user, is_end=True).order_by("-start_datetime")
 
         return context
 
