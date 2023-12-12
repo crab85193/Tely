@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import sentry_sdk
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -163,3 +164,14 @@ ACTIVATION_EXPIRED_DAYS = 3
 MAINTENANCE_MODE_IGNORE_ADMIN_SITE = True
 ## メンテナンス中でもスーパーユーザーのみ通常サイトを見れるようにする
 MAINTENANCE_MODE_IGNORE_SUPERUSER = True
+
+sentry_sdk.init(
+    dsn="https://220986e6669a5b44b864ae85049998f7@o4506382011203584.ingest.sentry.io/4506382012579840",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
