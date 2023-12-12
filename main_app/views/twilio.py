@@ -84,12 +84,12 @@ class TwilioButtonView(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class HandleButtonView(View):
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         next_url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:twilio_gather_response')}"
         call_manager = CallManager()
         
-        digit_pressed = request.GET.get("Digits", None)
-        sid = request.GET.get("CallSid", None)
+        digit_pressed = request.POST.get("Digits", None)
+        sid = request.POST.get("CallSid", None)
         obj_parent = ReservationParent.objects.get(sid=sid)
         
         if digit_pressed == "1":
