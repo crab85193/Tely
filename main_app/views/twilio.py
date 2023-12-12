@@ -83,6 +83,7 @@ class TwilioButtonView(View):
         return HttpResponseRedirect(reverse('main_app:reservation_done'))
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class HandleButtonView(View):
     def get(self, request, *args, **kwargs):
         next_url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:twilio_gather_response')}"
