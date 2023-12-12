@@ -67,8 +67,7 @@ class TwilioButtonView(View):
 
         obj_parent = ReservationParent.objects.get(id=reservation_id)
 
-        # sid = call_manager.gather(message, obj_parent.shop_tel_number, next_url)
-        sid = call_manager.gather(message, "09055169212", next_url)
+        sid = call_manager.gather(message, obj_parent.shop_tel_number, next_url)
 
         obj_parent.sid = sid
         obj_parent.save()
