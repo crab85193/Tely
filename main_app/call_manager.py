@@ -45,3 +45,6 @@ class CallManager:
 
         return response
     
+    def get_balance(self):
+        balance = self.__client.api.balance.fetch()
+        return balance.balance
