@@ -26,6 +26,7 @@ class ShopListView(LoginRequiredMixin, TemplateView):
                 "open":"月〜土 9:00〜Last",
                 "detail_url": f"{reverse('main_app:shop_detail')}",
                 "add_url": f"{reverse('main_app:reservation_add')}",
+                "rating":float("3.0"),
             }
 
             shop_list.append(shop_detail_test)
@@ -36,12 +37,7 @@ class ShopListView(LoginRequiredMixin, TemplateView):
             detail = {}
 
             detail["place_id"] = store_info["place_id"]
-            detail["img"] = store_info["photos"]
             detail["name"] = store_info["name"]
-            detail["address"] = store_info["address"]
-            detail["tel_number"] = store_info["tel_number"]
-            detail["detail_url"] = f"{reverse('main_app:shop_detail')}?{urlencode({'place_id': store_info['place_id']})}"
-            detail["add_url"] = f"{reverse('main_app:reservation_add')}?{urlencode({'place_id': store_info['place_id']})}"
 
             store_types = ""
             for type in store_info["type"]:
@@ -62,9 +58,12 @@ class ShopListView(LoginRequiredMixin, TemplateView):
                         pass
             detail["type"] = store_types
 
-            detail["open"] = ""
-            for hours in store_info["open"]:
-                detail["open"] += hours + "\n"
+            detail["open"] = store_info["open"]
+            detail["img"] = store_info["photos"]
+            detail["rating"] = float(store_info["rating"])
+            detail["price_level"] = store_info["price_level"]
+            detail["detail_url"] = f"{reverse('main_app:shop_detail')}?{urlencode({'place_id': store_info['place_id']})}"
+            detail["add_url"] = f"{reverse('main_app:reservation_add')}?{urlencode({'place_id': store_info['place_id']})}"
 
             shop_list.append(detail)
 

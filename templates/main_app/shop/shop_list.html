@@ -1,6 +1,32 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
 
+{% block head %}
+<style>
+  .masonry-container {
+    column-count: 1;
+    column-gap: 1em;
+  }
+
+  @media (min-width: 768px) { /* タブレットサイズ */
+    .masonry-container {
+      column-count: 2;
+    }
+  }
+
+  @media (min-width: 992px) { /* デスクトップサイズ */
+    .masonry-container {
+      column-count: 3;
+    }
+  }
+
+  .masonry-container .card {
+    break-inside: avoid;
+    margin-bottom: 1em;
+  }
+</style>
+{% endblock %}
+
 {% block title %}
 お店を選んで予約
 {% endblock %}
@@ -22,27 +48,51 @@
       <form method="GET">
         {% csrf_token %}
         <div class="row mb-3 justify-content-center">
-          <div class="col-sm-6">
+          <div class="col-8 col-lg-6">
             <input type="text" name="keywords" class="form-control" placeholder="キーワードを入力" value={{ keywords }}>
           </div>
-          <button class="col-sm-2 btn btn-primary" type="submit"><i class="bi bi-search me-1"></i> 検索</button>
+          <button class="col-lg-2 col-3 btn btn-primary" type="submit"><i class="bi bi-search me-1"></i> 検索</button>
         </div>
       </form>
     </div>
+  </div>
+  <div class="masonry-container">
     {% for shop in shop_list %}
-    <div class="col-lg-4">
-      
-      <div class="card">
-        <img src="{{shop.img}}" class="card-img-top" alt="Shop Image">
-        <div class="card-body">
-          <h5 class="card-title">{{shop.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-shop"></i> {{ shop.type }}</h6>
-          <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</h6>
-          <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">営業時間 <br>{{ shop.open|linebreaksbr }}</h6>
-          <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary">予約する</a></p>
-          <a href="{{ shop.detail_url }}" class="card-link">詳細を見る</a>
-        </div>
+    <div class="card mb-3">
+      <img src="{{ shop.img }}" class="card-img-top" alt="Shop Image">
+      <div class="card-body">
+        <h5 class="card-title"><a href="{{ shop.detail_url }}" class="card-link">{{shop.name}}</a></h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {% if shop.open is True %}
+          <p class="text-success">営業中</p>
+          {% else %}
+          <p class="text-danger">営業時間外</p>
+          {% endif %}
+        </h6>
+        <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-shop"></i> {{ shop.type }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          評価<i class="bi bi-star"></i> :
+          {{ shop.rating }}
+        </h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          価格帯<i class="bi bi-currency-yen"></i> : 
+          {% if shop.price_level == 0 %}
+          無料
+          {% elif shop.price_level == 1 %}
+          安価
+          {% elif shop.price_level == 2 %}
+          中程度
+          {% elif shop.price_level == 3 %}
+          高価
+          {% elif shop.price_level == 4 %}
+          非常に高価
+          {% else %}
+          情報なし
+          {% endif %}
+        </h6>
+
+        <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary">予約する</a></p>
+        <a href="{{ shop.detail_url }}" class="card-link">詳細を見る</a>
       </div>
 
     </div>

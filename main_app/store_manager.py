@@ -176,26 +176,36 @@ class StoreManager():
         stores_info = []
         
         for place in search_response['results']:
-            detail_response = self.get_store_info(place["place_id"])
+            store_info = {}
             try:
-                store_info = {
-                    "place_id": place["place_id"],
-                    "name": detail_response["name"],
-                    "type": detail_response["types"],
-                    "open": detail_response["opening_hours"]["weekday_text"],
-                    "open_periods": detail_response["opening_hours"]["periods"],
-                    "address": detail_response["formatted_address"],
-                    "tel_number": detail_response["formatted_phone_number"],
-                    "photos": self.get_store_photo_url(detail_response["photos"][0]["photo_reference"]),
-                    "rating": detail_response["rating"],
-                    "url": detail_response["url"]
-                }
-                stores_info.append(store_info)
-
+                store_info["place_id"] = place["place_id"]
+                store_info["name"] = place["name"]
             except Exception as e:
                 print(e)
-                pass
-        
+                continue
+            try:
+                store_info["type"] = place["types"]
+            except Exception as e:
+                store_info["type"] = []
+            try:
+                store_info["open"] = place["opening_hours"]["open_now"]
+            except Exception as e:
+                store_info["open"] = None
+            try:
+                store_info["photos"] = self.get_store_photo_url(place["photos"][0]["photo_reference"])
+            except Exception as e:
+                store_info["photos"] = ""
+            try:
+                store_info["rating"] = place["rating"]
+            except Exception as e:
+                store_info["rating"] = None
+            try:
+                store_info["price_level"] = place["price_level"]
+            except Exception as e:
+                store_info["price_level"] = None
+                
+            stores_info.append(store_info)
+
         return stores_info
     
     def get_store_detail(self,place_id):
