@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: containers/django/Dockerfile
+    restart: unless-stopped
     volumes:
       - .:/code
       - ./static:/static
@@ -19,10 +20,10 @@ services:
     build:
       context: .
       dockerfile: containers/https-portal/Dockerfile
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
-    restart: always
     environment:
       DOMAINS: 'tely.st.ie.u-ryukyu.ac.jp -> http://web:8000'
       STAGE: 'production'
@@ -34,6 +35,7 @@ services:
     build:
       context: .
       dockerfile: containers/nginx/Dockerfile
+    restart: unless-stopped
     volumes:
       - ./static:/static
     ports:

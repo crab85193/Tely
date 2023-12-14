@@ -6,6 +6,8 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models.notice import Notice, UserNotice
 from .models.reservation import ReservationParent, ReservationChild
 
+from .models.store import Store
+
 class UserAdmin(BaseUserAdmin):
     ordering = ('id',)
     list_display = ('email', 'id', 'is_active', 'password')
@@ -43,3 +45,4 @@ admin.site.register(Notice)
 admin.site.register(UserNotice)
 admin.site.register(ReservationParent)
 admin.site.register(ReservationChild)
+admin.site.register(Store)
