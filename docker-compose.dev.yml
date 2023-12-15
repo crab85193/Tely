@@ -17,6 +17,8 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+    networks:
+      - shared_network
   app:
     container_name: app
     build:
@@ -33,7 +35,13 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      - shared_network
 volumes:
   db_data:
   static:
+
+networks:
+  shared_network:
+    external: true
 

@@ -48,7 +48,7 @@ class TopView(LoginRequiredMixin, TemplateView):
                     
             store_info["type"] = store_types
             store_info["open"] = store.open
-            store_info["photo"] = store_manager.get_store_photo_url(store.photo_reference)
+            store_info["photo"] = store.photo_url
             store_info["rating"] = store.rating
             store_info["price_level"] = store.price_level
             store_info["record_datetime"] = store.record_datetime
