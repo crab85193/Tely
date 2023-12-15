@@ -8,7 +8,7 @@ class Store(models.Model):
     name = models.CharField(max_length=1000, blank=False, null=False)
     type = models.CharField(max_length=1000, blank=False, null=False)
     open = models.CharField(max_length=1000, blank=False, null=False)
-    photo_reference = models.CharField(max_length=1000, blank=False, null=False)
+    photo_url = models.URLField(max_length=1000, blank=False, null=False)
     rating = models.CharField(max_length=10, blank=True, null=True)
     price_level = models.CharField(max_length=10, blank=True, null=True)
     record_datetime = models.DateTimeField(blank=False, null=False, default=timezone.now)

@@ -241,7 +241,7 @@ Top Page
                       {% for store in stores_inner %}
                       <div class="col-5">
                         <div class="card">
-                          <img src="{{ store.photo }}" class="card-img-top" alt="Shop Image">
+                          <img src="{{ store.photo }}" class="card-img-top d-block w-100" alt="Shop Image" style="height: 30vh; width: auto;">
                           <div class="card-body">
                             <h5 class="card-title"><a href="{{ store.detail_url }}" class="card-link">{{ store.name }}</a></h5>
               
