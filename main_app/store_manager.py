@@ -221,7 +221,10 @@ class StoreManager():
         store_info["address"] = detail_response["formatted_address"]
         store_info["tel_number"] = detail_response["formatted_phone_number"]
         
-        store_info["photos"] = [self.get_store_photo_url(detail_response["photos"][0]["photo_reference"])]
+        try:
+            store_info["photos"] = [self.get_store_photo_url(detail_response["photos"][0]["photo_reference"])]
+        except Exception as e:
+            store_info["photos"] = []
         try:
             store_info["photos"].append(self.get_store_photo_url(detail_response["photos"][1]["photo_reference"]))
         except Exception as e:

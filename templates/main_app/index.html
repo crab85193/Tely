@@ -241,7 +241,11 @@ Top Page
                       {% for store in stores_inner %}
                       <div class="col-5">
                         <div class="card">
-                          <img src="{{ store.photo }}" class="card-img-top d-block w-100" alt="Shop Image" style="height: 30vh; width: auto;">
+                          {% if store.photo %}
+                            <img src="{{ store.photo }}" class="card-img-top d-block w-100 shop-img" alt="Shop Image" style="height: 30vh; width: auto;" onerror="this.src='{% static "img/logo.png" %}'; this.removeAttribute('onerror'); this.removeAttribute('onload');" onload="this.removeAttribute('onerror'); this.removeAttribute('onload');">
+                          {% else %}
+                            <img src="{% static 'img/logo.png' %}" class="card-img-top d-block w-100 shop-img" alt="Shop Image" style="height: 30vh; width: auto;">
+                          {% endif %}
                           <div class="card-body">
                             <h5 class="card-title"><a href="{{ store.detail_url }}" class="card-link">{{ store.name }}</a></h5>
               
@@ -303,9 +307,12 @@ Top Page
         <div class="card-body">
           <h5 class="card-title">
             最新の予約状況<br>
-            <span><a href="{% url 'main_app:reservation_detail' reservation_id %}">{{ reservation_title }}</a></span>
+            {% if reservation_title %}
+              <span><a href="{% url 'main_app:reservation_detail' reservation_id %}">{{ reservation_title }}</a></span>
+            {% else %}
+            {% endif %}
           </h5>
-
+          {% if reservation_title %}
           <div class="activity">
             {% for state in reservation_detail_items %}
             <div class="activity-item d-flex">
@@ -341,6 +348,9 @@ Top Page
             </div><!-- End activity item-->
             {% endfor %}
           </div>
+          {% else %}
+          <p class="p-5 text-center">予約情報がありません</p>
+          {% endif %}
 
         </div>
       </div><!-- End Recent Activity -->
@@ -348,7 +358,7 @@ Top Page
     </div><!-- End Right side columns -->
 
     <!-- Recent Sales -->
-    <div class="col-12">
+    {% comment %} <div class="col-12">
       <div class="card recent-sales overflow-auto">
 
         <div class="card-body">
@@ -406,7 +416,7 @@ Top Page
         </div>
 
       </div>
-    </div><!-- End Recent Sales -->
+    </div><!-- End Recent Sales --> {% endcomment %}
 
   </div>
 </section>
