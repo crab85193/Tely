@@ -29,15 +29,21 @@
           <!-- Slides with controls -->
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
+              {% if shop.img_list%}
               {% for img in shop.img_list %}
               {% if forloop.first %}
               <div class="carousel-item active">
               {% else %}
               <div class="carousel-item">
               {% endif %}
-                <img src={{ img }} class="d-block w-100" style="height: 30vh; width: auto;">
+                <img src="{{ img }}" class="d-block w-100" style="height: 30vh; width: auto;">
               </div>
               {% endfor %}
+              {% else %}
+              <div class="carousel-item active">
+                <img src="{% static 'img/logo.png' %}" class="d-block w-100" style="height: 30vh; width: auto;">
+              </div>
+              {% endif %}
             </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

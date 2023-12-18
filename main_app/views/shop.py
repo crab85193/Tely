@@ -59,7 +59,12 @@ class ShopListView(LoginRequiredMixin, TemplateView):
             detail["type"] = store_types
 
             detail["open"] = store_info["open"]
-            detail["img"] = store_info["photos"]
+            
+            if store_info["photos"]:
+                detail["img"] = store_info["photos"]
+            else:
+                detail["img"] = None
+
             detail["rating"] = float(store_info["rating"])
             detail["price_level"] = store_info["price_level"]
             detail["detail_url"] = f"{reverse('main_app:shop_detail')}?{urlencode({'place_id': store_info['place_id']})}"

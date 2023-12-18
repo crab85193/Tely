@@ -59,7 +59,11 @@
   <div class="masonry-container">
     {% for shop in shop_list %}
     <div class="card mb-3">
-      <img src="{{ shop.img }}" class="card-img-top" alt="Shop Image">
+      {% if shop.img %}
+        <img src="{{ shop.img }}" class="card-img-top" alt="Shop Image">
+      {% else %}
+      <img src="{% static 'img/logo.png' %}" class="card-img-top" alt="Shop Image">
+      {% endif %}
       <div class="card-body">
         <h5 class="card-title"><a href="{{ shop.detail_url }}" class="card-link">{{shop.name}}</a></h5>
         <h6 class="card-subtitle mb-2 text-muted">
