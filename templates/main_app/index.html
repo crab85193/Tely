@@ -256,15 +256,15 @@ Top Page
                             </h6>
                             <h6 class="card-subtitle mb-2 text-muted">
                               価格帯<i class="bi bi-currency-yen"></i> : 
-                              {% if store.price_level == 0 %}
+                              {% if store.price_level == "0" %}
                               無料
-                              {% elif store.price_level == 1 %}
+                              {% elif store.price_level == "1" %}
                               安価
-                              {% elif store.price_level == 2 %}
+                              {% elif store.price_level == "2" %}
                               中程度
-                              {% elif store.price_level == 3 %}
+                              {% elif store.price_level == "3" %}
                               高価
-                              {% elif store.price_level == 4 %}
+                              {% elif store.price_level == "4" %}
                               非常に高価
                               {% else %}
                               情報なし
