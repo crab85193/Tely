@@ -85,7 +85,12 @@
                 </div>
   
                 <div class="col-10 d-flex flex-column align-items-center py-2">
+                  {% if shop.tel_number %}
                   <button class="btn btn-primary w-100" type="submit">予約する</button>
+                  {% else %}
+                  <p class="text-danger">電話番号が登録されていないため、Telyから予約できません。</p>
+                  <button class="btn btn-primary w-100" type="submit" disabled>予約する</button>
+                  {% endif%}
                 </div>
               </form>
   

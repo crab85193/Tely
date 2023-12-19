@@ -219,8 +219,12 @@ class StoreManager():
         store_info["open"] = detail_response["opening_hours"]["weekday_text"]
         store_info["open_periods"] = detail_response["opening_hours"]["periods"]
         store_info["address"] = detail_response["formatted_address"]
-        store_info["tel_number"] = detail_response["formatted_phone_number"]
         
+        try:
+            store_info["tel_number"] = detail_response["formatted_phone_number"]
+        except Exception as e:
+            store_info["tel_number"] = None
+            
         try:
             store_info["photos"] = [self.get_store_photo_url(detail_response["photos"][0]["photo_reference"])]
         except Exception as e:

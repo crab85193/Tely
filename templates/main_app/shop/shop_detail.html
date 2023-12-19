@@ -76,7 +76,14 @@
           <h5>電話番号</h5>
           <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
           
-          <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary">予約する</a></p>
+          <p class="card-text">
+            {% if shop.tel_number %}
+            <a href="{{ shop.add_url }}" class="btn btn-primary">予約する</a>
+            {% else %}
+            <p class="text-danger">電話番号が登録されていないため、Telyから予約できません。</p>
+            <a href="{{ shop.add_url }}" class="btn btn-primary disabled">予約する</a>
+            {% endif%}
+          </p>
         
         </div>
       </div>
