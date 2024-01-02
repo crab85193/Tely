@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-03 01:56+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: tely/settings.py:127
+msgid "English"
+msgstr ""
+
+#: tely/settings.py:128
+msgid "Japanese"
+msgstr ""
+
+#: templates/main_app/product_info.html:33
+msgid "Sign Up"
+msgstr "新規作成"
+
+#: templates/main_app/product_info.html:34
+msgid "Login"
+msgstr "ログイン"
+
+#: templates/main_app/product_info.html:44
+msgid "Save Your Time"
+msgstr "あなたの時間を節約"
+
+#: templates/main_app/product_info.html:45
+msgid "Phone reservation proxy application"
+msgstr "電話予約の代理アプリ"
+
+#: templates/main_app/product_info.html:49
+msgid ""
+"For those of you who have trouble making phone calls. We automatically make "
+"phone reservations for you."
+msgstr "電話をかけるのが面倒なあなたへ。自動で電話予約をします。"
+
+#: templates/main_app/product_info.html:50
+msgid "Click here for the first time"
+msgstr "初めての方はこちら"
