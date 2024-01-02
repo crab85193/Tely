@@ -6,7 +6,7 @@
 [![Nginx](https://img.shields.io/badge/Nginx-1.21%20alpine-269539.svg?logo=nginx&style=plastic)](https://www.nginx.com/)
 [![Twilio](https://img.shields.io/badge/-Twilio-F22F46.svg?logo=twilio&style=plastic)](https://www.twilio.com/en-us)
 [![Sentry](https://img.shields.io/badge/-Sentry-FB4226.svg?logo=sentry&style=plastic)](https://sentry.io/welcome/)
-[![Deploy](https://github.com/crab85193/tely-store-manager/actions/workflows/deploy.yml/badge.svg)](https://github.com/crab85193/tely-store-manager/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/crab85193/tely/actions/workflows/deploy.yml/badge.svg)](https://github.com/crab85193/tely/actions/workflows/deploy.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ![logo](./docs/img/logo-w.png)
