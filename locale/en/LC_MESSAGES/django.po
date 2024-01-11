@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 21:17+0900\n"
+"POT-Creation-Date: 2024-01-11 23:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,106 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
+#: templates/main_app/base.html:80
+msgid "There is"
+msgstr "There is"
+
+#: templates/main_app/base.html:80
+msgid "new notification"
+msgstr "new notification"
+
+#: templates/main_app/base.html:82
+msgid "No new notices"
+msgstr "No new notices"
+
+#: templates/main_app/base.html:119
+msgid "View All Notices"
+msgstr "View All Notices"
+
+#: templates/main_app/base.html:182
+msgid "User Preferences"
+msgstr "User Preferences"
+
+#: templates/main_app/base.html:203
+msgid "Logout"
+msgstr "Logout"
+
+#: templates/main_app/base.html:223
+msgid "Top"
+msgstr "Top"
+
+#: templates/main_app/base.html:230 templates/main_app/index.html:18
+msgid "Notification"
+msgstr "Notification"
+
+#: templates/main_app/base.html:237
+msgid "Search for stores"
+msgstr "Search for stores"
+
+#: templates/main_app/base.html:244
+msgid "Reservations by phone number"
+msgstr "Reservations by phone number"
+
+#: templates/main_app/base.html:251 templates/main_app/product_info.html:104
+msgid "Check Reservation Status"
+msgstr "Check Reservation Status"
+
+#: templates/main_app/base.html:262
+msgid "Feedback"
+msgstr "Feedback"
+
+#: templates/main_app/index.html:223
+msgid "Recommended Store"
+msgstr "Recommended Store"
+
+#: templates/main_app/index.html:260
+msgid "Rating"
+msgstr "Rating"
+
+#: templates/main_app/index.html:264
+msgid "Price Level"
+msgstr "Price Level"
+
+#: templates/main_app/index.html:266
+msgid "Free"
+msgstr "Free"
+
+#: templates/main_app/index.html:268
+msgid "Low"
+msgstr "Low"
+
+#: templates/main_app/index.html:270
+msgid "Medium"
+msgstr "Medium"
+
+#: templates/main_app/index.html:272
+msgid "High"
+msgstr "High"
+
+#: templates/main_app/index.html:274
+msgid "Very Expensive"
+msgstr "Very Expensive"
+
+#: templates/main_app/index.html:276
+msgid "No information"
+msgstr "No information"
+
+#: templates/main_app/index.html:280
+msgid "Make a reservation"
+msgstr "Make a reservation"
+
+#: templates/main_app/index.html:281
+msgid "Details."
+msgstr ""
+
+#: templates/main_app/index.html:315
+msgid "Latest Reservations"
+msgstr "Latest Reservations"
+
+#: templates/main_app/index.html:358
+msgid "No reservation information"
+msgstr "No reservation information"
+
 #: templates/main_app/product_info.html:10
 msgid "meta_description"
 msgstr ""
@@ -36,6 +136,11 @@ msgstr ""
 #: templates/main_app/product_info.html:11
 msgid "meta_author"
 msgstr "Quartetto Inc."
+
+#: templates/main_app/product_info.html:12
+#: templates/main_app/product_info.html:77
+msgid "Phone reservation proxy application"
+msgstr "Phone reservation proxy application"
 
 #: templates/main_app/product_info.html:36
 msgid "Sign Up"
@@ -48,10 +153,6 @@ msgstr "Sign In"
 #: templates/main_app/product_info.html:76
 msgid "Save Your Time"
 msgstr "Save Your Time"
-
-#: templates/main_app/product_info.html:77
-msgid "Phone reservation proxy application"
-msgstr "Phone reservation proxy application"
 
 #: templates/main_app/product_info.html:81
 msgid ""
@@ -80,10 +181,6 @@ msgid ""
 msgstr ""
 "You specify the restaurant you wish to reserve, and we will make the "
 "reservation over the phone on your behalf."
-
-#: templates/main_app/product_info.html:104
-msgid "Check Reservation Status"
-msgstr "Check Reservation Status"
 
 #: templates/main_app/product_info.html:105
 msgid "You can check the status and results of your phone reservations."

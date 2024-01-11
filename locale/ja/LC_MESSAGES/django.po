@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 21:18+0900\n"
+"POT-Creation-Date: 2024-01-11 23:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,106 @@ msgstr ""
 #: tely/settings.py:128
 msgid "Japanese"
 msgstr ""
+
+#: templates/main_app/base.html:80
+msgid "There is"
+msgstr "新しいお知らせが"
+
+#: templates/main_app/base.html:80
+msgid "new notification"
+msgstr "件あります"
+
+#: templates/main_app/base.html:82
+msgid "No new notices"
+msgstr "新しいお知らせはありません"
+
+#: templates/main_app/base.html:119
+msgid "View All Notices"
+msgstr "全てのお知らせを見る"
+
+#: templates/main_app/base.html:182
+msgid "User Preferences"
+msgstr "ユーザー設定"
+
+#: templates/main_app/base.html:203
+msgid "Logout"
+msgstr "ログアウト"
+
+#: templates/main_app/base.html:223
+msgid "Top"
+msgstr "トップ"
+
+#: templates/main_app/base.html:230 templates/main_app/index.html:18
+msgid "Notification"
+msgstr "お知らせ"
+
+#: templates/main_app/base.html:237
+msgid "Search for stores"
+msgstr "お店を選んで予約"
+
+#: templates/main_app/base.html:244
+msgid "Reservations by phone number"
+msgstr "電話番号を指定して予約"
+
+#: templates/main_app/base.html:251 templates/main_app/product_info.html:104
+msgid "Check Reservation Status"
+msgstr "予約状況確認"
+
+#: templates/main_app/base.html:262
+msgid "Feedback"
+msgstr "ご意見・ご感想"
+
+#: templates/main_app/index.html:223
+msgid "Recommended Store"
+msgstr "おすすめのお店"
+
+#: templates/main_app/index.html:260
+msgid "Rating"
+msgstr "評価"
+
+#: templates/main_app/index.html:264
+msgid "Price Level"
+msgstr "価格帯"
+
+#: templates/main_app/index.html:266
+msgid "Free"
+msgstr "無料"
+
+#: templates/main_app/index.html:268
+msgid "Low"
+msgstr "安価"
+
+#: templates/main_app/index.html:270
+msgid "Medium"
+msgstr "中程度"
+
+#: templates/main_app/index.html:272
+msgid "High"
+msgstr "高価"
+
+#: templates/main_app/index.html:274
+msgid "Very Expensive"
+msgstr "非常に高価"
+
+#: templates/main_app/index.html:276
+msgid "No information"
+msgstr "情報なし"
+
+#: templates/main_app/index.html:280
+msgid "Make a reservation"
+msgstr "予約する"
+
+#: templates/main_app/index.html:281
+msgid "Details."
+msgstr "詳細を見る"
+
+#: templates/main_app/index.html:315
+msgid "Latest Reservations"
+msgstr "最新の予約状況"
+
+#: templates/main_app/index.html:358
+msgid "No reservation information"
+msgstr "予約情報がありません"
 
 #: templates/main_app/product_info.html:10
 msgid "meta_description"
@@ -77,10 +177,6 @@ msgid ""
 "reservation over the phone on your behalf."
 msgstr "予約したいお店を指定すると、代理で電話予約を行います。"
 
-#: templates/main_app/product_info.html:104
-msgid "Check Reservation Status"
-msgstr "予約状況確認"
-
 #: templates/main_app/product_info.html:105
 msgid "You can check the status and results of your phone reservations."
 msgstr "電話予約の状況や結果が確認できます。"
@@ -126,3 +222,6 @@ msgstr "Telyに登録する"
 #: templates/main_app/product_info.html:147
 msgid "Quartetto Inc."
 msgstr "株式会社カルテット"
+
+#~ msgid "Low Price"
+#~ msgstr "安価"
