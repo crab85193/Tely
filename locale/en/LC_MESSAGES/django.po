@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 19:23+0900\n"
+"POT-Creation-Date: 2024-01-11 21:17+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,23 +26,34 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: templates/main_app/product_info.html:35
+#: templates/main_app/product_info.html:10
+msgid "meta_description"
+msgstr ""
+"This is the official website of Tely, a proxy application for telephone "
+"reservations. Simply select a restaurant and enter your reservation "
+"information to make a phone reservation."
+
+#: templates/main_app/product_info.html:11
+msgid "meta_author"
+msgstr "Quartetto Inc."
+
+#: templates/main_app/product_info.html:36
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: templates/main_app/product_info.html:36
+#: templates/main_app/product_info.html:37
 msgid "Login"
-msgstr "Login"
+msgstr "Sign In"
 
-#: templates/main_app/product_info.html:59
+#: templates/main_app/product_info.html:76
 msgid "Save Your Time"
 msgstr "Save Your Time"
 
-#: templates/main_app/product_info.html:60
+#: templates/main_app/product_info.html:77
 msgid "Phone reservation proxy application"
 msgstr "Phone reservation proxy application"
 
-#: templates/main_app/product_info.html:64
+#: templates/main_app/product_info.html:81
 msgid ""
 "For those of you who have trouble making phone calls. We automatically make "
 "phone reservations for you."
@@ -50,10 +61,74 @@ msgstr ""
 "For those of you who have trouble making phone calls. We automatically make "
 "phone reservations for you."
 
-#: templates/main_app/product_info.html:65
+#: templates/main_app/product_info.html:82
 msgid "Click here for the first time"
 msgstr "Click here for the first time"
 
-#: templates/main_app/product_info.html:74
+#: templates/main_app/product_info.html:91
 msgid "You can do this"
 msgstr "You can do this"
+
+#: templates/main_app/product_info.html:97
+msgid "Telephone Reservations"
+msgstr "Telephone Reservations"
+
+#: templates/main_app/product_info.html:98
+msgid ""
+"You specify the restaurant you wish to reserve, and we will make the "
+"reservation over the phone on your behalf."
+msgstr ""
+"You specify the restaurant you wish to reserve, and we will make the "
+"reservation over the phone on your behalf."
+
+#: templates/main_app/product_info.html:104
+msgid "Check Reservation Status"
+msgstr "Check Reservation Status"
+
+#: templates/main_app/product_info.html:105
+msgid "You can check the status and results of your phone reservations."
+msgstr "You can check the status and results of your phone reservations."
+
+#: templates/main_app/product_info.html:117
+msgid "It can be used in these situations"
+msgstr "It can be used in these situations"
+
+#: templates/main_app/product_info.html:119
+msgid ""
+"Want to make a reservation at a restaurant, but don't want to go through the "
+"hassle of calling."
+msgstr ""
+"Want to make a reservation at a restaurant, but don't want to go through the "
+"hassle of calling."
+
+#: templates/main_app/product_info.html:120
+msgid "Not comfortable talking on the phone"
+msgstr "Not comfortable talking on the phone"
+
+#: templates/main_app/product_info.html:121
+msgid "Not able to speak or have difficulty speaking Japanese"
+msgstr "Not able to speak or have difficulty speaking Japanese"
+
+#: templates/main_app/product_info.html:135
+msgid "Completely free during beta testing"
+msgstr "Completely free during beta testing"
+
+#: templates/main_app/product_info.html:137
+msgid ""
+"Tely, an automated phone reservation web application, is available for free "
+"during the beta test period with full functionality."
+msgstr ""
+"Tely, an automated phone reservation web application, is available for free "
+"during the beta test period with full functionality."
+
+#: templates/main_app/product_info.html:138
+msgid "Register and try it out first!"
+msgstr "Register and try it out first!"
+
+#: templates/main_app/product_info.html:139
+msgid "Sign up for Tely"
+msgstr "Sign up for Tely"
+
+#: templates/main_app/product_info.html:147
+msgid "Quartetto Inc."
+msgstr "Quartetto Inc."

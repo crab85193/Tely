@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 19:23+0900\n"
+"POT-Creation-Date: 2024-01-11 21:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,32 +26,103 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: templates/main_app/product_info.html:35
-msgid "Sign Up"
-msgstr "新規作成"
+#: templates/main_app/product_info.html:10
+msgid "meta_description"
+msgstr ""
+"電話予約の代理アプリ「Tely」の公式サイトです。お店を選んで、予約情報を入力す"
+"るだけで電話予約を行うことができます。"
 
-#: templates/main_app/product_info.html:36
-msgid "Login"
-msgstr "ログイン"
+#: templates/main_app/product_info.html:11
+msgid "meta_author"
+msgstr "株式会社カルテット"
 
-#: templates/main_app/product_info.html:59
-msgid "Save Your Time"
-msgstr "あなたの時間を節約"
-
-#: templates/main_app/product_info.html:60
+#: templates/main_app/product_info.html:12
+#: templates/main_app/product_info.html:77
 msgid "Phone reservation proxy application"
 msgstr "電話予約の代理アプリ"
 
-#: templates/main_app/product_info.html:64
+#: templates/main_app/product_info.html:36
+msgid "Sign Up"
+msgstr "新規作成"
+
+#: templates/main_app/product_info.html:37
+msgid "Login"
+msgstr "ログイン"
+
+#: templates/main_app/product_info.html:76
+msgid "Save Your Time"
+msgstr "あなたの時間を節約"
+
+#: templates/main_app/product_info.html:81
 msgid ""
 "For those of you who have trouble making phone calls. We automatically make "
 "phone reservations for you."
 msgstr "電話をかけるのが面倒なあなたへ。自動で電話予約をします。"
 
-#: templates/main_app/product_info.html:65
+#: templates/main_app/product_info.html:82
 msgid "Click here for the first time"
 msgstr "初めての方はこちら"
 
-#: templates/main_app/product_info.html:74
+#: templates/main_app/product_info.html:91
 msgid "You can do this"
 msgstr "こんなことができます"
+
+#: templates/main_app/product_info.html:97
+msgid "Telephone Reservations"
+msgstr "電話予約"
+
+#: templates/main_app/product_info.html:98
+msgid ""
+"You specify the restaurant you wish to reserve, and we will make the "
+"reservation over the phone on your behalf."
+msgstr "予約したいお店を指定すると、代理で電話予約を行います。"
+
+#: templates/main_app/product_info.html:104
+msgid "Check Reservation Status"
+msgstr "予約状況確認"
+
+#: templates/main_app/product_info.html:105
+msgid "You can check the status and results of your phone reservations."
+msgstr "電話予約の状況や結果が確認できます。"
+
+#: templates/main_app/product_info.html:117
+msgid "It can be used in these situations"
+msgstr "こんな時に使える"
+
+#: templates/main_app/product_info.html:119
+msgid ""
+"Want to make a reservation at a restaurant, but don't want to go through the "
+"hassle of calling."
+msgstr "飲食店へ予約したいが、電話する手間を省きたい"
+
+#: templates/main_app/product_info.html:120
+msgid "Not comfortable talking on the phone"
+msgstr "電話で話すことが苦手"
+
+#: templates/main_app/product_info.html:121
+msgid "Not able to speak or have difficulty speaking Japanese"
+msgstr "日本語を話せない・話すのが苦手"
+
+#: templates/main_app/product_info.html:135
+msgid "Completely free during beta testing"
+msgstr "βテスト期間中は完全無料"
+
+#: templates/main_app/product_info.html:137
+msgid ""
+"Tely, an automated phone reservation web application, is available for free "
+"during the beta test period with full functionality."
+msgstr ""
+"自動電話予約WebアプリTelyは、βテスト期間中、全機能を無料で使用することができ"
+"ます。"
+
+#: templates/main_app/product_info.html:138
+msgid "Register and try it out first!"
+msgstr "まずは登録して試してみましょう！"
+
+#: templates/main_app/product_info.html:139
+msgid "Sign up for Tely"
+msgstr "Telyに登録する"
+
+#: templates/main_app/product_info.html:147
+msgid "Quartetto Inc."
+msgstr "株式会社カルテット"
