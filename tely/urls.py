@@ -17,7 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-urlpatterns = [
+from django.conf.urls.i18n import i18n_patterns
+
+urlpatterns = i18n_patterns(
     path("", include("main_app.urls")),
     path("admin/", admin.site.urls),
-]
+    path('i18n/', include('django.conf.urls.i18n')),
+    prefix_default_language=False,
+)

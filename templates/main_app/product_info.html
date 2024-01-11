@@ -1,4 +1,6 @@
 {% load static %}
+{% load tags %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -10,6 +12,8 @@
         <title>Tely</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'product_info/img/Tely_logo_3.png' %}" />
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -29,8 +33,39 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'main_app:register_request' %}">新規登録</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'main_app:login' %}">ログイン</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'main_app:register_request' %}">{% trans 'Sign Up' %}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'main_app:login' %}">{% trans 'Login' %}</a></li>
+                        <li class="nav-item dropdown">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {% if request.LANGUAGE_CODE == 'en' %}
+                                🇺🇸 EN
+                                {% else %}
+                                🇯🇵 JP
+                                {% endif %}
+                            </a>
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <ul class="dropdown-menu">
+                                    {% for language in languages %}
+                                    <li>
+                                        <button class="dropdown-item d-flex align-items-center" type="submit" name="language" value="{{ language.code }}">
+                                            {% if language.code == 'en' %}
+                                            🇺🇸
+                                            {% else %}
+                                            🇯🇵
+                                            {% endif %}
+                                            {{ language.name_local }}
+                                        </button>
+                                    </li>
+                                    {% endfor %}
+                              {% comment %} <li><a class="dropdown-item" href="/">🇯🇵 日本語</a></li>
+                              <li><a class="dropdown-item" href="en/">🇺🇸 English</a></li> {% endcomment %}
+                                </ul>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,13 +75,13 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">あなたの時間を節約</h1>
-                        <h1 class="text-white font-weight-bold">電話予約の代理アプリ Tely</h1>
+                        <h1 class="text-white font-weight-bold">{% trans 'Save Your Time' %}</h1>
+                        <h1 class="text-white font-weight-bold">{% trans 'Phone reservation proxy application' %} Tely</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">電話をかけるのが面倒なあなたへ。自動で電話予約をします。</p>
-                        <a class="btn btn-primary btn-xl" href="{% url 'main_app:register_request' %}">初めての方はこちら</a>
+                        <p class="text-white-75 mb-5">{% trans 'For those of you who have trouble making phone calls. We automatically make phone reservations for you.' %}</p>
+                        <a class="btn btn-primary btn-xl" href="{% url 'main_app:register_request' %}">{% trans 'Click here for the first time' %}</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +90,7 @@
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">こんなことができます</h2>
+                <h2 class="text-center mt-0">{% trans 'You can do this' %}</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-6 col-md-6 text-center">
@@ -113,7 +148,7 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - 株式会社カルテット</div></div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
