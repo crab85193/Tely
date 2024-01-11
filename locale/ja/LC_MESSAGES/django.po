@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-03 01:56+0900\n"
+"POT-Creation-Date: 2024-01-05 19:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,28 +26,32 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: templates/main_app/product_info.html:33
+#: templates/main_app/product_info.html:35
 msgid "Sign Up"
 msgstr "新規作成"
 
-#: templates/main_app/product_info.html:34
+#: templates/main_app/product_info.html:36
 msgid "Login"
 msgstr "ログイン"
 
-#: templates/main_app/product_info.html:44
+#: templates/main_app/product_info.html:59
 msgid "Save Your Time"
 msgstr "あなたの時間を節約"
 
-#: templates/main_app/product_info.html:45
+#: templates/main_app/product_info.html:60
 msgid "Phone reservation proxy application"
 msgstr "電話予約の代理アプリ"
 
-#: templates/main_app/product_info.html:49
+#: templates/main_app/product_info.html:64
 msgid ""
 "For those of you who have trouble making phone calls. We automatically make "
 "phone reservations for you."
 msgstr "電話をかけるのが面倒なあなたへ。自動で電話予約をします。"
 
-#: templates/main_app/product_info.html:50
+#: templates/main_app/product_info.html:65
 msgid "Click here for the first time"
 msgstr "初めての方はこちら"
+
+#: templates/main_app/product_info.html:74
+msgid "You can do this"
+msgstr "こんなことができます"

@@ -1,5 +1,6 @@
 {% load static %}
 {% load tags %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -120,6 +121,42 @@
             </ul><!-- End Notification Dropdown Items -->
   
           </li><!-- End Notification Nav -->
+
+          <li class="nav-item dropdown pe-3">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+              {% if request.LANGUAGE_CODE == 'en' %}
+              🇺🇸 EN
+              {% else %}
+              🇯🇵 JP
+              {% endif %}
+            </a>
+            <form action="{% url 'set_language' %}" method="post">
+              {% csrf_token %}
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                {% for language in languages %}
+                <li>
+                  <button class="dropdown-item d-flex align-items-center" type="submit" name="language" value="{{ language.code }}">
+                    {% if language.code == 'en' %}
+                    🇺🇸
+                    {% else %}
+                    🇯🇵
+                    {% endif %}
+                    {{ language.name_local }}
+                  </button>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                {% endfor %}
+              </ul>
+            </form>
+          </li>
   
           <li class="nav-item dropdown pe-3">
   
@@ -213,7 +250,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="https://docs.google.com/forms/d/e/1FAIpQLScUG6hIiJLbrS33InnnmxlvIcO9ZdWUQ20xkR7icwl5NNFR_A/viewform" target="_blank" rel="noopener noreferrer">
+          {% if request.LANGUAGE_CODE == 'en' %}
+          <a class="nav-link collapsed" href="https://forms.gle/nXZ2ytDnZBajycvX8" target="_blank" rel="noopener noreferrer">
+          {% else %}
+          <a class="nav-link collapsed" href="https://forms.gle/yssR6yZF4n6uhFCZ7" target="_blank" rel="noopener noreferrer">
+          {% endif %}
             <i class="bi bi-envelope"></i>
             <span>ご意見・ご感想</span>
           </a>
