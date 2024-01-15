@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 16:28+0900\n"
+"POT-Creation-Date: 2024-01-15 16:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,9 @@ msgstr "新しいお知らせはありません"
 msgid "View All Notices"
 msgstr "全てのお知らせを見る"
 
-#: templates/main_app/base.html:183
+#: templates/main_app/base.html:183 templates/main_app/user-settings.html:6
+#: templates/main_app/user-settings.html:11
+#: templates/main_app/user-settings.html:15
 msgid "User Preferences"
 msgstr "ユーザー設定"
 
@@ -76,7 +78,7 @@ msgstr "ユーザー設定"
 msgid "Logout"
 msgstr "ログアウト"
 
-#: templates/main_app/base.html:224
+#: templates/main_app/base.html:224 templates/main_app/user-settings.html:14
 msgid "Top"
 msgstr "トップ"
 
@@ -262,5 +264,60 @@ msgstr "Telyに登録する"
 msgid "Quartetto Inc."
 msgstr "株式会社カルテット"
 
-#~ msgid "Low Price"
-#~ msgstr "安価"
+#: templates/main_app/user-settings.html:55
+msgid "Profile Information"
+msgstr "プロフィール情報"
+
+#: templates/main_app/user-settings.html:59
+msgid "Edit"
+msgstr "編集"
+
+#: templates/main_app/user-settings.html:63
+msgid "Change Password"
+msgstr "パスワード変更"
+
+#: templates/main_app/user-settings.html:70
+msgid "Profile"
+msgstr "プロフィール"
+
+#: templates/main_app/user-settings.html:73
+#: templates/main_app/user-settings.html:110
+msgid "User Name"
+msgstr "ユーザー名"
+
+#: templates/main_app/user-settings.html:78
+#: templates/main_app/user-settings.html:117
+msgid "Email Address"
+msgstr "メールアドレス"
+
+#: templates/main_app/user-settings.html:83
+msgid "User Category"
+msgstr "ユーザー分類"
+
+#: templates/main_app/user-settings.html:86
+msgid "Administrator"
+msgstr "管理者"
+
+#: templates/main_app/user-settings.html:88
+msgid "Staff User"
+msgstr "運営ユーザー"
+
+#: templates/main_app/user-settings.html:90
+msgid "General User"
+msgstr "一般ユーザー"
+
+#: templates/main_app/user-settings.html:92
+msgid "Unclassified"
+msgstr "分類なし"
+
+#: templates/main_app/user-settings.html:98
+msgid "Management ID"
+msgstr "管理ID"
+
+#: templates/main_app/user-settings.html:124
+msgid "Save"
+msgstr "保存"
+
+#: templates/main_app/user-settings.html:134
+msgid "Click here to change your password"
+msgstr "パスワード変更はこちらから"

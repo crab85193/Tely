@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 16:28+0900\n"
+"POT-Creation-Date: 2024-01-15 16:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,9 @@ msgstr "No new notices"
 msgid "View All Notices"
 msgstr "View All Notices"
 
-#: templates/main_app/base.html:183
+#: templates/main_app/base.html:183 templates/main_app/user-settings.html:6
+#: templates/main_app/user-settings.html:11
+#: templates/main_app/user-settings.html:15
 msgid "User Preferences"
 msgstr "User Preferences"
 
@@ -79,7 +81,7 @@ msgstr "User Preferences"
 msgid "Logout"
 msgstr "Logout"
 
-#: templates/main_app/base.html:224
+#: templates/main_app/base.html:224 templates/main_app/user-settings.html:14
 msgid "Top"
 msgstr "Top"
 
@@ -270,3 +272,61 @@ msgstr "Sign up for Tely"
 #: templates/main_app/product_info.html:147
 msgid "Quartetto Inc."
 msgstr "Quartetto Inc."
+
+#: templates/main_app/user-settings.html:55
+msgid "Profile Information"
+msgstr "Profile Information"
+
+#: templates/main_app/user-settings.html:59
+msgid "Edit"
+msgstr "Edit"
+
+#: templates/main_app/user-settings.html:63
+msgid "Change Password"
+msgstr "Change Password"
+
+#: templates/main_app/user-settings.html:70
+msgid "Profile"
+msgstr "Profile"
+
+#: templates/main_app/user-settings.html:73
+#: templates/main_app/user-settings.html:110
+msgid "User Name"
+msgstr "User Name"
+
+#: templates/main_app/user-settings.html:78
+#: templates/main_app/user-settings.html:117
+msgid "Email Address"
+msgstr "Email Address"
+
+#: templates/main_app/user-settings.html:83
+msgid "User Category"
+msgstr "User Category"
+
+#: templates/main_app/user-settings.html:86
+msgid "Administrator"
+msgstr "Administrator"
+
+#: templates/main_app/user-settings.html:88
+msgid "Staff User"
+msgstr "Staff User"
+
+#: templates/main_app/user-settings.html:90
+msgid "General User"
+msgstr "General User"
+
+#: templates/main_app/user-settings.html:92
+msgid "Unclassified"
+msgstr "Unclassified"
+
+#: templates/main_app/user-settings.html:98
+msgid "Management ID"
+msgstr "Management ID"
+
+#: templates/main_app/user-settings.html:124
+msgid "Save"
+msgstr "Save"
+
+#: templates/main_app/user-settings.html:134
+msgid "Click here to change your password"
+msgstr "Click here to change your password"
