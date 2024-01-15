@@ -1,8 +1,9 @@
 {% extends 'main_app/register/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-アカウント登録
+{% trans "Register an account" %}
 {% endblock%}
 
 {% block main %}
@@ -25,8 +26,8 @@
             <div class="card-body">
 
               <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">新規アカウント作成</h5>
-                <p class="text-center small">必要事項を入力してください</p>
+                <h5 class="card-title text-center pb-0 fs-4">{% trans "Create a new account" %}</h5>
+                <p class="text-center small">{% trans "Please fill in the required fields" %}</p>
               </div>
 
               <form class="row g-3 needs-validation" method="POST">
@@ -48,10 +49,10 @@
                 </div>
                 {% endfor %}
                 <div class="col-12">
-                  <button class="btn btn-primary w-100" type="submit">新規アカウントを作成する</button>
+                  <button class="btn btn-primary w-100" type="submit">{% trans "Create a new account" %}</button>
                 </div>
                 <div class="col-12">
-                  <p class="small mb-0"><a href="{% url 'main_app:login' %}">ログインページへ</a></p>
+                  <p class="small mb-0"><a href="{% url 'main_app:login' %}">{% trans "Go to login page" %}</a></p>
                 </div>
               </form>
             </div>

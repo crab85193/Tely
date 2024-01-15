@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 17:55+0900\n"
+"POT-Creation-Date: 2024-01-15 18:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,6 +199,10 @@ msgstr "Thank you for using Tely."
 #: templates/main_app/password_forgot/password_forgot.html:55
 #: templates/main_app/password_forgot/password_forgot_done.html:44
 #: templates/main_app/password_forgot/password_reset_complete.html:36
+#: templates/main_app/register/register-complete.html:35
+#: templates/main_app/register/register-done.html:46
+#: templates/main_app/register/register-error.html:35
+#: templates/main_app/register/register-request.html:55
 msgid "Go to login page"
 msgstr "Go to login page"
 
@@ -225,6 +229,7 @@ msgstr "Back to User Preferences"
 
 #: templates/main_app/password_change/password_change_done.html:6
 #: templates/main_app/password_forgot/password_reset_complete.html:6
+#: templates/main_app/register/register-complete.html:6
 msgid "Complete"
 msgstr "Complete"
 
@@ -260,18 +265,22 @@ msgid "Send a password reset email"
 msgstr "Send a password reset email"
 
 #: templates/main_app/password_forgot/password_forgot_done.html:6
+#: templates/main_app/register/register-done.html:6
 msgid "E-mail transmission complete"
 msgstr "E-mail transmission complete"
 
 #: templates/main_app/password_forgot/password_forgot_done.html:36
+#: templates/main_app/register/register-done.html:36
 msgid "Please check your e-mail"
 msgstr "Please check your e-mail"
 
 #: templates/main_app/password_forgot/password_forgot_done.html:37
+#: templates/main_app/register/register-done.html:37
 msgid "Authentication email has been sent. Please check your e-mail."
 msgstr "Authentication email has been sent. Please check your e-mail."
 
 #: templates/main_app/password_forgot/password_forgot_done.html:38
+#: templates/main_app/register/register-done.html:38
 msgid ""
 "If you do not receive the email, please check to see if it is in your junk "
 "mail."
@@ -288,6 +297,7 @@ msgid "Password reset completed."
 msgstr "Password reset completed."
 
 #: templates/main_app/password_forgot/password_reset_complete.html:31
+#: templates/main_app/register/register-complete.html:30
 msgid "Please click the button below to go to the login page."
 msgstr "Please click the button below to go to the login page."
 
@@ -379,6 +389,35 @@ msgstr "Sign up for Tely"
 #: templates/main_app/product_info.html:147
 msgid "Quartetto Inc."
 msgstr "Quartetto Inc."
+
+#: templates/main_app/register/register-complete.html:6
+#: templates/main_app/register/register-done.html:6
+#: templates/main_app/register/register-error.html:6
+#: templates/main_app/register/register-request.html:6
+msgid "Register an account"
+msgstr "Register an account"
+
+#: templates/main_app/register/register-complete.html:29
+msgid "Your account has been created."
+msgstr "Your account has been created."
+
+#: templates/main_app/register/register-done.html:49
+msgid "Resend email"
+msgstr "Resend email"
+
+#: templates/main_app/register/register-error.html:6
+#: templates/main_app/register/register-error.html:29
+msgid "Error"
+msgstr "Error"
+
+#: templates/main_app/register/register-request.html:29
+#: templates/main_app/register/register-request.html:52
+msgid "Create a new account"
+msgstr "Create a new account"
+
+#: templates/main_app/register/register-request.html:30
+msgid "Please fill in the required fields"
+msgstr "Please fill in the required fields"
 
 #: templates/main_app/user-settings.html:55
 msgid "Profile Information"

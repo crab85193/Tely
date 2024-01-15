@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 17:54+0900\n"
+"POT-Creation-Date: 2024-01-15 18:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,6 +196,10 @@ msgstr "ご利用ありがとうございました"
 #: templates/main_app/password_forgot/password_forgot.html:55
 #: templates/main_app/password_forgot/password_forgot_done.html:44
 #: templates/main_app/password_forgot/password_reset_complete.html:36
+#: templates/main_app/register/register-complete.html:35
+#: templates/main_app/register/register-done.html:46
+#: templates/main_app/register/register-error.html:35
+#: templates/main_app/register/register-request.html:55
 msgid "Go to login page"
 msgstr "ログインページへ"
 
@@ -207,7 +211,7 @@ msgstr "お知らせ一覧"
 #: templates/main_app/password_change/password_change.html:29
 #: templates/main_app/password_change/password_change.html:60
 #: templates/main_app/password_change/password_change_done.html:6
-#: templates/main_app/password_forgot/password_reset_confirm.html:51
+#: templates/main_app/password_forgot/password_reset_confirm.html:52
 #: templates/main_app/user-settings.html:63
 msgid "Change Password"
 msgstr "パスワード変更"
@@ -222,6 +226,7 @@ msgstr "ユーザー設定へ戻る"
 
 #: templates/main_app/password_change/password_change_done.html:6
 #: templates/main_app/password_forgot/password_reset_complete.html:6
+#: templates/main_app/register/register-complete.html:6
 msgid "Complete"
 msgstr "完了"
 
@@ -241,8 +246,8 @@ msgstr "トップページへ"
 #: templates/main_app/password_forgot/password_forgot.html:29
 #: templates/main_app/password_forgot/password_forgot_done.html:6
 #: templates/main_app/password_forgot/password_reset_complete.html:6
-#: templates/main_app/password_forgot/password_reset_confirm.html:5
-#: templates/main_app/password_forgot/password_reset_confirm.html:28
+#: templates/main_app/password_forgot/password_reset_confirm.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:29
 msgid "Password Reset"
 msgstr "パスワード再設定"
 
@@ -256,18 +261,22 @@ msgid "Send a password reset email"
 msgstr "パスワード再設定メールを送信する"
 
 #: templates/main_app/password_forgot/password_forgot_done.html:6
+#: templates/main_app/register/register-done.html:6
 msgid "E-mail transmission complete"
 msgstr "メール送信完了"
 
 #: templates/main_app/password_forgot/password_forgot_done.html:36
+#: templates/main_app/register/register-done.html:36
 msgid "Please check your e-mail"
 msgstr "メールをご確認ください"
 
 #: templates/main_app/password_forgot/password_forgot_done.html:37
+#: templates/main_app/register/register-done.html:37
 msgid "Authentication email has been sent. Please check your e-mail."
 msgstr "認証メールを送信しました。メールをご確認ください。"
 
 #: templates/main_app/password_forgot/password_forgot_done.html:38
+#: templates/main_app/register/register-done.html:38
 msgid ""
 "If you do not receive the email, please check to see if it is in your junk "
 "mail."
@@ -282,10 +291,11 @@ msgid "Password reset completed."
 msgstr "パスワード再設定が完了しました。"
 
 #: templates/main_app/password_forgot/password_reset_complete.html:31
+#: templates/main_app/register/register-complete.html:30
 msgid "Please click the button below to go to the login page."
 msgstr "下のボタンからログインページへ移動してください。"
 
-#: templates/main_app/password_forgot/password_reset_confirm.html:29
+#: templates/main_app/password_forgot/password_reset_confirm.html:30
 msgid "Please set a new password"
 msgstr "新しいパスワードを設定してください"
 
@@ -367,6 +377,35 @@ msgstr "Telyに登録する"
 #: templates/main_app/product_info.html:147
 msgid "Quartetto Inc."
 msgstr "株式会社カルテット"
+
+#: templates/main_app/register/register-complete.html:6
+#: templates/main_app/register/register-done.html:6
+#: templates/main_app/register/register-error.html:6
+#: templates/main_app/register/register-request.html:6
+msgid "Register an account"
+msgstr "アカウント登録"
+
+#: templates/main_app/register/register-complete.html:29
+msgid "Your account has been created."
+msgstr "アカウント作成が完了しました"
+
+#: templates/main_app/register/register-done.html:49
+msgid "Resend email"
+msgstr "メールを再送する"
+
+#: templates/main_app/register/register-error.html:6
+#: templates/main_app/register/register-error.html:29
+msgid "Error"
+msgstr "エラー"
+
+#: templates/main_app/register/register-request.html:29
+#: templates/main_app/register/register-request.html:52
+msgid "Create a new account"
+msgstr "新規アカウント作成"
+
+#: templates/main_app/register/register-request.html:30
+msgid "Please fill in the required fields"
+msgstr "必要事項を入力してください"
 
 #: templates/main_app/user-settings.html:55
 msgid "Profile Information"
