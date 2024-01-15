@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 23:03+0900\n"
+"POT-Creation-Date: 2024-01-11 23:40+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,51 +26,63 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: templates/main_app/base.html:80
+#: templates/main_app/base.html:13 templates/main_app/login/base.html:12
+#: templates/main_app/product_info.html:10
+msgid "meta_description"
+msgstr ""
+"電話予約の代理アプリ「Tely」の公式サイトです。お店を選んで、予約情報を入力す"
+"るだけで電話予約を行うことができます。"
+
+#: templates/main_app/base.html:14 templates/main_app/login/base.html:13
+#: templates/main_app/product_info.html:11
+msgid "meta_author"
+msgstr "株式会社カルテット"
+
+#: templates/main_app/base.html:81
 msgid "There is"
 msgstr "新しいお知らせが"
 
-#: templates/main_app/base.html:80
+#: templates/main_app/base.html:81
 msgid "new notification"
 msgstr "件あります"
 
-#: templates/main_app/base.html:82
+#: templates/main_app/base.html:83
 msgid "No new notices"
 msgstr "新しいお知らせはありません"
 
-#: templates/main_app/base.html:119
+#: templates/main_app/base.html:120
 msgid "View All Notices"
 msgstr "全てのお知らせを見る"
 
-#: templates/main_app/base.html:182
+#: templates/main_app/base.html:183
 msgid "User Preferences"
 msgstr "ユーザー設定"
 
-#: templates/main_app/base.html:203
+#: templates/main_app/base.html:204 templates/main_app/login/logout.html:6
 msgid "Logout"
 msgstr "ログアウト"
 
-#: templates/main_app/base.html:223
+#: templates/main_app/base.html:224
 msgid "Top"
 msgstr "トップ"
 
-#: templates/main_app/base.html:230 templates/main_app/index.html:18
+#: templates/main_app/base.html:231 templates/main_app/index.html:18
 msgid "Notification"
 msgstr "お知らせ"
 
-#: templates/main_app/base.html:237
+#: templates/main_app/base.html:238
 msgid "Search for stores"
 msgstr "お店を選んで予約"
 
-#: templates/main_app/base.html:244
+#: templates/main_app/base.html:245
 msgid "Reservations by phone number"
 msgstr "電話番号を指定して予約"
 
-#: templates/main_app/base.html:251 templates/main_app/product_info.html:104
+#: templates/main_app/base.html:252 templates/main_app/product_info.html:104
 msgid "Check Reservation Status"
 msgstr "予約状況確認"
 
-#: templates/main_app/base.html:262
+#: templates/main_app/base.html:263
 msgid "Feedback"
 msgstr "ご意見・ご感想"
 
@@ -126,28 +138,41 @@ msgstr "最新の予約状況"
 msgid "No reservation information"
 msgstr "予約情報がありません"
 
-#: templates/main_app/product_info.html:10
-msgid "meta_description"
-msgstr ""
-"電話予約の代理アプリ「Tely」の公式サイトです。お店を選んで、予約情報を入力す"
-"るだけで電話予約を行うことができます。"
+#: templates/main_app/login/login.html:6 templates/main_app/login/login.html:29
+#: templates/main_app/login/login.html:57
+#: templates/main_app/product_info.html:37
+msgid "Login"
+msgstr "ログイン"
 
-#: templates/main_app/product_info.html:11
-msgid "meta_author"
-msgstr "株式会社カルテット"
+#: templates/main_app/login/login.html:30
+msgid "Please enter your username and password to login"
+msgstr "ユーザー名とパスワードを入力してログインしてください"
+
+#: templates/main_app/login/login.html:60
+#: templates/main_app/product_info.html:36
+msgid "Sign Up"
+msgstr "新規作成"
+
+#: templates/main_app/login/login.html:63
+msgid "Forgot your password?"
+msgstr "パスワードを忘れた場合"
+
+#: templates/main_app/login/logout.html:29
+msgid "Logout completed"
+msgstr "ログアウトが完了しました"
+
+#: templates/main_app/login/logout.html:30
+msgid "Thank you for using Tely."
+msgstr "ご利用ありがとうございました"
+
+#: templates/main_app/login/logout.html:35
+msgid "Go to login page"
+msgstr "ログインページへ"
 
 #: templates/main_app/product_info.html:12
 #: templates/main_app/product_info.html:77
 msgid "Phone reservation proxy application"
 msgstr "電話予約の代理アプリ"
-
-#: templates/main_app/product_info.html:36
-msgid "Sign Up"
-msgstr "新規作成"
-
-#: templates/main_app/product_info.html:37
-msgid "Login"
-msgstr "ログイン"
 
 #: templates/main_app/product_info.html:76
 msgid "Save Your Time"

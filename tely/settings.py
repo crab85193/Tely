@@ -157,8 +157,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Login Settings
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/top/'
-LOGOUT_REDIRECT_URL='/logout/'
+LOGIN_REDIRECT_URL = '/login/redirect/'
+# LOGOUT_REDIRECT_URL='/logout/'
 
 # Email Authentication
 EMAIL_HOST = os.environ.get("EMAIL_HOST")

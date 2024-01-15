@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.urls import path
 from .views.product_info import ProductInfoView
-from .views.login import LoginView
+from .views.login import LoginView, LoginRedirectView
 from .views.logout import Logout
 from .views.register import RegisterRequestView, RegisterDoneView, RegisterCompleteView, RegisterErrorView
 from .views.password_forgot  import PasswordForgotView, PasswordForgotDoneView, PasswordResetConfirmView, PasswordResetCompleteView
@@ -41,6 +41,7 @@ urlpatterns = [
     path("", ProductInfoView.as_view(), name="product_info" ),
 
     path("login/" , LoginView.as_view(), name="login" ),
+    path('login/redirect/', LoginRedirectView.as_view(), name='login_redirect'),
     path("logout/", Logout.as_view()   , name="logout"),
 
     path("register/"                             , RegisterRequestView.as_view() , name="register_request" ),
