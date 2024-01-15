@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 23:40+0900\n"
+"POT-Creation-Date: 2024-01-15 16:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,22 @@ msgstr ""
 #: tely/settings.py:128
 msgid "Japanese"
 msgstr ""
+
+#: templates/403.html:14 templates/500.html:13
+msgid "The page you tried to access could not be displayed"
+msgstr "The page you tried to access could not be displayed"
+
+#: templates/404.html:13
+msgid "Page not found"
+msgstr "Page not found"
+
+#: templates/503.html:13
+msgid ""
+"The site is under maintenance. Please wait until the maintenance is "
+"completed."
+msgstr ""
+"The site is under maintenance. Please wait until the maintenance is "
+"completed."
 
 #: templates/main_app/base.html:13 templates/main_app/login/base.html:12
 #: templates/main_app/product_info.html:10
@@ -129,7 +145,7 @@ msgstr "Make a reservation"
 
 #: templates/main_app/index.html:281
 msgid "Details."
-msgstr ""
+msgstr "Details."
 
 #: templates/main_app/index.html:315
 msgid "Latest Reservations"
@@ -147,7 +163,7 @@ msgstr "Sign In"
 
 #: templates/main_app/login/login.html:30
 msgid "Please enter your username and password to login"
-msgstr ""
+msgstr "Please enter your username and password to login"
 
 #: templates/main_app/login/login.html:60
 #: templates/main_app/product_info.html:36
@@ -156,19 +172,19 @@ msgstr "Sign Up"
 
 #: templates/main_app/login/login.html:63
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Forgot your password?"
 
 #: templates/main_app/login/logout.html:29
 msgid "Logout completed"
-msgstr ""
+msgstr "Logout completed"
 
 #: templates/main_app/login/logout.html:30
 msgid "Thank you for using Tely."
-msgstr ""
+msgstr "Thank you for using Tely."
 
 #: templates/main_app/login/logout.html:35
 msgid "Go to login page"
-msgstr ""
+msgstr "Go to login page"
 
 #: templates/main_app/product_info.html:12
 #: templates/main_app/product_info.html:77
