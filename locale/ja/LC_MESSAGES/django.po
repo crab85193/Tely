@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 17:05+0900\n"
+"POT-Creation-Date: 2024-01-15 17:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,6 +193,9 @@ msgid "Thank you for using Tely."
 msgstr "ご利用ありがとうございました"
 
 #: templates/main_app/login/logout.html:35
+#: templates/main_app/password_forgot/password_forgot.html:55
+#: templates/main_app/password_forgot/password_forgot_done.html:44
+#: templates/main_app/password_forgot/password_reset_complete.html:36
 msgid "Go to login page"
 msgstr "ログインページへ"
 
@@ -200,23 +203,25 @@ msgstr "ログインページへ"
 msgid "List of Notifications"
 msgstr "お知らせ一覧"
 
-#: templates/main_app/password_change/password_change.html:5
-#: templates/main_app/password_change/password_change.html:28
-#: templates/main_app/password_change/password_change.html:59
+#: templates/main_app/password_change/password_change.html:6
+#: templates/main_app/password_change/password_change.html:29
+#: templates/main_app/password_change/password_change.html:60
 #: templates/main_app/password_change/password_change_done.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:51
 #: templates/main_app/user-settings.html:63
 msgid "Change Password"
 msgstr "パスワード変更"
 
-#: templates/main_app/password_change/password_change.html:29
+#: templates/main_app/password_change/password_change.html:30
 msgid "Please enter your current and new passwords"
 msgstr "現在のパスワードと新しいパスワードを入力してください"
 
-#: templates/main_app/password_change/password_change.html:63
+#: templates/main_app/password_change/password_change.html:64
 msgid "Back to User Preferences"
 msgstr "ユーザー設定へ戻る"
 
 #: templates/main_app/password_change/password_change_done.html:6
+#: templates/main_app/password_forgot/password_reset_complete.html:6
 msgid "Complete"
 msgstr "完了"
 
@@ -231,6 +236,58 @@ msgstr "パスワードの変更が完了しました。"
 #: templates/main_app/password_change/password_change_done.html:35
 msgid "Go to Top Page"
 msgstr "トップページへ"
+
+#: templates/main_app/password_forgot/password_forgot.html:6
+#: templates/main_app/password_forgot/password_forgot.html:29
+#: templates/main_app/password_forgot/password_forgot_done.html:6
+#: templates/main_app/password_forgot/password_reset_complete.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:5
+#: templates/main_app/password_forgot/password_reset_confirm.html:28
+msgid "Password Reset"
+msgstr "パスワード再設定"
+
+#: templates/main_app/password_forgot/password_forgot.html:30
+msgid ""
+"Please enter the email address you used when you registered your account"
+msgstr "アカウント登録時に使用したメールアドレスを入力してください"
+
+#: templates/main_app/password_forgot/password_forgot.html:52
+msgid "Send a password reset email"
+msgstr "パスワード再設定メールを送信する"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:6
+msgid "E-mail transmission complete"
+msgstr "メール送信完了"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:36
+msgid "Please check your e-mail"
+msgstr "メールをご確認ください"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:37
+msgid "Authentication email has been sent. Please check your e-mail."
+msgstr "認証メールを送信しました。メールをご確認ください。"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:38
+msgid ""
+"If you do not receive the email, please check to see if it is in your junk "
+"mail."
+msgstr "メールが届かない場合、迷惑メールに入っていないか確認してください。"
+
+#: templates/main_app/password_forgot/password_reset_complete.html:29
+msgid "Password Reset Completed"
+msgstr "パスワード再設定が完了しました"
+
+#: templates/main_app/password_forgot/password_reset_complete.html:30
+msgid "Password reset completed."
+msgstr "パスワード再設定が完了しました。"
+
+#: templates/main_app/password_forgot/password_reset_complete.html:31
+msgid "Please click the button below to go to the login page."
+msgstr "下のボタンからログインページへ移動してください。"
+
+#: templates/main_app/password_forgot/password_reset_confirm.html:29
+msgid "Please set a new password"
+msgstr "新しいパスワードを設定してください"
 
 #: templates/main_app/product_info.html:12
 #: templates/main_app/product_info.html:77

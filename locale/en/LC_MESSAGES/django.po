@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 17:05+0900\n"
+"POT-Creation-Date: 2024-01-15 17:55+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,6 +196,9 @@ msgid "Thank you for using Tely."
 msgstr "Thank you for using Tely."
 
 #: templates/main_app/login/logout.html:35
+#: templates/main_app/password_forgot/password_forgot.html:55
+#: templates/main_app/password_forgot/password_forgot_done.html:44
+#: templates/main_app/password_forgot/password_reset_complete.html:36
 msgid "Go to login page"
 msgstr "Go to login page"
 
@@ -203,23 +206,25 @@ msgstr "Go to login page"
 msgid "List of Notifications"
 msgstr "List of Notifications"
 
-#: templates/main_app/password_change/password_change.html:5
-#: templates/main_app/password_change/password_change.html:28
-#: templates/main_app/password_change/password_change.html:59
+#: templates/main_app/password_change/password_change.html:6
+#: templates/main_app/password_change/password_change.html:29
+#: templates/main_app/password_change/password_change.html:60
 #: templates/main_app/password_change/password_change_done.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:52
 #: templates/main_app/user-settings.html:63
 msgid "Change Password"
 msgstr "Change Password"
 
-#: templates/main_app/password_change/password_change.html:29
+#: templates/main_app/password_change/password_change.html:30
 msgid "Please enter your current and new passwords"
 msgstr "Please enter your current and new passwords"
 
-#: templates/main_app/password_change/password_change.html:63
+#: templates/main_app/password_change/password_change.html:64
 msgid "Back to User Preferences"
 msgstr "Back to User Preferences"
 
 #: templates/main_app/password_change/password_change_done.html:6
+#: templates/main_app/password_forgot/password_reset_complete.html:6
 msgid "Complete"
 msgstr "Complete"
 
@@ -234,6 +239,61 @@ msgstr "Password change has been completed."
 #: templates/main_app/password_change/password_change_done.html:35
 msgid "Go to Top Page"
 msgstr "Go to Top Page"
+
+#: templates/main_app/password_forgot/password_forgot.html:6
+#: templates/main_app/password_forgot/password_forgot.html:29
+#: templates/main_app/password_forgot/password_forgot_done.html:6
+#: templates/main_app/password_forgot/password_reset_complete.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:29
+msgid "Password Reset"
+msgstr "Password Reset"
+
+#: templates/main_app/password_forgot/password_forgot.html:30
+msgid ""
+"Please enter the email address you used when you registered your account"
+msgstr ""
+"Please enter the email address you used when you registered your account"
+
+#: templates/main_app/password_forgot/password_forgot.html:52
+msgid "Send a password reset email"
+msgstr "Send a password reset email"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:6
+msgid "E-mail transmission complete"
+msgstr "E-mail transmission complete"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:36
+msgid "Please check your e-mail"
+msgstr "Please check your e-mail"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:37
+msgid "Authentication email has been sent. Please check your e-mail."
+msgstr "Authentication email has been sent. Please check your e-mail."
+
+#: templates/main_app/password_forgot/password_forgot_done.html:38
+msgid ""
+"If you do not receive the email, please check to see if it is in your junk "
+"mail."
+msgstr ""
+"If you do not receive the email, please check to see if it is in your junk "
+"mail."
+
+#: templates/main_app/password_forgot/password_reset_complete.html:29
+msgid "Password Reset Completed"
+msgstr "Password Reset Completed"
+
+#: templates/main_app/password_forgot/password_reset_complete.html:30
+msgid "Password reset completed."
+msgstr "Password reset completed."
+
+#: templates/main_app/password_forgot/password_reset_complete.html:31
+msgid "Please click the button below to go to the login page."
+msgstr "Please click the button below to go to the login page."
+
+#: templates/main_app/password_forgot/password_reset_confirm.html:30
+msgid "Please set a new password"
+msgstr "Please set a new password"
 
 #: templates/main_app/product_info.html:12
 #: templates/main_app/product_info.html:77
