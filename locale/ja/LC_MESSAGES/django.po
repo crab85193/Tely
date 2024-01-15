@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 16:52+0900\n"
+"POT-Creation-Date: 2024-01-15 16:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,6 +81,8 @@ msgstr "ログアウト"
 #: templates/main_app/base.html:224
 #: templates/main_app/notice/notice-detail.html:14
 #: templates/main_app/notice/notice-list.html:14
+#: templates/main_app/notice/user-notice-detail.html:17
+#: templates/main_app/notice/user-notice-list.html:18
 #: templates/main_app/user-settings.html:14
 msgid "Top"
 msgstr "トップ"
@@ -91,6 +93,7 @@ msgstr "トップ"
 #: templates/main_app/notice/notice-list.html:6
 #: templates/main_app/notice/notice-list.html:11
 #: templates/main_app/notice/notice-list.html:15
+#: templates/main_app/notice/user-notice-list.html:15
 msgid "Notification"
 msgstr "お知らせ"
 
