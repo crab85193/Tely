@@ -1,8 +1,9 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-お知らせ - {{ title }}
+{% trans 'Notification' %} - {{ title }}
 {% endblock %}
 
 {% block main %}
@@ -10,8 +11,8 @@
     <h1>{{ title }}</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
-        <li class="breadcrumb-item">お知らせ</li>
+        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>{% trans 'Top' %}</a></li>
+        <li class="breadcrumb-item">{% trans 'Notification' %}</li>
         <li class="breadcrumb-item active">{{ object.title }}</li>
       </ol>
     </nav>

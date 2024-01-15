@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 16:41+0900\n"
+"POT-Creation-Date: 2024-01-15 16:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,15 +26,15 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: templates/403.html:14 templates/500.html:13
+#: templates/403.html:14 templates/500.html:14
 msgid "The page you tried to access could not be displayed"
 msgstr "The page you tried to access could not be displayed"
 
-#: templates/404.html:13
+#: templates/404.html:14
 msgid "Page not found"
 msgstr "Page not found"
 
-#: templates/503.html:13
+#: templates/503.html:14
 msgid ""
 "The site is under maintenance. Please wait until the maintenance is "
 "completed."
@@ -81,11 +81,19 @@ msgstr "User Preferences"
 msgid "Logout"
 msgstr "Logout"
 
-#: templates/main_app/base.html:224 templates/main_app/user-settings.html:14
+#: templates/main_app/base.html:224
+#: templates/main_app/notice/notice-detail.html:14
+#: templates/main_app/notice/notice-list.html:14
+#: templates/main_app/user-settings.html:14
 msgid "Top"
 msgstr "Top"
 
 #: templates/main_app/base.html:231 templates/main_app/index.html:18
+#: templates/main_app/notice/notice-detail.html:6
+#: templates/main_app/notice/notice-detail.html:15
+#: templates/main_app/notice/notice-list.html:6
+#: templates/main_app/notice/notice-list.html:11
+#: templates/main_app/notice/notice-list.html:15
 msgid "Notification"
 msgstr "Notification"
 
@@ -187,6 +195,10 @@ msgstr "Thank you for using Tely."
 #: templates/main_app/login/logout.html:35
 msgid "Go to login page"
 msgstr "Go to login page"
+
+#: templates/main_app/notice/notice-list.html:24
+msgid "List of Notifications"
+msgstr "List of Notifications"
 
 #: templates/main_app/product_info.html:12
 #: templates/main_app/product_info.html:77
