@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 16:59+0900\n"
+"POT-Creation-Date: 2024-01-15 17:05+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,6 +203,38 @@ msgstr "Go to login page"
 msgid "List of Notifications"
 msgstr "List of Notifications"
 
+#: templates/main_app/password_change/password_change.html:5
+#: templates/main_app/password_change/password_change.html:28
+#: templates/main_app/password_change/password_change.html:59
+#: templates/main_app/password_change/password_change_done.html:6
+#: templates/main_app/user-settings.html:63
+msgid "Change Password"
+msgstr "Change Password"
+
+#: templates/main_app/password_change/password_change.html:29
+msgid "Please enter your current and new passwords"
+msgstr "Please enter your current and new passwords"
+
+#: templates/main_app/password_change/password_change.html:63
+msgid "Back to User Preferences"
+msgstr "Back to User Preferences"
+
+#: templates/main_app/password_change/password_change_done.html:6
+msgid "Complete"
+msgstr "Complete"
+
+#: templates/main_app/password_change/password_change_done.html:29
+msgid "Password change complete"
+msgstr "Password change complete"
+
+#: templates/main_app/password_change/password_change_done.html:30
+msgid "Password change has been completed."
+msgstr "Password change has been completed."
+
+#: templates/main_app/password_change/password_change_done.html:35
+msgid "Go to Top Page"
+msgstr "Go to Top Page"
+
 #: templates/main_app/product_info.html:12
 #: templates/main_app/product_info.html:77
 msgid "Phone reservation proxy application"
@@ -295,10 +327,6 @@ msgstr "Profile Information"
 #: templates/main_app/user-settings.html:59
 msgid "Edit"
 msgstr "Edit"
-
-#: templates/main_app/user-settings.html:63
-msgid "Change Password"
-msgstr "Change Password"
 
 #: templates/main_app/user-settings.html:70
 msgid "Profile"
