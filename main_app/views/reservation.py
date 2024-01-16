@@ -34,16 +34,20 @@ class ReservationPhoneView(LoginRequiredMixin, TemplateView):
         obj_child = ReservationChild.objects.create(
             parent=obj_parent,
             status=ReservationChild.START,
-            title="代理予約を受け付けました",
-            message="店舗様に電話を発信中です。しばらくお待ちください。"
+            title_ja="代理予約を受け付けました",
+            title_en="Proxy reservations accepted.",
+            message_ja="店舗様に電話を発信中です。しばらくお待ちください。",
+            message_en="The call is being sent to the store. Please wait a moment.",
         )
         
         url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
 
         UserNotice.objects.create(
             user=self.request.user,
-            title="代理予約を受け付けました",
-            message=f"クリックすると、予約状況確認ページへリダイレクトします。",
+            title_ja="代理予約を受け付けました",
+            title_en="Proxy reservations accepted.",
+            message_ja=f"クリックすると、予約状況確認ページへリダイレクトします。",
+            message_en=f"Clicking on the button will redirect you to the reservation status confirmation page.",
             type=UserNotice.SUCCESS,
             url=url
         )
@@ -143,16 +147,20 @@ class ReservationAddView(LoginRequiredMixin, FormView):
         obj_child = ReservationChild.objects.create(
             parent=obj_parent,
             status=ReservationChild.START,
-            title="代理予約を受け付けました",
-            message="店舗様に電話を発信中です。しばらくお待ちください。"
+            title_ja="代理予約を受け付けました",
+            title_en="Proxy reservations accepted.",
+            message_ja="店舗様に電話を発信中です。しばらくお待ちください。",
+            message_en="The call is being sent to the store. Please wait a moment.",
         )
 
         url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
 
         UserNotice.objects.create(
             user=self.request.user,
-            title="代理予約を受け付けました",
-            message=f"クリックすると、予約状況確認ページへリダイレクトします。",
+            title_ja="代理予約を受け付けました",
+            title_en="Proxy reservations accepted.",
+            message_ja=f"クリックすると、予約状況確認ページへリダイレクトします。",
+            message_en=f"Clicking on the button will redirect you to the reservation status confirmation page.",
             type=UserNotice.SUCCESS,
             url=url
         )
