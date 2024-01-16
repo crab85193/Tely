@@ -18,15 +18,16 @@ class ShopListView(LoginRequiredMixin, TemplateView):
             search_results = store_manager.search_store(keywords)
         else:
             shop_detail_test = {
-                "img":"https://night-planet.s3.ap-northeast-1.amazonaws.com/shops/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f/top_image/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f.jpg",
-                "name":"ガールズバー Macherie(マシェリ)",
-                "type":"ガールズバー",
-                "address":"沖縄県与那原町与那原3178-3",
-                "tel_number":"080-4289-7797",
+                "img":"https://raw.githubusercontent.com/crab85193/Tely/main/static/img/logo.png",
+                "name":"テスト用店舗 001店",
+                "type":"レストラン",
+                "address":"沖縄県中頭郡西原町字千原",
+                "tel_number":"090-5516-9212",
                 "open":"月〜土 9:00〜Last",
                 "detail_url": f"{reverse('main_app:shop_detail')}",
                 "add_url": f"{reverse('main_app:reservation_add')}",
                 "rating":float("3.0"),
+                "test":True,
             }
 
             shop_list.append(shop_detail_test)
@@ -120,16 +121,15 @@ class ShopDetailView(LoginRequiredMixin, TemplateView):
         else:
             shop_detail = {
                 "img_list":[
-                    "https://night-planet.s3.ap-northeast-1.amazonaws.com/shops/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f/top_image/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f.jpg",
-                    "https://www.s-cheers.com/file/image/201712/53eed35318e89e643d1f7780884c7700.jpg",
-                    "https://night-planet.s3.ap-northeast-1.amazonaws.com/shops/b3cb55c646e4c2df012ddb4df60d31f680ea7c1f/image/09efce7ff1d925b43a3f051fe25b72b425707c3c.jpg"
+                    "https://raw.githubusercontent.com/crab85193/Tely/main/static/img/logo.png"
                     ],
-                "name":"ガールズバー Macherie(マシェリ)",
-                "type":"ガールズバー",
-                "address":"沖縄県与那原町与那原3178-3",
-                "tel_number":"080-4289-7797",
+                "name":"テスト用店舗 001店",
+                "type":"レストラン",
+                "address":"沖縄県中頭郡西原町字千原",
+                "tel_number":"090-5516-9212",
                 "open":"月〜土 9:00〜Last",
-                "add_url":f"{reverse('main_app:reservation_add')}"
+                "add_url":f"{reverse('main_app:reservation_add')}",
+                "test": True,
             }
 
         context["shop"] = shop_detail

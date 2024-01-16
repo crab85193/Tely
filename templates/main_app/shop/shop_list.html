@@ -95,8 +95,11 @@
           {% trans "No information" %}
           {% endif %}
         </h6>
-
+        {% if shop.test %}
         <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary">{% trans "Make a reservation" %}</a></p>
+        {% else %}
+        <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary disabled">{% trans "Make a reservation" %}</a></p>
+        {% endif %}
         <a href="{{ shop.detail_url }}" class="card-link">{% trans "Details." %}</a>
       </div>
 
