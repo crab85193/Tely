@@ -27,10 +27,18 @@
         {% for object in objects %}
         <a href="{% url 'main_app:notice_detail' object.id %}" class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ object.title }}</h5>
+            {% if request.LANGUAGE_CODE == 'en' %}
+            <h5 class="mb-1">{{ object.title_en }}</h5>
+            {% else %}
+            <h5 class="mb-1">{{ object.title_ja }}</h5>
+            {% endif %}
             <small>{{ object.datetime }}</small>
           </div>
-          <p class="mb-1">{{ object.message | truncatechars:20}}</p>
+          {% if request.LANGUAGE_CODE == 'en' %}
+          <p class="mb-1">{{ object.message_en | truncatechars:20 }}</p>
+          {% else %}
+          <p class="mb-1">{{ object.message_ja | truncatechars:20 }}</p>
+          {% endif %}
         </a>
         {% endfor %}
       </div>

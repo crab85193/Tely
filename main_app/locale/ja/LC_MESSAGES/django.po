@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 13:08+0900\n"
+"POT-Creation-Date: 2024-01-16 13:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: main_app/forms/reservation.py:21
+#: main_app/forms/reservation.py:20
 msgid "Please enter numbers only"
 msgstr "数字のみで入力してください"
 
-#: main_app/forms/reservation.py:22
+#: main_app/forms/reservation.py:21
 msgid "Please enter the name of the representative"
 msgstr "代表者名を入力してください"
 
-#: main_app/forms/reservation.py:23
+#: main_app/forms/reservation.py:22
 msgid "Please enter any requests you have for the store"
 msgstr "店舗への要望がございましたら、入力して下さい"
+
+#: main_app/models/reservation.py:12
+msgid "Store Name"
+msgstr "店舗名"
+
+#: main_app/models/reservation.py:13
+msgid "Reservation Time"
+msgstr "予約日時"
+
+#: main_app/models/reservation.py:14
+msgid "Number of Reserved People"
+msgstr "予約人数"
+
+#: main_app/models/reservation.py:15
+msgid "Name of Representative"
+msgstr "代表者名"
+
+#: main_app/models/reservation.py:16
+msgid "Memo"
+msgstr "メモ"

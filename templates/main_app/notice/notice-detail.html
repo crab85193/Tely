@@ -3,7 +3,11 @@
 {% load i18n %}
 
 {% block title %}
-{% trans 'Notification' %} - {{ title }}
+{% if request.LANGUAGE_CODE == 'en' %}
+{% trans 'Notification' %} - {{ title_en }}
+{% else %}
+{% trans 'Notification' %} - {{ title_ja }}
+{% endif %}
 {% endblock %}
 
 {% block main %}
@@ -13,7 +17,11 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>{% trans 'Top' %}</a></li>
         <li class="breadcrumb-item">{% trans 'Notification' %}</li>
-        <li class="breadcrumb-item active">{{ object.title }}</li>
+        {% if request.LANGUAGE_CODE == 'en' %}
+        <li class="breadcrumb-item active">{{ object.title_en }}</li>
+        {% else %}
+        <li class="breadcrumb-item active">{{ object.title_ja }}</li>
+        {% endif %}
       </ol>
     </nav>
   </div>
@@ -28,15 +36,27 @@
           <div class="nav flex-column nav-pills me-3">
             {% for item in menu %}
             {% if item.id == object.id%}
-            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link active">{{ item.title }}</a>
+            {% if request.LANGUAGE_CODE == 'en' %}
+            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link active">{{ item.title_en }}</a>
             {% else %}
-            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link">{{ item.title }}</a>
+            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link active">{{ item.title_ja }}</a>
+            {% endif %}
+            {% else %}
+            {% if request.LANGUAGE_CODE == 'en' %}
+            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link">{{ item.title_en }}</a>
+            {% else %}
+            <a href="{% url 'main_app:notice_detail' item.id %}" class="nav-link">{{ item.title_ja }}</a>
+            {% endif %}
             {% endif %}
             {% endfor %}
           </div>
           <div class="tab-content px-2">
             <div class="tab-pane fade show active">
-              {{ object.message|linebreaksbr }}
+              {% if request.LANGUAGE_CODE == 'en' %}
+              {{ object.message_en|linebreaksbr }}
+              {% else %}
+              {{ object.message_ja|linebreaksbr }}
+              {% endif %}
               <br>
               {{ object.datetime}}
             </div>

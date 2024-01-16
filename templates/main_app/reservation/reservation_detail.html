@@ -96,8 +96,13 @@
                 {% endif %}
                 
                 <div class="activity-content">
-                  <h6>{{ state.title }}</h6>
-                  {{ state.message }}
+                  {% if request.LANGUAGE_CODE == 'en' %}
+                  <h6>{{ state.title_en }}</h6>
+                  {{ state.message_en }}
+                  {% else %}
+                  <h6>{{ state.title_ja }}</h6>
+                  {{ state.message_ja }}
+                  {% endif %}
                   <br>
                   <span class="text-muted small pt-2 ps-1">{{ state.datetime }}</span>
                 </div>

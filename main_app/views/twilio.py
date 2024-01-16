@@ -73,10 +73,12 @@ class TwilioButtonView(View):
         obj_parent.save()
 
         obj_child = ReservationChild.objects.create(
-            parent  = obj_parent,
-            status  = ReservationChild.SUCCESS,
-            title   = '電話発信を行いました',
-            message = '店舗様へ電話の発信を行いました。店舗様からの返答をお待ちください。'
+            parent     = obj_parent,
+            status     = ReservationChild.SUCCESS,
+            title_ja   = '電話発信を行いました',
+            title_en   = 'Phone outgoing calls were made',
+            message_ja = '店舗様へ電話の発信を行いました。店舗様からの返答をお待ちください。',
+            message_en = 'We have made a phone call to the store. Please wait for a response from the store.',
         )
 
         return HttpResponseRedirect(reverse('main_app:reservation_done'))
@@ -129,25 +131,31 @@ class HandleButtonView(View):
             response = call_manager.create_say_response_xml(message)
 
             obj_child = ReservationChild.objects.create(
-                parent  = obj_parent,
-                status  = ReservationChild.SUCCESS,
-                title   = '予約受付が承認しました',
-                message = '店舗様が予約受付が承認しました。'
+                parent     = obj_parent,
+                status     = ReservationChild.SUCCESS,
+                title_ja   = '予約受付が承認しました',
+                title_en   = 'Reservation accepted and approved',
+                message_ja = '店舗様が予約受付を承認しました。',
+                message_en = 'Store has approved the reservation.',
             )
 
             obj_child = ReservationChild.objects.create(
-                parent  = obj_parent,
-                status  = ReservationChild.END,
-                title   = '代理予約が完了しました',
-                message = '代理予約処理が完了しました。'
+                parent     = obj_parent,
+                status     = ReservationChild.END,
+                title_ja   = '代理予約が完了しました',
+                title_en   = 'Proxy booking has been completed',
+                message_ja = '代理予約処理が完了しました。',
+                message_en = 'Proxy reservation processing has been completed.',
             )
 
             url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
 
             UserNotice.objects.create(
                 user=obj_parent.user,
-                title="予約受付が承認しました",
-                message=f"店舗様が予約受付が承認しました。クリックすると、予約状況確認ページへリダイレクトします。",
+                title_ja="予約受付が承認しました",
+                title_en="Reservation accepted and approved",
+                message_ja=f"店舗様が予約受付が承認しました。クリックすると、予約状況確認ページへリダイレクトします。",
+                message_en=f"The store has approved the reservation receipt. Clicking on the button will redirect you to the reservation status confirmation page.",
                 type=UserNotice.SUCCESS,
                 url=url
             )
@@ -163,23 +171,29 @@ class HandleButtonView(View):
             obj_child = ReservationChild.objects.create(
                 parent  = obj_parent,
                 status  = ReservationChild.FAILURE,
-                title   = '予約受付が承認されませんでした',
-                message = '店舗様が予約受付が承認しませんでした。'
+                title_ja   = '予約受付が承認されませんでした',
+                title_en   = 'Reservation not approved',
+                message_ja = '店舗様が予約受付を承認しませんでした。',
+                message_en = 'The store did not approve the reservation.',
             )
 
             obj_child = ReservationChild.objects.create(
-                parent  = obj_parent,
-                status  = ReservationChild.END,
-                title   = '代理予約が完了しました',
-                message = '代理予約処理が完了しました。'
+                parent     = obj_parent,
+                status     = ReservationChild.END,
+                title_ja   = '代理予約が完了しました',
+                title_en   = 'Proxy booking has been completed',
+                message_ja = '代理予約処理が完了しました。',
+                message_en = 'Proxy reservation processing has been completed.',
             )
 
             url = f"{'{0}://{1}'.format(self.request.scheme, self.request.get_host())}{reverse('main_app:reservation_detail', args=[obj_parent.id])}"
 
             UserNotice.objects.create(
                 user=obj_parent.user,
-                title="予約受付が承認されませんでした",
-                message=f"店舗様が予約受付が承認しませんでした。クリックすると、予約状況確認ページへリダイレクトします。",
+                title_ja="予約受付が承認されませんでした",
+                title_en="Reservation not approved",
+                message_ja=f"店舗様が予約受付が承認しませんでした。クリックすると、予約状況確認ページへリダイレクトします。",
+                message_en=f"The store did not approve the reservation receipt. Clicking on this button will redirect you to the reservation status confirmation page.",
                 type=UserNotice.DANGER,
                 url=url
             )
@@ -193,10 +207,12 @@ class HandleButtonView(View):
             response = call_manager.create_gather_response_xml(message, next_url)
 
             obj_child = ReservationChild.objects.create(
-                parent  = obj_parent,
-                status  = ReservationChild.WAIT,
-                title   = '通話中',
-                message = 'ただいま通話中です。しばらくお待ちください。'
+                parent     = obj_parent,
+                status     = ReservationChild.WAIT,
+                title_ja   = '通話中',
+                title_en   = "During a call",
+                message_ja = 'ただいま通話中です。しばらくお待ちください。',
+                message_en = "The call is in progress. Please wait a moment.",
             )
         
 

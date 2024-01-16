@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 13:08+0900\n"
+"POT-Creation-Date: 2024-01-16 13:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: main_app/forms/reservation.py:21
+
+#: main_app/forms/reservation.py:20
 msgid "Please enter numbers only"
 msgstr "Please enter numbers only"
 
-#: main_app/forms/reservation.py:22
+#: main_app/forms/reservation.py:21
 msgid "Please enter the name of the representative"
 msgstr "Please enter the name of the representative"
 
-#: main_app/forms/reservation.py:23
+#: main_app/forms/reservation.py:22
 msgid "Please enter any requests you have for the store"
 msgstr "Please enter any requests you have for the store"
+
+#: main_app/models/reservation.py:12
+msgid "Store Name"
+msgstr "Store Name"
+
+#: main_app/models/reservation.py:13
+msgid "Reservation Time"
+msgstr "Reservation Time"
+
+#: main_app/models/reservation.py:14
+msgid "Number of Reserved People"
+msgstr "Number of Reserved People"
+
+#: main_app/models/reservation.py:15
+msgid "Name of Representative"
+msgstr "Name of Representative"
+
+#: main_app/models/reservation.py:16
+msgid "Memo"
+msgstr "Memo"
