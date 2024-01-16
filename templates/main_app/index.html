@@ -243,7 +243,7 @@ Top Page
                   {% endif %}
                     <div class="row justify-content-center">
                       {% for store in stores_inner %}
-                      <div class="col-5">
+                      <div class="col-lg-5 col-12">
                         <div class="card">
                           {% if store.photo %}
                             <img src="{{ store.photo }}" class="card-img-top d-block w-100 shop-img" alt="Shop Image" style="height: 30vh; width: auto;" onerror="this.src='{% static "img/logo.png" %}'; this.removeAttribute('onerror'); this.removeAttribute('onload');" onload="this.removeAttribute('onerror'); this.removeAttribute('onload');">
