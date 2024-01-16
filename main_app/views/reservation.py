@@ -103,7 +103,7 @@ class ReservationAddView(LoginRequiredMixin, FormView):
                     "https://raw.githubusercontent.com/crab85193/Tely/main/static/img/logo.png"
                     ],
                 "name":"テスト用店舗 001店",
-                "type":"レストラン",
+                "type":_("restaurant"),
                 "address":"沖縄県中頭郡西原町字千原",
                 "tel_number":"090-5516-9212",
                 "open":"月〜土 9:00〜Last",
