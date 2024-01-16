@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 18:09+0900\n"
+"POT-Creation-Date: 2024-01-16 12:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,6 +86,11 @@ msgstr "Logout"
 #: templates/main_app/notice/notice-list.html:14
 #: templates/main_app/notice/user-notice-detail.html:17
 #: templates/main_app/notice/user-notice-list.html:18
+#: templates/main_app/reservation/reservation_add.html:14
+#: templates/main_app/reservation/reservation_detail.html:14
+#: templates/main_app/reservation/reservation_done.html:14
+#: templates/main_app/reservation/reservation_list.html:14
+#: templates/main_app/reservation/reservation_phone.html:14
 #: templates/main_app/user-settings.html:14
 msgid "Top"
 msgstr "Top"
@@ -105,10 +110,17 @@ msgid "Search for stores"
 msgstr "Search for stores"
 
 #: templates/main_app/base.html:245
+#: templates/main_app/reservation/reservation_phone.html:6
+#: templates/main_app/reservation/reservation_phone.html:11
+#: templates/main_app/reservation/reservation_phone.html:15
+#: templates/main_app/reservation/reservation_phone.html:30
 msgid "Reservations by phone number"
 msgstr "Reservations by phone number"
 
 #: templates/main_app/base.html:252 templates/main_app/product_info.html:104
+#: templates/main_app/reservation/reservation_list.html:6
+#: templates/main_app/reservation/reservation_list.html:11
+#: templates/main_app/reservation/reservation_list.html:15
 msgid "Check Reservation Status"
 msgstr "Check Reservation Status"
 
@@ -153,10 +165,23 @@ msgid "No information"
 msgstr "No information"
 
 #: templates/main_app/index.html:280
+#: templates/main_app/reservation/reservation_add.html:6
+#: templates/main_app/reservation/reservation_add.html:11
+#: templates/main_app/reservation/reservation_add.html:15
+#: templates/main_app/reservation/reservation_add.html:90
+#: templates/main_app/reservation/reservation_add.html:93
+#: templates/main_app/reservation/reservation_detail.html:11
+#: templates/main_app/reservation/reservation_detail.html:15
+#: templates/main_app/reservation/reservation_done.html:11
+#: templates/main_app/reservation/reservation_done.html:15
+#: templates/main_app/reservation/reservation_phone.html:60
 msgid "Make a reservation"
 msgstr "Make a reservation"
 
 #: templates/main_app/index.html:281
+#: templates/main_app/reservation/reservation_list.html:166
+#: templates/main_app/reservation/reservation_list.html:305
+#: templates/main_app/reservation/reservation_list.html:443
 msgid "Details."
 msgstr "Details."
 
@@ -418,6 +443,145 @@ msgstr "Create a new account"
 #: templates/main_app/register/register-request.html:30
 msgid "Please fill in the required fields"
 msgstr "Please fill in the required fields"
+
+#: templates/main_app/reservation/reservation_add.html:61
+#: templates/main_app/reservation/reservation_detail.html:52
+msgid "Category"
+msgstr "Category"
+
+#: templates/main_app/reservation/reservation_add.html:63
+#: templates/main_app/reservation/reservation_detail.html:54
+msgid "Business Hours"
+msgstr "Business Hours"
+
+#: templates/main_app/reservation/reservation_add.html:65
+#: templates/main_app/reservation/reservation_detail.html:56
+msgid "Address"
+msgstr "Address"
+
+#: templates/main_app/reservation/reservation_add.html:67
+#: templates/main_app/reservation/reservation_detail.html:58
+#: templates/main_app/reservation/reservation_phone.html:38
+msgid "Phone number"
+msgstr "Phone number"
+
+#: templates/main_app/reservation/reservation_add.html:82
+msgid "Reservation Information Entry"
+msgstr "Reservation Information Entry"
+
+#: templates/main_app/reservation/reservation_add.html:92
+msgid ""
+"You cannot make a reservation through Tely because your phone number is not "
+"registered."
+msgstr ""
+"You cannot make a reservation through Tely because your phone number is not "
+"registered."
+
+#: templates/main_app/reservation/reservation_detail.html:6
+#: templates/main_app/reservation/reservation_detail.html:16
+msgid "Reservation Details"
+msgstr "Reservation Details"
+
+#: templates/main_app/reservation/reservation_detail.html:70
+#: templates/main_app/reservation/reservation_list.html:145
+#: templates/main_app/reservation/reservation_list.html:284
+#: templates/main_app/reservation/reservation_list.html:422
+msgid "Reservation Status"
+msgstr "Reservation Status"
+
+#: templates/main_app/reservation/reservation_done.html:6
+#: templates/main_app/reservation/reservation_done.html:16
+msgid "Reservation Completed"
+msgstr "Reservation Completed"
+
+#: templates/main_app/reservation/reservation_done.html:31
+msgid "Reservation has been completed."
+msgstr "Reservation has been completed."
+
+#: templates/main_app/reservation/reservation_done.html:37
+msgid "View Reservation Status"
+msgstr "View Reservation Status"
+
+#: templates/main_app/reservation/reservation_list.html:60
+#: templates/main_app/reservation/reservation_list.html:199
+#: templates/main_app/reservation/reservation_list.html:337
+msgid "Store Name"
+msgstr "Store Name"
+
+#: templates/main_app/reservation/reservation_list.html:81
+#: templates/main_app/reservation/reservation_list.html:220
+#: templates/main_app/reservation/reservation_list.html:358
+#: templates/main_app/reservation/reservation_phone.html:42
+msgid "Reservation Time"
+msgstr "Reservation Time"
+
+#: templates/main_app/reservation/reservation_list.html:101
+#: templates/main_app/reservation/reservation_list.html:240
+#: templates/main_app/reservation/reservation_list.html:378
+#: templates/main_app/reservation/reservation_phone.html:46
+msgid "Number of Reserved People"
+msgstr "Number of Reserved People"
+
+#: templates/main_app/reservation/reservation_list.html:108
+#: templates/main_app/reservation/reservation_list.html:247
+#: templates/main_app/reservation/reservation_list.html:385
+msgid "people"
+msgstr "people"
+
+#: templates/main_app/reservation/reservation_list.html:121
+#: templates/main_app/reservation/reservation_list.html:260
+#: templates/main_app/reservation/reservation_list.html:398
+#: templates/main_app/reservation/reservation_phone.html:50
+msgid "Name of Representative"
+msgstr "Name of Representative"
+
+#: templates/main_app/reservation/reservation_list.html:153
+#: templates/main_app/reservation/reservation_list.html:292
+#: templates/main_app/reservation/reservation_list.html:430
+msgid "Completed"
+msgstr "Completed"
+
+#: templates/main_app/reservation/reservation_list.html:155
+#: templates/main_app/reservation/reservation_list.html:294
+#: templates/main_app/reservation/reservation_list.html:432
+msgid "Incomplete"
+msgstr "Incomplete"
+
+#: templates/main_app/reservation/reservation_list.html:175
+msgid "No previous reservations"
+msgstr "No previous reservations"
+
+#: templates/main_app/reservation/reservation_list.html:314
+msgid "No outstanding reservations"
+msgstr "No outstanding reservations"
+
+#: templates/main_app/reservation/reservation_list.html:452
+msgid "No completed reservations"
+msgstr "No completed reservations"
+
+#: templates/main_app/reservation/reservation_phone.html:31
+msgid "Please enter your store's phone number"
+msgstr "Please enter your store's phone number"
+
+#: templates/main_app/reservation/reservation_phone.html:39
+msgid "Enter the phone number of the restaurant you wish to reserve"
+msgstr "Enter the phone number of the restaurant you wish to reserve"
+
+#: templates/main_app/reservation/reservation_phone.html:47
+msgid "Please enter numbers only"
+msgstr "Please enter numbers only"
+
+#: templates/main_app/reservation/reservation_phone.html:51
+msgid "Please enter the name of the representative"
+msgstr "Please enter the name of the representative"
+
+#: templates/main_app/reservation/reservation_phone.html:54
+msgid "Memo"
+msgstr "Memo"
+
+#: templates/main_app/reservation/reservation_phone.html:55
+msgid "Please enter any requests you have for the store"
+msgstr "Please enter any requests you have for the store"
 
 #: templates/main_app/user-settings.html:55
 msgid "Profile Information"

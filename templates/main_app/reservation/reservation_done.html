@@ -1,18 +1,19 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-予約完了
+{% trans "Reservation Completed" %}
 {% endblock%}
 
 {% block main %}
 <div class="pagetitle">
-  <h1>予約する</h1>
+  <h1>{% trans "Make a reservation" %}</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
-      <li class="breadcrumb-item">予約する</li>
-      <li class="breadcrumb-item active">予約完了</li>
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">{% trans "Top" %}</a></li>
+      <li class="breadcrumb-item">{% trans "Make a reservation" %}</li>
+      <li class="breadcrumb-item active">{% trans "Reservation Completed" %}</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -27,13 +28,13 @@
           <div class="card-body">
 
             <div class="pt-4 pb-2">
-              <h5 class="card-title text-center pb-0 fs-4">予約が完了しました</h5>
+              <h5 class="card-title text-center pb-0 fs-4">{% trans "Reservation has been completed." %}</h5>
               <p class="text-center small"></p>
             </div>
 
             <div class="row g-3 needs-validation justify-content-center">
               <div class="col-8 d-flex flex-column align-items-center py-2">
-                <a href="{% url 'main_app:reservation_list' %}" class="btn btn-primary w-100">予約状況を見る</a>
+                <a href="{% url 'main_app:reservation_list' %}" class="btn btn-primary w-100">{% trans "View Reservation Status" %}</a>
               </div>
             </div>
 

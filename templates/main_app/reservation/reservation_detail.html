@@ -1,18 +1,19 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-予約完了
+{% trans "Reservation Details" %}
 {% endblock%}
 
 {% block main %}
 <div class="pagetitle">
-  <h1>予約する</h1>
+  <h1>{% trans "Make a reservation" %}</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
-      <li class="breadcrumb-item">予約する</li>
-      <li class="breadcrumb-item active">予約詳細</li>
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">{% trans "Top" %}</a></li>
+      <li class="breadcrumb-item">{% trans "Make a reservation" %}</li>
+      <li class="breadcrumb-item active">{% trans "Reservation Details" %}</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -48,13 +49,13 @@
   
             </div><!-- End Slides with controls -->
 
-            <h5>カテゴリー</h5>
+            <h5>{% trans "Category" %}</h5>
             <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
-            <h5>営業時間</h5>
+            <h5>{% trans "Business Hours" %}</h5>
             <p class="card-text">{{ shop.open|linebreaksbr }}</p>
-            <h5>住所</h5>
+            <h5>{% trans "Address" %}</h5>
             <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
-            <h5>電話番号</h5>
+            <h5>{% trans "Phone number" %}</h5>
             <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
           
           </div>
@@ -66,7 +67,7 @@
         <!-- Recent Activity -->
         <div class="card">
           <div class="card-body m-3">
-            <h5 class="card-title">予約状況</h5>
+            <h5 class="card-title">{% trans "Reservation Status" %}</h5>
 
             <div class="activity">
               {% for state in status %}

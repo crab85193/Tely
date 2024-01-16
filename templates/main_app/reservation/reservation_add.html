@@ -1,17 +1,18 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-予約する
+{% trans "Make a reservation" %}
 {% endblock %}
 
 {% block main %}
 <div class="pagetitle">
-  <h1>予約する</h1>
+  <h1>{% trans "Make a reservation" %}</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
-      <li class="breadcrumb-item active">予約する</li>
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">{% trans "Top" %}</a></li>
+      <li class="breadcrumb-item active">{% trans "Make a reservation" %}</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -57,13 +58,13 @@
         <div class="col-lg-6">
           <div class="card">
             <div class="card-body m-4 mt-5">
-              <h5>カテゴリー</h5>
+              <h5>{% trans "Category" %}</h5>
               <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
-              <h5>営業時間</h5>
+              <h5>{% trans "Business Hours" %}</h5>
               <p class="card-text">{{ shop.open|linebreaksbr }}</p>
-              <h5>住所</h5>
+              <h5>{% trans "Address" %}</h5>
               <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
-              <h5>電話番号</h5>
+              <h5>{% trans "Phone number" %}</h5>
               <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
             
             </div>
@@ -78,7 +79,7 @@
               <form class="row g-3 needs-validation justify-content-center" method="POST">
                 <div class="col-10">
                   {% csrf_token %}
-                    <h5 class="card-title text-center mt-3 fs-4">予約情報入力</h5>
+                    <h5 class="card-title text-center mt-3 fs-4">{% trans "Reservation Information Entry" %}</h5>
                     <div class="mt-md-4">
                       {{ form.as_p }}
                     </div>
@@ -86,10 +87,10 @@
   
                 <div class="col-10 d-flex flex-column align-items-center py-2">
                   {% if shop.tel_number %}
-                  <button class="btn btn-primary w-100" type="submit">予約する</button>
+                  <button class="btn btn-primary w-100" type="submit">{% trans "Make a reservation" %}</button>
                   {% else %}
-                  <p class="text-danger">電話番号が登録されていないため、Telyから予約できません。</p>
-                  <button class="btn btn-primary w-100" type="submit" disabled>予約する</button>
+                  <p class="text-danger">{% trans "You cannot make a reservation through Tely because your phone number is not registered." %}</p>
+                  <button class="btn btn-primary w-100" type="submit" disabled>{% trans "Make a reservation" %}</button>
                   {% endif%}
                 </div>
               </form>
