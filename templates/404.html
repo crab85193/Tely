@@ -1,5 +1,6 @@
 {% extends 'error/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
 Page Not Found
@@ -10,5 +11,5 @@ Page Not Found
 {% endblock %}
 
 {% block error_message %}
-ページが見つかりませんでした
+{% trans 'Page not found' %}
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends 'main_app/login/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-ログアウト
+{% trans 'Logout' %}
 {% endblock%}
 
 {% block main %}
@@ -25,13 +26,13 @@
             <div class="card-body">
 
               <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">ログアウトが完了しました</h5>
-                <p class="text-center small">ご利用ありがとうございました</p>
+                <h5 class="card-title text-center pb-0 fs-4">{% trans 'Logout completed' %}</h5>
+                <p class="text-center small">{% trans 'Thank you for using Tely.' %}</p>
               </div>
 
               <form class="row g-3 needs-validation">
                 <div class="col-12">
-                  <a href="{% url 'main_app:login' %}" class="btn btn-primary w-100" type="submit">ログインページへ</a>
+                  <a href="{% url 'main_app:login' %}" class="btn btn-primary w-100" type="submit">{% trans 'Go to login page' %}</a>
                 </div>
                 {% comment %} <div class="col-12">
                   <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>

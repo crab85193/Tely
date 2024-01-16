@@ -17,8 +17,8 @@ class TopView(LoginRequiredMixin, TemplateView):
         context["notices"] = Notice.objects.order_by('-datetime').all()[:3]
         reservation_parent = ReservationParent.objects.filter(user=self.request.user).order_by("-start_datetime").first()
         if reservation_parent:
-            context["reservation_title"] = reservation_parent.shop_name
-            context["reservation_id"] = reservation_parent.id
+            context["reservation_title"]        = reservation_parent.shop_name
+            context["reservation_id"]           = reservation_parent.id
             context["reservation_detail_items"] = ReservationChild.objects.filter(parent=reservation_parent).order_by("datetime")
 
         stores_info = []

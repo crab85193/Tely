@@ -1,5 +1,6 @@
 {% extends 'error/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
 Forbidden
@@ -10,5 +11,5 @@ Forbidden
 {% endblock %}
 
 {% block error_message %}
-アクセスしようとしたページは表示できませんでした
+{% trans "The page you tried to access could not be displayed" %}
 {% endblock %}

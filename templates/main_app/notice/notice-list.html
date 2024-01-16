@@ -1,17 +1,18 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-お知らせ
+{% trans 'Notification' %}
 {% endblock %}
 
 {% block main %}
 <div class="pagetitle">
-    <h1>お知らせ</h1>
+    <h1>{% trans 'Notification' %}</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
-        <li class="breadcrumb-item active">お知らせ</li>
+        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>{% trans 'Top' %}</a></li>
+        <li class="breadcrumb-item active">{% trans 'Notification' %}</li>
       </ol>
     </nav>
   </div>
@@ -20,16 +21,24 @@
 <section class="section min-vh-100">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">お知らせ一覧</h5>
+      <h5 class="card-title">{% trans 'List of Notifications' %}</h5>
 
       <div class="list-group">
-        {% for object in objects%}
+        {% for object in objects %}
         <a href="{% url 'main_app:notice_detail' object.id %}" class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ object.title }}</h5>
+            {% if request.LANGUAGE_CODE == 'en' %}
+            <h5 class="mb-1">{{ object.title_en }}</h5>
+            {% else %}
+            <h5 class="mb-1">{{ object.title_ja }}</h5>
+            {% endif %}
             <small>{{ object.datetime }}</small>
           </div>
-          <p class="mb-1">{{ object.message | truncatechars:20}}</p>
+          {% if request.LANGUAGE_CODE == 'en' %}
+          <p class="mb-1">{{ object.message_en | truncatechars:20 }}</p>
+          {% else %}
+          <p class="mb-1">{{ object.message_ja | truncatechars:20 }}</p>
+          {% endif %}
         </a>
         {% endfor %}
       </div>

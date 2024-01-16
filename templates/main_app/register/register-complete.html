@@ -1,8 +1,9 @@
 {% extends 'main_app/register/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-アカウント登録 - 完了
+{% trans "Register an account" %} - {% trans "Complete" %}
 {% endblock%}
 
 {% block main %}
@@ -25,13 +26,13 @@
             <div class="card-body">
 
               <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">アカウント作成が完了しました</h5>
-                <p class="text-center small">以下のボタンからログインページへ移動してください。</p>
+                <h5 class="card-title text-center pb-0 fs-4">{% trans "Your account has been created." %}</h5>
+                <p class="text-center small">{% trans "Please click the button below to go to the login page." %}</p>
               </div>
 
               <form class="row g-3 needs-validation">
                 <div class="col-12">
-                  <a href="{% url 'main_app:login' %}" class="btn btn-primary w-100" type="submit">ログインページへ</a>
+                  <a href="{% url 'main_app:login' %}" class="btn btn-primary w-100" type="submit">{% trans "Go to login page" %}</a>
                 </div>
               </form>
 

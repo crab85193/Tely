@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 19:23+0900\n"
+"POT-Creation-Date: 2024-01-16 13:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,32 +26,635 @@ msgstr ""
 msgid "Japanese"
 msgstr ""
 
-#: templates/main_app/product_info.html:35
-msgid "Sign Up"
-msgstr "新規作成"
+#: templates/403.html:14 templates/500.html:14
+msgid "The page you tried to access could not be displayed"
+msgstr "アクセスしようとしたページは表示できませんでした"
 
-#: templates/main_app/product_info.html:36
+#: templates/404.html:14
+msgid "Page not found"
+msgstr "ページが見つかりませんでした"
+
+#: templates/503.html:14
+msgid ""
+"The site is under maintenance. Please wait until the maintenance is "
+"completed."
+msgstr "サイトメンテナンス中です。メンテナンス終了までお待ちください。"
+
+#: templates/main_app/base.html:13 templates/main_app/login/base.html:12
+#: templates/main_app/product_info.html:10
+msgid "meta_description"
+msgstr ""
+"電話予約の代理アプリ「Tely」の公式サイトです。お店を選んで、予約情報を入力す"
+"るだけで電話予約を行うことができます。"
+
+#: templates/main_app/base.html:14 templates/main_app/login/base.html:13
+#: templates/main_app/product_info.html:11
+msgid "meta_author"
+msgstr "株式会社カルテット"
+
+#: templates/main_app/base.html:81
+msgid "There is"
+msgstr "新しいお知らせが"
+
+#: templates/main_app/base.html:81
+msgid "new notification"
+msgstr "件あります"
+
+#: templates/main_app/base.html:83
+msgid "No new notices"
+msgstr "新しいお知らせはありません"
+
+#: templates/main_app/base.html:120
+msgid "View All Notices"
+msgstr "全てのお知らせを見る"
+
+#: templates/main_app/base.html:183 templates/main_app/user-settings.html:6
+#: templates/main_app/user-settings.html:11
+#: templates/main_app/user-settings.html:15
+msgid "User Preferences"
+msgstr "ユーザー設定"
+
+#: templates/main_app/base.html:204 templates/main_app/login/logout.html:6
+msgid "Logout"
+msgstr "ログアウト"
+
+#: templates/main_app/base.html:224
+#: templates/main_app/notice/notice-detail.html:14
+#: templates/main_app/notice/notice-list.html:14
+#: templates/main_app/notice/user-notice-detail.html:18
+#: templates/main_app/notice/user-notice-list.html:18
+#: templates/main_app/reservation/reservation_add.html:14
+#: templates/main_app/reservation/reservation_detail.html:14
+#: templates/main_app/reservation/reservation_done.html:14
+#: templates/main_app/reservation/reservation_list.html:14
+#: templates/main_app/reservation/reservation_phone.html:14
+#: templates/main_app/shop/shop_detail.html:14
+#: templates/main_app/shop/shop_list.html:40
+#: templates/main_app/user-settings.html:14
+msgid "Top"
+msgstr "トップ"
+
+#: templates/main_app/base.html:231 templates/main_app/index.html:18
+#: templates/main_app/notice/notice-detail.html:6
+#: templates/main_app/notice/notice-detail.html:15
+#: templates/main_app/notice/notice-list.html:6
+#: templates/main_app/notice/notice-list.html:11
+#: templates/main_app/notice/notice-list.html:15
+#: templates/main_app/notice/user-notice-list.html:15
+msgid "Notification"
+msgstr "お知らせ"
+
+#: templates/main_app/base.html:238 templates/main_app/shop/shop_detail.html:6
+#: templates/main_app/shop/shop_detail.html:15
+#: templates/main_app/shop/shop_list.html:32
+#: templates/main_app/shop/shop_list.html:37
+#: templates/main_app/shop/shop_list.html:41
+msgid "Search for stores"
+msgstr "お店を選んで予約"
+
+#: templates/main_app/base.html:245
+#: templates/main_app/reservation/reservation_phone.html:6
+#: templates/main_app/reservation/reservation_phone.html:11
+#: templates/main_app/reservation/reservation_phone.html:15
+#: templates/main_app/reservation/reservation_phone.html:30
+msgid "Reservations by phone number"
+msgstr "電話番号を指定して予約"
+
+#: templates/main_app/base.html:252 templates/main_app/product_info.html:104
+#: templates/main_app/reservation/reservation_list.html:6
+#: templates/main_app/reservation/reservation_list.html:11
+#: templates/main_app/reservation/reservation_list.html:15
+msgid "Check Reservation Status"
+msgstr "予約状況確認"
+
+#: templates/main_app/base.html:263
+msgid "Feedback"
+msgstr "ご意見・ご感想"
+
+#: templates/main_app/index.html:223
+msgid "Recommended Store"
+msgstr "おすすめのお店"
+
+#: templates/main_app/index.html:260 templates/main_app/shop/shop_list.html:79
+msgid "Rating"
+msgstr "評価"
+
+#: templates/main_app/index.html:264 templates/main_app/shop/shop_list.html:83
+msgid "Price Level"
+msgstr "価格帯"
+
+#: templates/main_app/index.html:266 templates/main_app/shop/shop_list.html:85
+msgid "Free"
+msgstr "無料"
+
+#: templates/main_app/index.html:268 templates/main_app/shop/shop_list.html:87
+msgid "Low"
+msgstr "安価"
+
+#: templates/main_app/index.html:270 templates/main_app/shop/shop_list.html:89
+msgid "Medium"
+msgstr "中程度"
+
+#: templates/main_app/index.html:272 templates/main_app/shop/shop_list.html:91
+msgid "High"
+msgstr "高価"
+
+#: templates/main_app/index.html:274 templates/main_app/shop/shop_list.html:93
+msgid "Very Expensive"
+msgstr "非常に高価"
+
+#: templates/main_app/index.html:276 templates/main_app/shop/shop_list.html:95
+msgid "No information"
+msgstr "情報なし"
+
+#: templates/main_app/index.html:280
+#: templates/main_app/reservation/reservation_add.html:6
+#: templates/main_app/reservation/reservation_add.html:11
+#: templates/main_app/reservation/reservation_add.html:15
+#: templates/main_app/reservation/reservation_add.html:90
+#: templates/main_app/reservation/reservation_add.html:93
+#: templates/main_app/reservation/reservation_detail.html:11
+#: templates/main_app/reservation/reservation_detail.html:15
+#: templates/main_app/reservation/reservation_done.html:11
+#: templates/main_app/reservation/reservation_done.html:15
+#: templates/main_app/reservation/reservation_phone.html:60
+#: templates/main_app/shop/shop_detail.html:81
+#: templates/main_app/shop/shop_detail.html:87
+#: templates/main_app/shop/shop_list.html:99
+msgid "Make a reservation"
+msgstr "予約する"
+
+#: templates/main_app/index.html:281
+#: templates/main_app/reservation/reservation_list.html:166
+#: templates/main_app/reservation/reservation_list.html:305
+#: templates/main_app/reservation/reservation_list.html:443
+#: templates/main_app/shop/shop_list.html:100
+msgid "Details."
+msgstr "詳細を見る"
+
+#: templates/main_app/index.html:315
+msgid "Latest Reservations"
+msgstr "最新の予約状況"
+
+#: templates/main_app/index.html:358
+msgid "No reservation information"
+msgstr "予約情報がありません"
+
+#: templates/main_app/login/login.html:6 templates/main_app/login/login.html:29
+#: templates/main_app/login/login.html:57
+#: templates/main_app/product_info.html:37
 msgid "Login"
 msgstr "ログイン"
 
-#: templates/main_app/product_info.html:59
-msgid "Save Your Time"
-msgstr "あなたの時間を節約"
+#: templates/main_app/login/login.html:30
+msgid "Please enter your username and password to login"
+msgstr "ユーザー名とパスワードを入力してログインしてください"
 
-#: templates/main_app/product_info.html:60
+#: templates/main_app/login/login.html:60
+#: templates/main_app/product_info.html:36
+msgid "Sign Up"
+msgstr "新規作成"
+
+#: templates/main_app/login/login.html:63
+msgid "Forgot your password?"
+msgstr "パスワードを忘れた場合"
+
+#: templates/main_app/login/logout.html:29
+msgid "Logout completed"
+msgstr "ログアウトが完了しました"
+
+#: templates/main_app/login/logout.html:30
+msgid "Thank you for using Tely."
+msgstr "ご利用ありがとうございました"
+
+#: templates/main_app/login/logout.html:35
+#: templates/main_app/password_forgot/password_forgot.html:55
+#: templates/main_app/password_forgot/password_forgot_done.html:44
+#: templates/main_app/password_forgot/password_reset_complete.html:36
+#: templates/main_app/register/register-complete.html:35
+#: templates/main_app/register/register-done.html:46
+#: templates/main_app/register/register-error.html:35
+#: templates/main_app/register/register-request.html:55
+msgid "Go to login page"
+msgstr "ログインページへ"
+
+#: templates/main_app/notice/notice-list.html:24
+msgid "List of Notifications"
+msgstr "お知らせ一覧"
+
+#: templates/main_app/password_change/password_change.html:6
+#: templates/main_app/password_change/password_change.html:29
+#: templates/main_app/password_change/password_change.html:60
+#: templates/main_app/password_change/password_change_done.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:52
+#: templates/main_app/user-settings.html:63
+msgid "Change Password"
+msgstr "パスワード変更"
+
+#: templates/main_app/password_change/password_change.html:30
+msgid "Please enter your current and new passwords"
+msgstr "現在のパスワードと新しいパスワードを入力してください"
+
+#: templates/main_app/password_change/password_change.html:64
+msgid "Back to User Preferences"
+msgstr "ユーザー設定へ戻る"
+
+#: templates/main_app/password_change/password_change_done.html:6
+#: templates/main_app/password_forgot/password_reset_complete.html:6
+#: templates/main_app/register/register-complete.html:6
+msgid "Complete"
+msgstr "完了"
+
+#: templates/main_app/password_change/password_change_done.html:29
+msgid "Password change complete"
+msgstr "パスワード変更 完了"
+
+#: templates/main_app/password_change/password_change_done.html:30
+msgid "Password change has been completed."
+msgstr "パスワードの変更が完了しました。"
+
+#: templates/main_app/password_change/password_change_done.html:35
+msgid "Go to Top Page"
+msgstr "トップページへ"
+
+#: templates/main_app/password_forgot/password_forgot.html:6
+#: templates/main_app/password_forgot/password_forgot.html:29
+#: templates/main_app/password_forgot/password_forgot_done.html:6
+#: templates/main_app/password_forgot/password_reset_complete.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:6
+#: templates/main_app/password_forgot/password_reset_confirm.html:29
+msgid "Password Reset"
+msgstr "パスワード再設定"
+
+#: templates/main_app/password_forgot/password_forgot.html:30
+msgid ""
+"Please enter the email address you used when you registered your account"
+msgstr "アカウント登録時に使用したメールアドレスを入力してください"
+
+#: templates/main_app/password_forgot/password_forgot.html:52
+msgid "Send a password reset email"
+msgstr "パスワード再設定メールを送信する"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:6
+#: templates/main_app/register/register-done.html:6
+msgid "E-mail transmission complete"
+msgstr "メール送信完了"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:36
+#: templates/main_app/register/register-done.html:36
+msgid "Please check your e-mail"
+msgstr "メールをご確認ください"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:37
+#: templates/main_app/register/register-done.html:37
+msgid "Authentication email has been sent. Please check your e-mail."
+msgstr "認証メールを送信しました。メールをご確認ください。"
+
+#: templates/main_app/password_forgot/password_forgot_done.html:38
+#: templates/main_app/register/register-done.html:38
+msgid ""
+"If you do not receive the email, please check to see if it is in your junk "
+"mail."
+msgstr "メールが届かない場合、迷惑メールに入っていないか確認してください。"
+
+#: templates/main_app/password_forgot/password_reset_complete.html:29
+msgid "Password Reset Completed"
+msgstr "パスワード再設定が完了しました"
+
+#: templates/main_app/password_forgot/password_reset_complete.html:30
+msgid "Password reset completed."
+msgstr "パスワード再設定が完了しました。"
+
+#: templates/main_app/password_forgot/password_reset_complete.html:31
+#: templates/main_app/register/register-complete.html:30
+msgid "Please click the button below to go to the login page."
+msgstr "下のボタンからログインページへ移動してください。"
+
+#: templates/main_app/password_forgot/password_reset_confirm.html:30
+msgid "Please set a new password"
+msgstr "新しいパスワードを設定してください"
+
+#: templates/main_app/product_info.html:12
+#: templates/main_app/product_info.html:77
 msgid "Phone reservation proxy application"
 msgstr "電話予約の代理アプリ"
 
-#: templates/main_app/product_info.html:64
+#: templates/main_app/product_info.html:76
+msgid "Save Your Time"
+msgstr "あなたの時間を節約"
+
+#: templates/main_app/product_info.html:81
 msgid ""
 "For those of you who have trouble making phone calls. We automatically make "
 "phone reservations for you."
 msgstr "電話をかけるのが面倒なあなたへ。自動で電話予約をします。"
 
-#: templates/main_app/product_info.html:65
+#: templates/main_app/product_info.html:82
 msgid "Click here for the first time"
 msgstr "初めての方はこちら"
 
-#: templates/main_app/product_info.html:74
+#: templates/main_app/product_info.html:91
 msgid "You can do this"
 msgstr "こんなことができます"
+
+#: templates/main_app/product_info.html:97
+msgid "Telephone Reservations"
+msgstr "電話予約"
+
+#: templates/main_app/product_info.html:98
+msgid ""
+"You specify the restaurant you wish to reserve, and we will make the "
+"reservation over the phone on your behalf."
+msgstr "予約したいお店を指定すると、代理で電話予約を行います。"
+
+#: templates/main_app/product_info.html:105
+msgid "You can check the status and results of your phone reservations."
+msgstr "電話予約の状況や結果が確認できます。"
+
+#: templates/main_app/product_info.html:117
+msgid "It can be used in these situations"
+msgstr "こんな時に使える"
+
+#: templates/main_app/product_info.html:119
+msgid ""
+"Want to make a reservation at a restaurant, but don't want to go through the "
+"hassle of calling."
+msgstr "飲食店へ予約したいが、電話する手間を省きたい"
+
+#: templates/main_app/product_info.html:120
+msgid "Not comfortable talking on the phone"
+msgstr "電話で話すことが苦手"
+
+#: templates/main_app/product_info.html:121
+msgid "Not able to speak or have difficulty speaking Japanese"
+msgstr "日本語を話せない・話すのが苦手"
+
+#: templates/main_app/product_info.html:135
+msgid "Completely free during beta testing"
+msgstr "βテスト期間中は完全無料"
+
+#: templates/main_app/product_info.html:137
+msgid ""
+"Tely, an automated phone reservation web application, is available for free "
+"during the beta test period with full functionality."
+msgstr ""
+"自動電話予約WebアプリTelyは、βテスト期間中、全機能を無料で使用することができ"
+"ます。"
+
+#: templates/main_app/product_info.html:138
+msgid "Register and try it out first!"
+msgstr "まずは登録して試してみましょう！"
+
+#: templates/main_app/product_info.html:139
+msgid "Sign up for Tely"
+msgstr "Telyに登録する"
+
+#: templates/main_app/product_info.html:147
+msgid "Quartetto Inc."
+msgstr "株式会社カルテット"
+
+#: templates/main_app/register/register-complete.html:6
+#: templates/main_app/register/register-done.html:6
+#: templates/main_app/register/register-error.html:6
+#: templates/main_app/register/register-request.html:6
+msgid "Register an account"
+msgstr "アカウント登録"
+
+#: templates/main_app/register/register-complete.html:29
+msgid "Your account has been created."
+msgstr "アカウント作成が完了しました"
+
+#: templates/main_app/register/register-done.html:49
+msgid "Resend email"
+msgstr "メールを再送する"
+
+#: templates/main_app/register/register-error.html:6
+#: templates/main_app/register/register-error.html:29
+msgid "Error"
+msgstr "エラー"
+
+#: templates/main_app/register/register-request.html:29
+#: templates/main_app/register/register-request.html:52
+msgid "Create a new account"
+msgstr "新規アカウント作成"
+
+#: templates/main_app/register/register-request.html:30
+msgid "Please fill in the required fields"
+msgstr "必要事項を入力してください"
+
+#: templates/main_app/reservation/reservation_add.html:61
+#: templates/main_app/reservation/reservation_detail.html:52
+#: templates/main_app/shop/shop_detail.html:70
+msgid "Category"
+msgstr "カテゴリー"
+
+#: templates/main_app/reservation/reservation_add.html:63
+#: templates/main_app/reservation/reservation_detail.html:54
+#: templates/main_app/shop/shop_detail.html:72
+msgid "Business Hours"
+msgstr "営業時間"
+
+#: templates/main_app/reservation/reservation_add.html:65
+#: templates/main_app/reservation/reservation_detail.html:56
+#: templates/main_app/shop/shop_detail.html:74
+msgid "Address"
+msgstr "住所"
+
+#: templates/main_app/reservation/reservation_add.html:67
+#: templates/main_app/reservation/reservation_detail.html:58
+#: templates/main_app/reservation/reservation_phone.html:38
+#: templates/main_app/shop/shop_detail.html:76
+msgid "Phone number"
+msgstr "電話番号"
+
+#: templates/main_app/reservation/reservation_add.html:82
+msgid "Reservation Information Entry"
+msgstr "予約情報入力"
+
+#: templates/main_app/reservation/reservation_add.html:92
+#: templates/main_app/shop/shop_detail.html:86
+msgid ""
+"You cannot make a reservation through Tely because your phone number is not "
+"registered."
+msgstr "電話番号が登録されていないため、Telyから予約できません。"
+
+#: templates/main_app/reservation/reservation_detail.html:6
+#: templates/main_app/reservation/reservation_detail.html:16
+msgid "Reservation Details"
+msgstr "予約詳細"
+
+#: templates/main_app/reservation/reservation_detail.html:70
+#: templates/main_app/reservation/reservation_list.html:145
+#: templates/main_app/reservation/reservation_list.html:284
+#: templates/main_app/reservation/reservation_list.html:422
+msgid "Reservation Status"
+msgstr "予約状況"
+
+#: templates/main_app/reservation/reservation_done.html:6
+#: templates/main_app/reservation/reservation_done.html:16
+msgid "Reservation Completed"
+msgstr "予約完了"
+
+#: templates/main_app/reservation/reservation_done.html:31
+msgid "Reservation has been completed."
+msgstr "予約が完了しました"
+
+#: templates/main_app/reservation/reservation_done.html:37
+msgid "View Reservation Status"
+msgstr "予約状況を見る"
+
+#: templates/main_app/reservation/reservation_list.html:60
+#: templates/main_app/reservation/reservation_list.html:199
+#: templates/main_app/reservation/reservation_list.html:337
+msgid "Store Name"
+msgstr "店舗名"
+
+#: templates/main_app/reservation/reservation_list.html:81
+#: templates/main_app/reservation/reservation_list.html:220
+#: templates/main_app/reservation/reservation_list.html:358
+#: templates/main_app/reservation/reservation_phone.html:42
+msgid "Reservation Time"
+msgstr "予約日時"
+
+#: templates/main_app/reservation/reservation_list.html:101
+#: templates/main_app/reservation/reservation_list.html:240
+#: templates/main_app/reservation/reservation_list.html:378
+#: templates/main_app/reservation/reservation_phone.html:46
+msgid "Number of Reserved People"
+msgstr "予約人数"
+
+#: templates/main_app/reservation/reservation_list.html:108
+#: templates/main_app/reservation/reservation_list.html:247
+#: templates/main_app/reservation/reservation_list.html:385
+msgid "people"
+msgstr "名"
+
+#: templates/main_app/reservation/reservation_list.html:121
+#: templates/main_app/reservation/reservation_list.html:260
+#: templates/main_app/reservation/reservation_list.html:398
+#: templates/main_app/reservation/reservation_phone.html:50
+msgid "Name of Representative"
+msgstr "代表者名"
+
+#: templates/main_app/reservation/reservation_list.html:153
+#: templates/main_app/reservation/reservation_list.html:292
+#: templates/main_app/reservation/reservation_list.html:430
+msgid "Completed"
+msgstr "完了済み"
+
+#: templates/main_app/reservation/reservation_list.html:155
+#: templates/main_app/reservation/reservation_list.html:294
+#: templates/main_app/reservation/reservation_list.html:432
+msgid "Incomplete"
+msgstr "未完了"
+
+#: templates/main_app/reservation/reservation_list.html:175
+msgid "No previous reservations"
+msgstr "過去の予約がありません"
+
+#: templates/main_app/reservation/reservation_list.html:314
+msgid "No outstanding reservations"
+msgstr "未完了の予約はありません"
+
+#: templates/main_app/reservation/reservation_list.html:452
+msgid "No completed reservations"
+msgstr "完了した予約はありません"
+
+#: templates/main_app/reservation/reservation_phone.html:31
+msgid "Please enter your store's phone number"
+msgstr "お店の電話番号を入力してください"
+
+#: templates/main_app/reservation/reservation_phone.html:39
+msgid "Enter the phone number of the restaurant you wish to reserve"
+msgstr "予約したいお店の電話番号を入力してください"
+
+#: templates/main_app/reservation/reservation_phone.html:47
+msgid "Please enter numbers only"
+msgstr "数字のみで入力してください"
+
+#: templates/main_app/reservation/reservation_phone.html:51
+msgid "Please enter the name of the representative"
+msgstr "代表者名を入力してください"
+
+#: templates/main_app/reservation/reservation_phone.html:54
+msgid "Memo"
+msgstr "メモ"
+
+#: templates/main_app/reservation/reservation_phone.html:55
+msgid "Please enter any requests you have for the store"
+msgstr "店舗への要望がございましたら、入力して下さい"
+
+#: templates/main_app/shop/shop_list.html:53
+msgid "Enter keywords"
+msgstr "キーワードを入力"
+
+#: templates/main_app/shop/shop_list.html:55
+msgid "Search"
+msgstr "検索"
+
+#: templates/main_app/shop/shop_list.html:72
+msgid "Open"
+msgstr "営業中"
+
+#: templates/main_app/shop/shop_list.html:74
+msgid "After Hours"
+msgstr "営業時間外"
+
+#: templates/main_app/user-settings.html:55
+msgid "Profile Information"
+msgstr "プロフィール情報"
+
+#: templates/main_app/user-settings.html:59
+msgid "Edit"
+msgstr "編集"
+
+#: templates/main_app/user-settings.html:70
+msgid "Profile"
+msgstr "プロフィール"
+
+#: templates/main_app/user-settings.html:73
+#: templates/main_app/user-settings.html:110
+msgid "User Name"
+msgstr "ユーザー名"
+
+#: templates/main_app/user-settings.html:78
+#: templates/main_app/user-settings.html:117
+msgid "Email Address"
+msgstr "メールアドレス"
+
+#: templates/main_app/user-settings.html:83
+msgid "User Category"
+msgstr "ユーザー分類"
+
+#: templates/main_app/user-settings.html:86
+msgid "Administrator"
+msgstr "管理者"
+
+#: templates/main_app/user-settings.html:88
+msgid "Staff User"
+msgstr "運営ユーザー"
+
+#: templates/main_app/user-settings.html:90
+msgid "General User"
+msgstr "一般ユーザー"
+
+#: templates/main_app/user-settings.html:92
+msgid "Unclassified"
+msgstr "分類なし"
+
+#: templates/main_app/user-settings.html:98
+msgid "Management ID"
+msgstr "管理ID"
+
+#: templates/main_app/user-settings.html:124
+msgid "Save"
+msgstr "保存"
+
+#: templates/main_app/user-settings.html:134
+msgid "Click here to change your password"
+msgstr "パスワード変更はこちらから"
+
+#~ msgid ""
+#~ "Due to the fact that the beta test is in progress, no transmissions can "
+#~ "be made outside of the test store."
+#~ msgstr "βテスト中のため、テスト店舗以外への発信はできません"

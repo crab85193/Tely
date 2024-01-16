@@ -1,17 +1,18 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-予約状況確認 - List
+{% trans "Check Reservation Status" %}
 {% endblock%}
 
 {% block main %}
 <div class="pagetitle">
-  <h1>予約状況確認</h1>
+  <h1>{% trans "Check Reservation Status" %}</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
-      <li class="breadcrumb-item active">予約状況確認（List）</li>
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">{% trans "Top" %}</a></li>
+      <li class="breadcrumb-item active">{% trans "Check Reservation Status" %}</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -56,7 +57,7 @@
                             <div class="card info-card sales-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">店舗名</h5>
+                                <h5 class="card-title">{% trans "Store Name" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -77,7 +78,7 @@
                             <div class="card info-card sales-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">予約時間</h5>
+                                <h5 class="card-title">{% trans "Reservation Time" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -97,14 +98,14 @@
                             <div class="card info-card revenue-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">予約人数</h5>
+                                <h5 class="card-title">{% trans "Number of Reserved People" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
                                   </div>
                                   <div class="ps-3">
-                                    <h6>{{ object.num_people }} 名</h6>
+                                    <h6>{{ object.num_people }} {% trans "people" %}</h6>
 
                                   </div>
                                 </div>
@@ -117,7 +118,7 @@
                             <div class="card info-card revenue-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">代表者名</h5>
+                                <h5 class="card-title">{% trans "Name of Representative" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -141,7 +142,7 @@
                             {% endif%}
 
                               <div class="card-body">
-                                <h5 class="card-title">予約処理状態</h5>
+                                <h5 class="card-title">{% trans "Reservation Status" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -149,9 +150,9 @@
                                   </div>
                                   <div class="ps-3">
                                     {% if object.is_end %}
-                                    <h6>完了済み</h6>
+                                    <h6>{% trans "Completed" %}</h6>
                                     {% else %}
-                                    <h6>未完了</h6>
+                                    <h6>{% trans "Incomplete" %}</h6>
                                     {% endif%}
 
                                   </div>
@@ -162,7 +163,7 @@
                           </div>
 
                         </div>
-                        <h5 class="accordion-subtitle"><a href="{% url 'main_app:reservation_detail' object.id %}">詳細を見る→</a></h5>
+                        <h5 class="accordion-subtitle"><a href="{% url 'main_app:reservation_detail' object.id %}">{% trans "Details." %}→</a></h5>
                         
                       </div>
                     </div>
@@ -171,7 +172,7 @@
                 </div>
                 {% else %}
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">過去の予約がありません</h5>
+                  <h5 class="card-title text-center pb-0 fs-4">{% trans "No previous reservations" %}</h5>
                 </div>
                 
                 {% endif %}
@@ -195,7 +196,7 @@
                             <div class="card info-card sales-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">店舗名</h5>
+                                <h5 class="card-title">{% trans "Store Name" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -216,7 +217,7 @@
                             <div class="card info-card sales-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">予約時間</h5>
+                                <h5 class="card-title">{% trans "Reservation Time" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -236,14 +237,14 @@
                             <div class="card info-card revenue-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">予約人数</h5>
+                                <h5 class="card-title">{% trans "Number of Reserved People" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
                                   </div>
                                   <div class="ps-3">
-                                    <h6>{{ object.num_people }} 名</h6>
+                                    <h6>{{ object.num_people }} {% trans "people" %}</h6>
 
                                   </div>
                                 </div>
@@ -256,7 +257,7 @@
                             <div class="card info-card revenue-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">代表者名</h5>
+                                <h5 class="card-title">{% trans "Name of Representative" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -280,7 +281,7 @@
                             {% endif%}
 
                               <div class="card-body">
-                                <h5 class="card-title">予約処理状態</h5>
+                                <h5 class="card-title">{% trans "Reservation Status" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -288,9 +289,9 @@
                                   </div>
                                   <div class="ps-3">
                                     {% if object.is_end %}
-                                    <h6>完了済み</h6>
+                                    <h6>{% trans "Completed" %}</h6>
                                     {% else %}
-                                    <h6>未完了</h6>
+                                    <h6>{% trans "Incomplete" %}</h6>
                                     {% endif%}
 
                                   </div>
@@ -301,7 +302,7 @@
                           </div>
 
                         </div>
-                        <h5 class="accordion-subtitle"><a href="{% url 'main_app:reservation_detail' object.id %}">詳細を見る→</a></h5>
+                        <h5 class="accordion-subtitle"><a href="{% url 'main_app:reservation_detail' object.id %}">{% trans "Details." %}→</a></h5>
                         
                       </div>
                     </div>
@@ -310,7 +311,7 @@
                 </div>
                 {% else %}
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">未完了の予約はありません</h5>
+                  <h5 class="card-title text-center pb-0 fs-4">{% trans "No outstanding reservations" %}</h5>
                 </div>
                 {% endif %}
               </div>
@@ -333,7 +334,7 @@
                             <div class="card info-card sales-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">店舗名</h5>
+                                <h5 class="card-title">{% trans "Store Name" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -354,7 +355,7 @@
                             <div class="card info-card sales-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">予約時間</h5>
+                                <h5 class="card-title">{% trans "Reservation Time" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -374,14 +375,14 @@
                             <div class="card info-card revenue-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">予約人数</h5>
+                                <h5 class="card-title">{% trans "Number of Reserved People" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
                                   </div>
                                   <div class="ps-3">
-                                    <h6>{{ object.num_people }} 名</h6>
+                                    <h6>{{ object.num_people }} {% trans "people" %}</h6>
 
                                   </div>
                                 </div>
@@ -394,7 +395,7 @@
                             <div class="card info-card revenue-card">
 
                               <div class="card-body">
-                                <h5 class="card-title">代表者名</h5>
+                                <h5 class="card-title">{% trans "Name of Representative" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -418,7 +419,7 @@
                             {% endif%}
 
                               <div class="card-body">
-                                <h5 class="card-title">予約処理状態</h5>
+                                <h5 class="card-title">{% trans "Reservation Status" %}</h5>
 
                                 <div class="d-flex align-items-center">
                                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -426,9 +427,9 @@
                                   </div>
                                   <div class="ps-3">
                                     {% if object.is_end %}
-                                    <h6>完了済み</h6>
+                                    <h6>{% trans "Completed" %}</h6>
                                     {% else %}
-                                    <h6>未完了</h6>
+                                    <h6>{% trans "Incomplete" %}</h6>
                                     {% endif%}
 
                                   </div>
@@ -439,7 +440,7 @@
                           </div>
 
                         </div>
-                        <h5 class="accordion-subtitle"><a href="{% url 'main_app:reservation_detail' object.id %}">詳細を見る→</a></h5>
+                        <h5 class="accordion-subtitle"><a href="{% url 'main_app:reservation_detail' object.id %}">{% trans "Details." %}→</a></h5>
                         
                       </div>
                     </div>
@@ -448,7 +449,7 @@
                 </div>
                 {% else %}
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">完了した予約はありません</h5>
+                  <h5 class="card-title text-center pb-0 fs-4">{% trans "No completed reservations" %}</h5>
                 </div>
                 {% endif %}
               </div>

@@ -1,8 +1,9 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-お店を選んで予約 - {{ shop.name }}
+{% trans "Search for stores" %} - {{ shop.name }}
 {% endblock %}
 
 {% block main %}
@@ -10,9 +11,8 @@
   <h1>{{ shop.name }}</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
-      <li class="breadcrumb-item">お店を選んで予約</li>
-      <li class="breadcrumb-item">詳細</li>
+      <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>{% trans "Top" %}</a></li>
+      <li class="breadcrumb-item">{% trans "Search for stores" %}</li>
       <li class="breadcrumb-item active">{{ shop.name }}</li>
     </ol>
   </nav>
@@ -67,21 +67,23 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{ shop.name }}</h5>
-          <h5>カテゴリー</h5>
+          <h5>{% trans "Category" %}</h5>
           <p class="card-text"><i class="bi bi-shop"></i> {{ shop.type }}</p>
-          <h5>営業時間</h5>
+          <h5>{% trans "Business Hours" %}</h5>
           <p class="card-text">{{ shop.open|linebreaksbr }}</p>
-          <h5>住所</h5>
+          <h5>{% trans "Address" %}</h5>
           <p class="card-text"><i class="bi bi-pin-map-fill"></i> {{ shop.address }}</p>
-          <h5>電話番号</h5>
+          <h5>{% trans "Phone number" %}</h5>
           <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
           
           <p class="card-text">
             {% if shop.tel_number %}
-            <a href="{{ shop.add_url }}" class="btn btn-primary">予約する</a>
+            <a href="{{ shop.add_url }}" class="btn btn-primary">{% trans "Make a reservation" %}</a>
+            {% comment %} <p class="text-danger">{% trans "Due to the fact that the beta test is in progress, no transmissions can be made outside of the test store." %}</p>
+            <a href="{{ shop.add_url }}" class="btn btn-primary disabled">{% trans "Make a reservation" %}</a> {% endcomment %}
             {% else %}
-            <p class="text-danger">電話番号が登録されていないため、Telyから予約できません。</p>
-            <a href="{{ shop.add_url }}" class="btn btn-primary disabled">予約する</a>
+            <p class="text-danger">{% trans "You cannot make a reservation through Tely because your phone number is not registered." %}</p>
+            <a href="{{ shop.add_url }}" class="btn btn-primary disabled">{% trans "Make a reservation" %}</a>
             {% endif%}
           </p>
         

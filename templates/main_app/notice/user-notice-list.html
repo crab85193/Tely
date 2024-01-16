@@ -1,17 +1,26 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-{{ request.user.username }}様へのお知らせ
+{% if request.LANGUAGE_CODE == 'en' %}
+Notice to {{ request.user.username }}
+{% else %}
+{{ request.user.username }} 様へのお知らせ
+{% endif %}
 {% endblock %}
 
 {% block main %}
 <div class="pagetitle">
-    <h1>お知らせ</h1>
+    <h1>{% trans 'Notification' %}</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
+        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>{% trans 'Top' %}</a></li>
+        {% if request.LANGUAGE_CODE == 'en' %}
+        <li class="breadcrumb-item active">Notice to {{ request.user.username }}</li>
+        {% else %}
         <li class="breadcrumb-item active">{{ request.user.username }}様へのお知らせ</li>
+        {% endif %}
       </ol>
     </nav>
   </div>
@@ -20,16 +29,30 @@
 <section class="section min-vh-100">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">{{ request.user.username }}様へのお知らせ一覧</h5>
+      <h5 class="card-title">
+        {% if request.LANGUAGE_CODE == 'en' %}
+        List of Notices to {{ request.user.username }}
+        {% else %}
+        {{ request.user.username }} 様へのお知らせ一覧
+        {% endif %}
+      </h5>
 
       <div class="list-group">
         {% for object in objects %}
         <a href="{% url 'main_app:user_notice_detail' object.id %}" class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ object.title }}</h5>
+            {% if request.LANGUAGE_CODE == 'en' %}
+            <h5 class="mb-1">{{ object.title_en }}</h5>
+            {% else %}
+            <h5 class="mb-1">{{ object.title_ja }}</h5>
+            {% endif %}
             <small>{{ object.datetime }}</small>
           </div>
-          <p class="mb-1">{{ object.message | truncatechars:50}}</p>
+          {% if request.LANGUAGE_CODE == 'en' %}
+          <p class="mb-1">{{ object.message_en | truncatechars:50 }}</p>
+          {% else %}
+          <p class="mb-1">{{ object.message_ja | truncatechars:50 }}</p>
+          {% endif %}
         </a>
         {% endfor %}
       </div>

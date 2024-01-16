@@ -1,8 +1,13 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-{{ request.user.username }}様へのお知らせ - {{ title }}
+{% if request.LANGUAGE_CODE == 'en' %}
+Notice to {{ request.user.username }} - {{ title_en }}
+{% else %}
+{{ request.user.username }} 様へのお知らせ - {{ title_ja }}
+{% endif %}
 {% endblock %}
 
 {% block main %}
@@ -10,9 +15,14 @@
     <h1>{{ title }}</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>トップ</a></li>
-        <li class="breadcrumb-item">{{ request.user.username }}様へのお知らせ</li>
-        <li class="breadcrumb-item active">{{ object.title }}</li>
+        <li class="breadcrumb-item"><a href={% url 'main_app:top' %}>{% trans 'Top' %}</a></li>
+        {% if request.LANGUAGE_CODE == 'en' %}
+        <li class="breadcrumb-item active">Notice to {{ request.user.username }}</li>
+        <li class="breadcrumb-item active">{{ object.title_en }}</li>
+        {% else %}
+        <li class="breadcrumb-item active">{{ request.user.username }}様へのお知らせ</li>
+        <li class="breadcrumb-item active">{{ object.title_ja }}</li>
+        {% endif %}
       </ol>
     </nav>
   </div>
@@ -21,21 +31,37 @@
 <section class="section min-vh-100">
   <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{ object.title }}</h5>
+        {% if request.LANGUAGE_CODE == 'en' %}
+        <h5 class="card-title">{{ object.title_en }}</h5>
+        {% else %}
+        <h5 class="card-title">{{ object.title_ja }}</h5>
+        {% endif %}
 
         <div class="d-flex align-items-start pb-3">
           <div class="nav flex-column nav-pills me-3">
             {% for item in menu %}
             {% if item.id == object.id%}
-            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link active">{{ item.title }}</a>
+            {% if request.LANGUAGE_CODE == 'en' %}
+            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link active">{{ item.title_en }}</a>
             {% else %}
-            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link">{{ item.title }}</a>
+            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link active">{{ item.title_ja }}</a>
+            {% endif %}
+            {% else %}
+            {% if request.LANGUAGE_CODE == 'en' %}
+            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link">{{ item.title_en }}</a>
+            {% else %}
+            <a href="{% url 'main_app:user_notice_detail' item.id %}" class="nav-link">{{ item.title_ja }}</a>
+            {% endif %}
             {% endif %}
             {% endfor %}
           </div>
           <div class="tab-content px-2">
             <div class="tab-pane fade show active">
-              {{ object.message|linebreaksbr }}
+              {% if request.LANGUAGE_CODE == 'en' %}
+              {{ object.message_en|linebreaksbr }}
+              {% else %}
+              {{ object.message_ja|linebreaksbr }}
+              {% endif %}
               <br>
               {{ object.datetime}}
             </div>

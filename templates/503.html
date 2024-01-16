@@ -1,5 +1,6 @@
 {% extends 'error/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
 Maintenance Now...
@@ -10,5 +11,5 @@ Maintenance Now...
 {% endblock %}
 
 {% block error_message %}
-サイトメンテナンス中です。メンテナンス終了までお待ちください。
+{% trans 'The site is under maintenance. Please wait until the maintenance is completed.' %}
 {% endblock %}

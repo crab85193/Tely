@@ -1,8 +1,9 @@
 {% extends 'main_app/register/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-アカウント登録 - メール送信完了
+{% trans "Register an account" %} - {% trans "E-mail transmission complete" %}
 {% endblock%}
 
 {% block main %}
@@ -32,9 +33,9 @@
             <div class="card-body">
 
               <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">メールをご確認ください</h5>
-                <p class="text-center small">認証メールを送信しました。メールをご確認ください。</p>
-                <p class="text-center small">メールが届かない場合、<br>迷惑メールに入っていないか確認してください。</p>
+                <h5 class="card-title text-center pb-0 fs-4">{% trans "Please check your e-mail" %}</h5>
+                <p class="text-center small">{% trans "Authentication email has been sent. Please check your e-mail." %}</p>
+                <p class="text-center small">{% trans "If you do not receive the email, please check to see if it is in your junk mail." %}</p>
               </div>
 
               
@@ -42,10 +43,10 @@
               <form class="row g-3 needs-validation" name="form1" method="POST">
                 {% csrf_token %}
                 <div class="col-12">
-                  <a href="{% url 'main_app:login' %}" class="btn btn-primary w-100" type="submit">ログインページへ</a>
+                  <a href="{% url 'main_app:login' %}" class="btn btn-primary w-100" type="submit">{% trans "Go to login page" %}</a>
                 </div>
                 <div class="col-12">
-                  <p class="small mb-0"><a href="javascript:form1.submit()">メールを再送する</a></p>
+                  <p class="small mb-0"><a href="javascript:form1.submit()">{% trans "Resend email" %}</a></p>
                 </div>
               </form>
 

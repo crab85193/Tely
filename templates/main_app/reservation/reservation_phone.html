@@ -1,17 +1,18 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-電話番号を指定して予約
+{% trans "Reservations by phone number" %}
 {% endblock%}
 
 {% block main %}
 <div class="pagetitle">
-  <h1>電話番号を指定して予約</h1>
+  <h1>{% trans "Reservations by phone number" %}</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">トップ</a></li>
-      <li class="breadcrumb-item">電話番号を指定して予約</li>
+      <li class="breadcrumb-item"><a href="{% url 'main_app:top' %}">{% trans "Top" %}</a></li>
+      <li class="breadcrumb-item">{% trans "Reservations by phone number" %}</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -26,37 +27,37 @@
           <div class="card-body">
 
             <div class="pt-4 pb-2">
-              <h5 class="card-title text-center pb-0 fs-4">電話番号を指定して予約</h5>
-              <p class="text-center small">お店の電話番号を入力してください</p>
+              <h5 class="card-title text-center pb-0 fs-4">{% trans "Reservations by phone number" %}</h5>
+              <p class="text-center small">{% trans "Please enter your store's phone number" %}</p>
             </div>
 
             <form class="row g-3 needs-validation justify-content-center" method="POST">
               {% csrf_token %}
               <div class="col-11 px-2">
                 <p>
-                  <label for="id_tel" class="form-label">電話番号</label>
-                  <input type="tel" name="tel" pattern="[\d]*" maxlength="11" minlength="7" class="form-control" placeholder="電話番号を入力して下さい" id="id_tel" required>
+                  <label for="id_tel" class="form-label">{% trans "Phone number" %}</label>
+                  <input type="tel" name="tel" pattern="[\d]*" maxlength="11" minlength="7" class="form-control" placeholder="{% trans 'Enter the phone number of the restaurant you wish to reserve' %}" id="id_tel" required>
                 </p>
                 <p>
-                  <label for="id_reservation_datetime">予約日時:</label>
+                  <label for="id_reservation_datetime">{% trans "Reservation Time" %}</label>
                   <input type="datetime-local" name="reservation_datetime" class="form-control" id="id_reservation_datetime" required>
                 </p>
                 <p>
-                  <label for="id_num_people">予約人数:</label>
-                  <input type="number" name="num_people" min="0" class="form-control" placeholder="数字のみで入力して下さい" required id="id_num_people">
+                  <label for="id_num_people">{% trans "Number of Reserved People" %}</label>
+                  <input type="number" name="num_people" min="0" class="form-control" placeholder="{% trans 'Please enter numbers only' %}" required id="id_num_people">
                 </p>
                 <p>
-                  <label for="id_representative_name">代表者名:</label>
-                  <input type="text" name="representative_name" maxlength="100" class="form-control" placeholder="代表者名を入力して下さい" required id="id_representative_name">
+                  <label for="id_representative_name">{% trans "Name of Representative" %}</label>
+                  <input type="text" name="representative_name" maxlength="100" class="form-control" placeholder="{% trans 'Please enter the name of the representative' %}" required id="id_representative_name">
                 </p>
                 <p>
-                  <label for="id_memo">メモ:</label>
-                  <textarea name="memo" cols="40" rows="10" class="form-control" placeholder="店舗への要望がございましたら、入力して下さい" id="id_memo"></textarea>
+                  <label for="id_memo">{% trans "Memo" %}</label>
+                  <textarea name="memo" cols="40" rows="10" class="form-control" placeholder="{% trans 'Please enter any requests you have for the store' %}" id="id_memo"></textarea>
                 </p>
               </div>
 
               <div class="col-8 d-flex flex-column align-items-center py-2">
-                <button class="btn btn-primary w-100" type="submit">予約する</button>
+                <button class="btn btn-primary w-100" type="submit">{% trans "Make a reservation" %}</button>
               </div>
             </form>
 

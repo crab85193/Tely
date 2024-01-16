@@ -1,5 +1,6 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
 Top Page
@@ -7,7 +8,6 @@ Top Page
 
 {% block main %}
 <div class="pagetitle">
-  <h1>Dashboard</h1>  
 </div><!-- End Page Title -->
 
 <section class="section dashboard">
@@ -15,13 +15,17 @@ Top Page
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">お知らせ</h5>
+          <h5 class="card-title">{% trans 'Notification' %}</h5>
           
           <!-- List group with active and disabled items -->
           <ul class="list-group list-group-flush">
             {% for notice in notices %}
             <li class="list-group-item">
-              <a href="{% url 'main_app:notice_detail' notice.id %}" style="text-decoration:none;">{{ notice.datetime }} - {{ notice.title }}</a>
+              {% if request.LANGUAGE_CODE == 'en' %}
+              <a href="{% url 'main_app:notice_detail' notice.id %}" style="text-decoration:none;">{{ notice.datetime }} - {{ notice.title_en }}</a>
+              {% else %}
+              <a href="{% url 'main_app:notice_detail' notice.id %}" style="text-decoration:none;">{{ notice.datetime }} - {{ notice.title_ja }}</a>
+              {% endif %}
             </li>
             {% endfor%}
           </ul><!-- End Clean list group -->
@@ -218,7 +222,7 @@ Top Page
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title"><i class="bi bi-shop"></i> おすすめのお店 <span>| Today</span></h5>
+              <h5 class="card-title"><i class="bi bi-shop"></i> {% trans 'Recommended Store' %} {% comment %}<span>| Today</span>{% endcomment %}</h5>
 
               <div id="carouselTopShopInfo" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -249,30 +253,33 @@ Top Page
                           <div class="card-body">
                             <h5 class="card-title"><a href="{{ store.detail_url }}" class="card-link">{{ store.name }}</a></h5>
               
-                            <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-shop"></i> {{ store.type }}</h6>
                             <h6 class="card-subtitle mb-2 text-muted">
-                              評価<i class="bi bi-star"></i> :
+                              <i class="bi bi-shop"></i> 
+                              {{ store.type }}
+                            </h6>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                              {% trans 'Rating' %}<i class="bi bi-star"></i> :
                               {{ store.rating }}
                             </h6>
                             <h6 class="card-subtitle mb-2 text-muted">
-                              価格帯<i class="bi bi-currency-yen"></i> : 
+                              {% trans 'Price Level' %}<i class="bi bi-currency-yen"></i> : 
                               {% if store.price_level == "0" %}
-                              無料
+                              {% trans 'Free' %}
                               {% elif store.price_level == "1" %}
-                              安価
+                              {% trans 'Low' %}
                               {% elif store.price_level == "2" %}
-                              中程度
+                              {% trans 'Medium' %}
                               {% elif store.price_level == "3" %}
-                              高価
+                              {% trans 'High'%}
                               {% elif store.price_level == "4" %}
-                              非常に高価
+                              {% trans 'Very Expensive' %}
                               {% else %}
-                              情報なし
+                              {% trans 'No information' %}
                               {% endif %}
                             </h6>
 
-                            <p class="card-text"><a href="{{ store.add_url }}" class="btn btn-primary">予約する</a></p>
-                            <a href="{{ store.detail_url }}" class="card-link">詳細を見る</a>
+                            <p class="card-text"><a href="{{ store.add_url }}" class="btn btn-primary">{% trans 'Make a reservation' %}</a></p>
+                            <a href="{{ store.detail_url }}" class="card-link">{% trans 'Details.' %}</a>
                           </div>
                         </div>
                       </div>
@@ -306,7 +313,7 @@ Top Page
       <div class="card flex-fill">
         <div class="card-body">
           <h5 class="card-title">
-            最新の予約状況<br>
+            {% trans 'Latest Reservations' %}<br>
             {% if reservation_title %}
               <span><a href="{% url 'main_app:reservation_detail' reservation_id %}">{{ reservation_title }}</a></span>
             {% else %}
@@ -340,8 +347,13 @@ Top Page
               {% endif %}
               
               <div class="activity-content">
-                <h6>{{ state.title }}</h6>
-                {{ state.message }}
+                {% if request.LANGUAGE_CODE == 'en' %}
+                <h6>{{ state.title_en }}</h6>
+                {{ state.message_en }}
+                {% else %}
+                <h6>{{ state.title_ja }}</h6>
+                {{ state.message_ja }}
+                {% endif %}
                 <br>
                 <span class="text-muted small pt-2 ps-1">{{ state.datetime }}</span>
               </div>
@@ -349,7 +361,7 @@ Top Page
             {% endfor %}
           </div>
           {% else %}
-          <p class="p-5 text-center">予約情報がありません</p>
+          <p class="p-5 text-center">{% trans 'No reservation information' %}</p>
           {% endif %}
 
         </div>

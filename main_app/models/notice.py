@@ -16,13 +16,15 @@ class Notice(models.Model):
         (PRIMARY, 'Primary'),
     )
 
-    id       = models.UUIDField(primary_key=True, editable=False, blank=False, null=False, default=uuid.uuid4)
-    datetime = models.DateTimeField(blank=False, null=False, default=timezone.now)
-    title    = models.CharField(max_length=100, blank=False, null=False, default="No Title")
-    message  = models.TextField(blank=False, null=False, default="No Message")
-    type     = models.IntegerField(blank=False, null=False, default=0, choices=NOTICETYPE)
-    url      = models.URLField(blank=True, null=True)
-    archive  = models.BooleanField(blank=False, null=False, default=False)
+    id          = models.UUIDField(primary_key=True, editable=False, blank=False, null=False, default=uuid.uuid4)
+    datetime    = models.DateTimeField(blank=False, null=False, default=timezone.now)
+    title_ja    = models.CharField(max_length=100, blank=False, null=False, default="No Title")
+    title_en    = models.CharField(max_length=100, blank=False, null=False, default="No Title")
+    message_ja  = models.TextField(blank=False, null=False, default="No Message")
+    message_en  = models.TextField(blank=False, null=False, default="No Message")
+    type        = models.IntegerField(blank=False, null=False, default=0, choices=NOTICETYPE)
+    url         = models.URLField(blank=True, null=True)
+    archive     = models.BooleanField(blank=False, null=False, default=False)
 
 
 class UserNotice(models.Model):
@@ -38,11 +40,13 @@ class UserNotice(models.Model):
         (PRIMARY, 'Primary'),
     )
 
-    id       = models.UUIDField(primary_key=True, editable=False, blank=False, null=False, default=uuid.uuid4)
-    datetime = models.DateTimeField(blank=False, null=False, default=timezone.now)
-    user     = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False, related_name="notice_user")
-    title    = models.CharField(max_length=100, blank=False, null=False, default="No Title")
-    message  = models.TextField(blank=False, null=False, default="No Message")
-    type     = models.IntegerField(blank=False, null=False, default=0, choices=NOTICETYPE)
-    url      = models.URLField(blank=True, null=True)
-    is_check = models.BooleanField(blank=False, null=False, default=False)
+    id          = models.UUIDField(primary_key=True, editable=False, blank=False, null=False, default=uuid.uuid4)
+    datetime    = models.DateTimeField(blank=False, null=False, default=timezone.now)
+    user        = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False, related_name="notice_user")
+    title_ja    = models.CharField(max_length=100, blank=False, null=False, default="No Title")
+    title_en    = models.CharField(max_length=100, blank=False, null=False, default="No Title")
+    message_ja  = models.TextField(blank=False, null=False, default="No Message")
+    message_en  = models.TextField(blank=False, null=False, default="No Message")
+    type        = models.IntegerField(blank=False, null=False, default=0, choices=NOTICETYPE)
+    url         = models.URLField(blank=True, null=True)
+    is_check    = models.BooleanField(blank=False, null=False, default=False)

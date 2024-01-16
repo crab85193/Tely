@@ -3,14 +3,15 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>{% block title %}{% endblock %} - Tely</title>
-  <meta content="" name="description">
+  <meta name="description" content="{% trans 'meta_description' %}" />
+  <meta name="author" content="{% trans 'meta_author' %}" />
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -77,9 +78,9 @@
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
               <li class="dropdown-header">
                 {% if request.user.notice_user.all|is_not_check_count %}
-                新しいお知らせが {{ request.user.notice_user.all|is_not_check_count }} 件あります
+                {% trans 'There is'%}{{ request.user.notice_user.all|is_not_check_count }}{% trans 'new notification' %} 
                 {% else %}
-                新しいお知らせはありません
+                {% trans 'No new notices' %}
                 {% endif %}
                 
                 {% comment %} <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">全て見る</span></a> {% endcomment %}
@@ -115,7 +116,7 @@
               {% endfor %}
 
               <li class="dropdown-footer">
-                <a href="{% url 'main_app:user_notice_list' %}">全てのお知らせを見る</a>
+                <a href="{% url 'main_app:user_notice_list' %}">{% trans 'View All Notices' %}</a>
               </li>
   
             </ul><!-- End Notification Dropdown Items -->
@@ -177,7 +178,7 @@
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="{% url 'main_app:user_settings' %}">
                   <i class="bi bi-gear"></i>
-                  <span>ユーザー設定</span>
+                  <span>{% trans 'User Preferences' %}</span>
                 </a>
               </li>
               <li>
@@ -197,7 +198,7 @@
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="{% url 'main_app:logout' %}">
                   <i class="bi bi-box-arrow-right"></i>
-                  <span>ログアウト</span>
+                  <span>{% trans 'Logout' %}</span>
                 </a>
               </li>
   
@@ -217,35 +218,35 @@
         <li class="nav-item">
           <a class="nav-link {% if 'top' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:top' %}">
             <i class="bi bi-grid"></i>
-            <span>トップ</span>
+            <span>{% trans 'Top' %}</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {% if 'notice/' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:notice_list' %}">
             <i class="bi bi-bell"></i>
-            <span>お知らせ</span>
+            <span>{% trans 'Notification' %}</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {% if 'shop' not in request.path %}collapsed{% endif %}" href="{% url 'main_app:shop_list' %}">
             <i class="bi bi-shop"></i>
-            <span>お店を選んで予約</span>
+            <span>{% trans 'Search for stores' %}</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {% if 'reservation/phone/' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation_phone' %}">
             <i class="bi bi-telephone-forward-fill"></i>
-            <span>電話番号を指定して予約</span>
+            <span>{% trans 'Reservations by phone number' %}</span>
           </a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link {% if 'reservation/list/' not in request.path or '/reservation/done/' in request.path  %}collapsed{% endif %}" href="{% url 'main_app:reservation_list' %}">
             <i class="bi bi-card-checklist"></i>
-            <span>予約状況確認</span>
+            <span>{% trans 'Check Reservation Status' %}</span>
           </a>
         </li>
 
@@ -256,7 +257,7 @@
           <a class="nav-link collapsed" href="https://forms.gle/yssR6yZF4n6uhFCZ7" target="_blank" rel="noopener noreferrer">
           {% endif %}
             <i class="bi bi-envelope"></i>
-            <span>ご意見・ご感想</span>
+            <span>{% trans 'Feedback' %}</span>
           </a>
         </li>
         

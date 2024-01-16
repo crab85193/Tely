@@ -23,10 +23,10 @@ class UserActivateTokensManager(models.Manager):
 
 
 class UserActivateTokens(models.Model):
-    token_id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    token_id       = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
+    user           = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     activate_token = models.UUIDField(default=uuid.uuid4)
-    expired_at = models.DateTimeField()
+    expired_at     = models.DateTimeField()
 
     objects = UserActivateTokensManager()
         

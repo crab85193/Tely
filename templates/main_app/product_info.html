@@ -3,164 +3,163 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Tely</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'product_info/img/Tely_logo_3.png' %}" />
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'product_info/css/styles.css' %}" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="{% trans 'meta_description' %}" />
+    <meta name="author" content="{% trans 'meta_author' %}" />
+    <title>Tely - {% trans 'Phone reservation proxy application' %}</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'product_info/img/Tely_logo_3.png' %}" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'product_info/css/styles.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <img class="navbar-brand" id="logo">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'main_app:register_request' %}">{% trans 'Sign Up' %}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'main_app:login' %}">{% trans 'Login' %}</a></li>
-                        <li class="nav-item dropdown">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_language_info_list for LANGUAGES as languages %}
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {% if request.LANGUAGE_CODE == 'en' %}
-                                🇺🇸 EN
-                                {% else %}
-                                🇯🇵 JP
-                                {% endif %}
-                            </a>
-                            <form action="{% url 'set_language' %}" method="post">
-                                {% csrf_token %}
-                                <ul class="dropdown-menu">
-                                    {% for language in languages %}
-                                    <li>
-                                        <button class="dropdown-item d-flex align-items-center" type="submit" name="language" value="{{ language.code }}">
-                                            {% if language.code == 'en' %}
-                                            🇺🇸
-                                            {% else %}
-                                            🇯🇵
-                                            {% endif %}
-                                            {{ language.name_local }}
-                                        </button>
-                                    </li>
-                                    {% endfor %}
-                              {% comment %} <li><a class="dropdown-item" href="/">🇯🇵 日本語</a></li>
-                              <li><a class="dropdown-item" href="en/">🇺🇸 English</a></li> {% endcomment %}
-                                </ul>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+      <div class="container px-4 px-lg-5">
+        <img class="navbar-brand" id="logo">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto my-2 my-lg-0">
+            <li class="nav-item"><a class="nav-link" href="{% url 'main_app:register_request' %}">{% trans 'Sign Up' %}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'main_app:login' %}">{% trans 'Login' %}</a></li>
+            <li class="nav-item dropdown">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {% if request.LANGUAGE_CODE == 'en' %}
+                🇺🇸 EN
+                {% else %}
+                🇯🇵 JP
+                {% endif %}
+              </a>
+              <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <ul class="dropdown-menu">
+                  {% for language in languages %}
+                  <li>
+                    <button class="dropdown-item d-flex align-items-center" type="submit" name="language" value="{{ language.code }}">
+                      {% if language.code == 'en' %}
+                      🇺🇸
+                      {% else %}
+                      🇯🇵
+                      {% endif %}
+                      {{ language.name_local }}
+                    </button>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+      <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+          <div class="col-lg-8 align-self-end">
+            <h1 class="text-white font-weight-bold">{% trans 'Save Your Time' %}</h1>
+            <h1 class="text-white font-weight-bold">{% trans 'Phone reservation proxy application' %} Tely</h1>
+            <hr class="divider" />
+          </div>
+          <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 mb-5">{% trans 'For those of you who have trouble making phone calls. We automatically make phone reservations for you.' %}</p>
+            <a class="btn btn-primary btn-xl" href="{% url 'main_app:register_request' %}">{% trans 'Click here for the first time' %}</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Sign Up-->
+    <!-- Services-->
+    <section class="page-section" id="services">
+      <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">{% trans 'You can do this' %}</h2>
+        <hr class="divider" />
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-lg-6 col-md-6 text-center">
+            <div class="mt-5">
+              <div class="mb-3 icon-and-text"><i class="fas fa-phone fa-2x" style="color: #f4623a;"></i></div>
+              <h3 class="h4 mb-2 mt-4">{% trans 'Telephone Reservations' %}</h3>
+              <p class="text-muted mb-0">{% trans 'You specify the restaurant you wish to reserve, and we will make the reservation over the phone on your behalf.' %}</p>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">{% trans 'Save Your Time' %}</h1>
-                        <h1 class="text-white font-weight-bold">{% trans 'Phone reservation proxy application' %} Tely</h1>
-                        <hr class="divider" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">{% trans 'For those of you who have trouble making phone calls. We automatically make phone reservations for you.' %}</p>
-                        <a class="btn btn-primary btn-xl" href="{% url 'main_app:register_request' %}">{% trans 'Click here for the first time' %}</a>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-6 col-md-6 text-center">
+            <div class="mt-5">
+              <div class="mb-2 icon-and-text"><i class="bi-laptop fs-1 text-primary"></i></div>
+              <h3 class="h4 mb-2">{% trans 'Check Reservation Status' %}</h3>
+              <p class="text-muted mb-0">{% trans 'You can check the status and results of your phone reservations.' %}</p>
             </div>
-        </header>
-        <!-- Sign Up-->
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">{% trans 'You can do this' %}</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-6 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-3 icon-and-text"><i class="fas fa-phone fa-2x" style="color: #f4623a;"></i></div>
-                            <h3 class="h4 mb-2 mt-4">電話予約</h3>
-                            <p class="text-muted mb-0">予約したいお店を指定すると、自動電話を発信します。</p>
-                        </div>
-                      </div>
-                    <div class="col-lg-6 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2 icon-and-text"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">予約状況確認</h3>
-                            <p class="text-muted mb-0">電話予約の状況や結果が確認できます。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
+      
+    <!-- Call to action-->
+    <section class="page-section bg-dark text-white">
+      <div class="container px-4 px-lg-5">
+        <div class="row">
+          <div class="col-md-8 text-start">
+            <h2 class="mb-4">{% trans 'It can be used in these situations' %}</h2>
+            <ul>
+              <li class="use-time">{% trans "Want to make a reservation at a restaurant, but don't want to go through the hassle of calling." %}</li>
+              <li class="use-time">{% trans "Not comfortable talking on the phone" %}</li>
+              <li class="use-item">{% trans "Not able to speak or have difficulty speaking Japanese" %}</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <img src="{% static 'product_info/img/Tely_display.png' %}" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+      </div>
+    </section>
         
-        <!-- Call to action-->
-        <section class="page-section bg-dark text-white">
-            <div class="container px-4 px-lg-5">
-              <div class="row">
-                <div class="col-md-8 text-start">
-                  <h2 class="mb-4">こんな時に使える</h2>
-                  <ul>
-                    <li class="use-time">飲食店へ予約したいが、電話する手間を省きたい</li>
-                    <li class="use-time">電話で話すことが苦手</li>
-                  </ul>
-                </div>
-                <div class="col-md-4">
-                  <img src="{% static 'product_info/img/Tely_display.png' %}" class="img-fluid" alt="Responsive image">
-                </div>
-              </div>
-            </div>
-          </section>
-          
-        <section class="page-section bg-primary" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">完全無料</h2>
-                        <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">自動電話予約WebアプリTelyは、無料で使用することができます。</p>
-                        <p class="text-white-75 mb-4">まずは登録して試してみましょう！</p>
-                        <a class="btn btn-light btn-xl" href="{% url 'main_app:register_request' %}">Telyに登録する</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - 株式会社カルテット</div></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{% static 'product_info/js/scripts.js' %}"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script>
-            var logoWhite = "{% static 'product_info/img/Tely_logo_3.png'%}";
-            var logoBlack = "{% static 'product_info/img/Tely_logo_1.png'%}"; // ロゴ黒色画像のパス
-        </script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+    <section class="page-section bg-primary" id="about">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="text-white mt-0">{% trans "Completely free during beta testing" %}</h2>
+            <hr class="divider divider-light" />
+            <p class="text-white-75 mb-4">{% trans "Tely, an automated phone reservation web application, is available for free during the beta test period with full functionality." %}</p>
+            <p class="text-white-75 mb-4">{% trans "Register and try it out first!" %}</p>
+            <a class="btn btn-light btn-xl" href="{% url 'main_app:register_request' %}">{% trans "Sign up for Tely" %}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+      
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2024 - {% trans 'Quartetto Inc.' %}</div></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'product_info/js/scripts.js' %}"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script>
+        var logoWhite = "{% static 'product_info/img/Tely_logo_3.png'%}";
+        var logoBlack = "{% static 'product_info/img/Tely_logo_1.png'%}"; // ロゴ黒色画像のパス
+    </script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  </body>
 </html>
