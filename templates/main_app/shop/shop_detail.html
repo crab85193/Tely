@@ -77,10 +77,11 @@
           <p class="card-text"><i class="bi bi-telephone-fill"></i> {{ shop.tel_number }}</p>
           
           <p class="card-text">
-            {% if shop.tel_number %}
+            {% if not shop.test %}
+            <p class="text-danger">{% trans "Due to the fact that the beta test is in progress, no transmissions can be made outside of the test store." %}</p>
+            <a href="{{ shop.add_url }}" class="btn btn-primary disabled">{% trans "Make a reservation" %}</a>
+            {% elif shop.tel_number %}
             <a href="{{ shop.add_url }}" class="btn btn-primary">{% trans "Make a reservation" %}</a>
-            {% comment %} <p class="text-danger">{% trans "Due to the fact that the beta test is in progress, no transmissions can be made outside of the test store." %}</p>
-            <a href="{{ shop.add_url }}" class="btn btn-primary disabled">{% trans "Make a reservation" %}</a> {% endcomment %}
             {% else %}
             <p class="text-danger">{% trans "You cannot make a reservation through Tely because your phone number is not registered." %}</p>
             <a href="{{ shop.add_url }}" class="btn btn-primary disabled">{% trans "Make a reservation" %}</a>

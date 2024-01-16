@@ -86,7 +86,10 @@
                 </div>
   
                 <div class="col-10 d-flex flex-column align-items-center py-2">
-                  {% if shop.tel_number %}
+                  {% if not shop.test %}
+                  <p class="text-danger">{% trans "Due to the fact that the beta test is in progress, no transmissions can be made outside of the test store." %}</p>
+                  <button class="btn btn-primary w-100" type="submit" disabled>{% trans "Make a reservation" %}</button>
+                  {% elif shop.tel_number %}
                   <button class="btn btn-primary w-100" type="submit">{% trans "Make a reservation" %}</button>
                   {% else %}
                   <p class="text-danger">{% trans "You cannot make a reservation through Tely because your phone number is not registered." %}</p>
