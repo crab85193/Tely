@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 12:44+0900\n"
+"POT-Creation-Date: 2024-01-16 13:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,13 +84,15 @@ msgstr "Logout"
 #: templates/main_app/base.html:224
 #: templates/main_app/notice/notice-detail.html:14
 #: templates/main_app/notice/notice-list.html:14
-#: templates/main_app/notice/user-notice-detail.html:17
+#: templates/main_app/notice/user-notice-detail.html:18
 #: templates/main_app/notice/user-notice-list.html:18
 #: templates/main_app/reservation/reservation_add.html:14
 #: templates/main_app/reservation/reservation_detail.html:14
 #: templates/main_app/reservation/reservation_done.html:14
 #: templates/main_app/reservation/reservation_list.html:14
 #: templates/main_app/reservation/reservation_phone.html:14
+#: templates/main_app/shop/shop_detail.html:14
+#: templates/main_app/shop/shop_list.html:40
 #: templates/main_app/user-settings.html:14
 msgid "Top"
 msgstr "Top"
@@ -105,7 +107,11 @@ msgstr "Top"
 msgid "Notification"
 msgstr "Notification"
 
-#: templates/main_app/base.html:238
+#: templates/main_app/base.html:238 templates/main_app/shop/shop_detail.html:6
+#: templates/main_app/shop/shop_detail.html:15
+#: templates/main_app/shop/shop_list.html:32
+#: templates/main_app/shop/shop_list.html:37
+#: templates/main_app/shop/shop_list.html:41
 msgid "Search for stores"
 msgstr "Search for stores"
 
@@ -132,35 +138,35 @@ msgstr "Feedback"
 msgid "Recommended Store"
 msgstr "Recommended Store"
 
-#: templates/main_app/index.html:260
+#: templates/main_app/index.html:260 templates/main_app/shop/shop_list.html:79
 msgid "Rating"
 msgstr "Rating"
 
-#: templates/main_app/index.html:264
+#: templates/main_app/index.html:264 templates/main_app/shop/shop_list.html:83
 msgid "Price Level"
 msgstr "Price Level"
 
-#: templates/main_app/index.html:266
+#: templates/main_app/index.html:266 templates/main_app/shop/shop_list.html:85
 msgid "Free"
 msgstr "Free"
 
-#: templates/main_app/index.html:268
+#: templates/main_app/index.html:268 templates/main_app/shop/shop_list.html:87
 msgid "Low"
 msgstr "Low"
 
-#: templates/main_app/index.html:270
+#: templates/main_app/index.html:270 templates/main_app/shop/shop_list.html:89
 msgid "Medium"
 msgstr "Medium"
 
-#: templates/main_app/index.html:272
+#: templates/main_app/index.html:272 templates/main_app/shop/shop_list.html:91
 msgid "High"
 msgstr "High"
 
-#: templates/main_app/index.html:274
+#: templates/main_app/index.html:274 templates/main_app/shop/shop_list.html:93
 msgid "Very Expensive"
 msgstr "Very Expensive"
 
-#: templates/main_app/index.html:276
+#: templates/main_app/index.html:276 templates/main_app/shop/shop_list.html:95
 msgid "No information"
 msgstr "No information"
 
@@ -175,6 +181,9 @@ msgstr "No information"
 #: templates/main_app/reservation/reservation_done.html:11
 #: templates/main_app/reservation/reservation_done.html:15
 #: templates/main_app/reservation/reservation_phone.html:60
+#: templates/main_app/shop/shop_detail.html:81
+#: templates/main_app/shop/shop_detail.html:87
+#: templates/main_app/shop/shop_list.html:99
 msgid "Make a reservation"
 msgstr "Make a reservation"
 
@@ -182,6 +191,7 @@ msgstr "Make a reservation"
 #: templates/main_app/reservation/reservation_list.html:166
 #: templates/main_app/reservation/reservation_list.html:305
 #: templates/main_app/reservation/reservation_list.html:443
+#: templates/main_app/shop/shop_list.html:100
 msgid "Details."
 msgstr "Details."
 
@@ -446,22 +456,26 @@ msgstr "Please fill in the required fields"
 
 #: templates/main_app/reservation/reservation_add.html:61
 #: templates/main_app/reservation/reservation_detail.html:52
+#: templates/main_app/shop/shop_detail.html:70
 msgid "Category"
 msgstr "Category"
 
 #: templates/main_app/reservation/reservation_add.html:63
 #: templates/main_app/reservation/reservation_detail.html:54
+#: templates/main_app/shop/shop_detail.html:72
 msgid "Business Hours"
 msgstr "Business Hours"
 
 #: templates/main_app/reservation/reservation_add.html:65
 #: templates/main_app/reservation/reservation_detail.html:56
+#: templates/main_app/shop/shop_detail.html:74
 msgid "Address"
 msgstr "Address"
 
 #: templates/main_app/reservation/reservation_add.html:67
 #: templates/main_app/reservation/reservation_detail.html:58
 #: templates/main_app/reservation/reservation_phone.html:38
+#: templates/main_app/shop/shop_detail.html:76
 msgid "Phone number"
 msgstr "Phone number"
 
@@ -470,6 +484,7 @@ msgid "Reservation Information Entry"
 msgstr "Reservation Information Entry"
 
 #: templates/main_app/reservation/reservation_add.html:92
+#: templates/main_app/shop/shop_detail.html:86
 msgid ""
 "You cannot make a reservation through Tely because your phone number is not "
 "registered."
@@ -582,6 +597,22 @@ msgstr "Memo"
 #: templates/main_app/reservation/reservation_phone.html:55
 msgid "Please enter any requests you have for the store"
 msgstr "Please enter any requests you have for the store"
+
+#: templates/main_app/shop/shop_list.html:53
+msgid "Enter keywords"
+msgstr "Enter keywords"
+
+#: templates/main_app/shop/shop_list.html:55
+msgid "Search"
+msgstr "Search"
+
+#: templates/main_app/shop/shop_list.html:72
+msgid "Open"
+msgstr "Open"
+
+#: templates/main_app/shop/shop_list.html:74
+msgid "After Hours"
+msgstr "After Hours"
 
 #: templates/main_app/user-settings.html:55
 msgid "Profile Information"

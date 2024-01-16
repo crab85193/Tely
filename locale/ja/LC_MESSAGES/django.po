@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 12:44+0900\n"
+"POT-Creation-Date: 2024-01-16 13:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,13 +81,15 @@ msgstr "ログアウト"
 #: templates/main_app/base.html:224
 #: templates/main_app/notice/notice-detail.html:14
 #: templates/main_app/notice/notice-list.html:14
-#: templates/main_app/notice/user-notice-detail.html:17
+#: templates/main_app/notice/user-notice-detail.html:18
 #: templates/main_app/notice/user-notice-list.html:18
 #: templates/main_app/reservation/reservation_add.html:14
 #: templates/main_app/reservation/reservation_detail.html:14
 #: templates/main_app/reservation/reservation_done.html:14
 #: templates/main_app/reservation/reservation_list.html:14
 #: templates/main_app/reservation/reservation_phone.html:14
+#: templates/main_app/shop/shop_detail.html:14
+#: templates/main_app/shop/shop_list.html:40
 #: templates/main_app/user-settings.html:14
 msgid "Top"
 msgstr "トップ"
@@ -102,7 +104,11 @@ msgstr "トップ"
 msgid "Notification"
 msgstr "お知らせ"
 
-#: templates/main_app/base.html:238
+#: templates/main_app/base.html:238 templates/main_app/shop/shop_detail.html:6
+#: templates/main_app/shop/shop_detail.html:15
+#: templates/main_app/shop/shop_list.html:32
+#: templates/main_app/shop/shop_list.html:37
+#: templates/main_app/shop/shop_list.html:41
 msgid "Search for stores"
 msgstr "お店を選んで予約"
 
@@ -129,35 +135,35 @@ msgstr "ご意見・ご感想"
 msgid "Recommended Store"
 msgstr "おすすめのお店"
 
-#: templates/main_app/index.html:260
+#: templates/main_app/index.html:260 templates/main_app/shop/shop_list.html:79
 msgid "Rating"
 msgstr "評価"
 
-#: templates/main_app/index.html:264
+#: templates/main_app/index.html:264 templates/main_app/shop/shop_list.html:83
 msgid "Price Level"
 msgstr "価格帯"
 
-#: templates/main_app/index.html:266
+#: templates/main_app/index.html:266 templates/main_app/shop/shop_list.html:85
 msgid "Free"
 msgstr "無料"
 
-#: templates/main_app/index.html:268
+#: templates/main_app/index.html:268 templates/main_app/shop/shop_list.html:87
 msgid "Low"
 msgstr "安価"
 
-#: templates/main_app/index.html:270
+#: templates/main_app/index.html:270 templates/main_app/shop/shop_list.html:89
 msgid "Medium"
 msgstr "中程度"
 
-#: templates/main_app/index.html:272
+#: templates/main_app/index.html:272 templates/main_app/shop/shop_list.html:91
 msgid "High"
 msgstr "高価"
 
-#: templates/main_app/index.html:274
+#: templates/main_app/index.html:274 templates/main_app/shop/shop_list.html:93
 msgid "Very Expensive"
 msgstr "非常に高価"
 
-#: templates/main_app/index.html:276
+#: templates/main_app/index.html:276 templates/main_app/shop/shop_list.html:95
 msgid "No information"
 msgstr "情報なし"
 
@@ -172,6 +178,9 @@ msgstr "情報なし"
 #: templates/main_app/reservation/reservation_done.html:11
 #: templates/main_app/reservation/reservation_done.html:15
 #: templates/main_app/reservation/reservation_phone.html:60
+#: templates/main_app/shop/shop_detail.html:81
+#: templates/main_app/shop/shop_detail.html:87
+#: templates/main_app/shop/shop_list.html:99
 msgid "Make a reservation"
 msgstr "予約する"
 
@@ -179,6 +188,7 @@ msgstr "予約する"
 #: templates/main_app/reservation/reservation_list.html:166
 #: templates/main_app/reservation/reservation_list.html:305
 #: templates/main_app/reservation/reservation_list.html:443
+#: templates/main_app/shop/shop_list.html:100
 msgid "Details."
 msgstr "詳細を見る"
 
@@ -434,22 +444,26 @@ msgstr "必要事項を入力してください"
 
 #: templates/main_app/reservation/reservation_add.html:61
 #: templates/main_app/reservation/reservation_detail.html:52
+#: templates/main_app/shop/shop_detail.html:70
 msgid "Category"
 msgstr "カテゴリー"
 
 #: templates/main_app/reservation/reservation_add.html:63
 #: templates/main_app/reservation/reservation_detail.html:54
+#: templates/main_app/shop/shop_detail.html:72
 msgid "Business Hours"
 msgstr "営業時間"
 
 #: templates/main_app/reservation/reservation_add.html:65
 #: templates/main_app/reservation/reservation_detail.html:56
+#: templates/main_app/shop/shop_detail.html:74
 msgid "Address"
 msgstr "住所"
 
 #: templates/main_app/reservation/reservation_add.html:67
 #: templates/main_app/reservation/reservation_detail.html:58
 #: templates/main_app/reservation/reservation_phone.html:38
+#: templates/main_app/shop/shop_detail.html:76
 msgid "Phone number"
 msgstr "電話番号"
 
@@ -458,6 +472,7 @@ msgid "Reservation Information Entry"
 msgstr "予約情報入力"
 
 #: templates/main_app/reservation/reservation_add.html:92
+#: templates/main_app/shop/shop_detail.html:86
 msgid ""
 "You cannot make a reservation through Tely because your phone number is not "
 "registered."
@@ -569,6 +584,22 @@ msgstr "メモ"
 msgid "Please enter any requests you have for the store"
 msgstr "店舗への要望がございましたら、入力して下さい"
 
+#: templates/main_app/shop/shop_list.html:53
+msgid "Enter keywords"
+msgstr "キーワードを入力"
+
+#: templates/main_app/shop/shop_list.html:55
+msgid "Search"
+msgstr "検索"
+
+#: templates/main_app/shop/shop_list.html:72
+msgid "Open"
+msgstr "営業中"
+
+#: templates/main_app/shop/shop_list.html:74
+msgid "After Hours"
+msgstr "営業時間外"
+
 #: templates/main_app/user-settings.html:55
 msgid "Profile Information"
 msgstr "プロフィール情報"
@@ -622,3 +653,8 @@ msgstr "保存"
 #: templates/main_app/user-settings.html:134
 msgid "Click here to change your password"
 msgstr "パスワード変更はこちらから"
+
+#~ msgid ""
+#~ "Due to the fact that the beta test is in progress, no transmissions can "
+#~ "be made outside of the test store."
+#~ msgstr "βテスト中のため、テスト店舗以外への発信はできません"
