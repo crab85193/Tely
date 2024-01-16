@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 13:13+0900\n"
+"POT-Creation-Date: 2024-01-16 16:39+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,3 +49,52 @@ msgstr "代表者名"
 #: main_app/models/reservation.py:16
 msgid "Memo"
 msgstr "メモ"
+
+#: main_app/views/reservation.py:81 main_app/views/reservation.py:216
+#: main_app/views/shop.py:48 main_app/views/shop.py:103
+#: main_app/views/top.py:37
+msgid "bakery"
+msgstr "パン屋"
+
+#: main_app/views/reservation.py:83 main_app/views/reservation.py:218
+#: main_app/views/shop.py:50 main_app/views/shop.py:105
+#: main_app/views/top.py:39
+msgid "bar"
+msgstr "バー"
+
+#: main_app/views/reservation.py:85 main_app/views/reservation.py:220
+#: main_app/views/shop.py:52 main_app/views/shop.py:107
+#: main_app/views/top.py:41
+msgid "cafe"
+msgstr "カフェ"
+
+#: main_app/views/reservation.py:87 main_app/views/reservation.py:222
+#: main_app/views/shop.py:54 main_app/views/shop.py:109
+#: main_app/views/top.py:43
+msgid "convenience_store"
+msgstr "コンビニ"
+
+#: main_app/views/reservation.py:89 main_app/views/reservation.py:224
+#: main_app/views/shop.py:56 main_app/views/shop.py:111
+#: main_app/views/top.py:45
+msgid "food"
+msgstr "飲食店"
+
+#: main_app/views/reservation.py:91 main_app/views/reservation.py:226
+#: main_app/views/shop.py:58 main_app/views/shop.py:113
+#: main_app/views/top.py:47
+msgid "restaurant"
+msgstr "レストラン"
+
+#: main_app/views/reservation.py:240
+msgid "Reservations by phone number"
+msgstr "電話番号指定予約"
+
+#: main_app/views/reservation.py:241 main_app/views/reservation.py:242
+#: main_app/views/reservation.py:244
+msgid "No information"
+msgstr "情報なし"
+
+#: main_app/views/user_settings.py:19
+msgid "Changes have been completed."
+msgstr "変更が完了しました。"

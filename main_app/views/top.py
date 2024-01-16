@@ -6,6 +6,7 @@ from ..models.notice import Notice
 from ..models.reservation import ReservationParent,ReservationChild
 from ..models.store import Store
 from ..store_manager import StoreManager
+from django.utils.translation import gettext_lazy as _
 
 class TopView(LoginRequiredMixin, TemplateView):
     template_name = 'main_app/index.html'
@@ -33,17 +34,17 @@ class TopView(LoginRequiredMixin, TemplateView):
             for type in store.type.split(" "):
                 match type:
                     case "bakery":
-                        store_types += "パン屋" + ", "
+                        store_types += _("bakery") + ", "
                     case "bar":
-                        store_types += "バー" + ", "
+                        store_types += _("bar") + ", "
                     case "cafe":
-                        store_types += "カフェ" + ", "
+                        store_types += _("cafe") + ", "
                     case "convenience_store":
-                        store_types += "コンビニ" + ", "
+                        store_types += _("convenience_store") + ", "
                     case "food":
-                        store_types += "飲食店" + ", "
+                        store_types += _("food") + ", "
                     case "restaurant":
-                        store_types += "レストラン" + ", "
+                        store_types += _("restaurant") + ", "
                     case _:
                         pass
                     

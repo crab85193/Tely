@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from ..models.user import User
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.utils.translation import gettext_lazy as _
 
 class UserSettingsView(LoginRequiredMixin, TemplateView):
     template_name = 'main_app/user-settings.html'
@@ -15,7 +16,7 @@ class UserSettingsView(LoginRequiredMixin, TemplateView):
 
         instance.save()
 
-        messages.success(request, '変更が完了しました。')
+        messages.success(request, _("Changes have been completed."))
 
         return redirect("main_app:user_settings")
     

@@ -9,6 +9,7 @@ from ..store_manager import StoreManager
 from ..models.reservation import ReservationParent, ReservationChild
 from ..models.notice import UserNotice
 from ..forms.reservation import ReservationForm
+from django.utils.translation import gettext_lazy as _
 
 
 class ReservationPhoneView(LoginRequiredMixin, TemplateView):
@@ -77,17 +78,17 @@ class ReservationAddView(LoginRequiredMixin, FormView):
             for type in store_info["type"]:
                 match type:
                     case "bakery":
-                        store_types += "パン屋" + ", "
+                        store_types += _("bakery") + ", "
                     case "bar":
-                        store_types += "バー" + ", "
+                        store_types += _("bar") + ", "
                     case "cafe":
-                        store_types += "カフェ" + ", "
+                        store_types += _("cafe") + ", "
                     case "convenience_store":
-                        store_types += "コンビニ" + ", "
+                        store_types += _("convenience_store") + ", "
                     case "food":
-                        store_types += "飲食店" + ", "
+                        store_types += _("food") + ", "
                     case "restaurant":
-                        store_types += "レストラン" + ", "
+                        store_types += _("restaurant") + ", "
                     case _:
                         pass
             shop_detail["type"] = store_types
@@ -212,17 +213,17 @@ class ReservationDetailView(LoginRequiredMixin, DetailView):
             for type in store_info["type"]:
                 match type:
                     case "bakery":
-                        store_types += "パン屋" + ", "
+                        store_types += _("bakery") + ", "
                     case "bar":
-                        store_types += "バー" + ", "
+                        store_types += _("bar") + ", "
                     case "cafe":
-                        store_types += "カフェ" + ", "
+                        store_types += _("cafe") + ", "
                     case "convenience_store":
-                        store_types += "コンビニ" + ", "
+                        store_types += _("convenience_store") + ", "
                     case "food":
-                        store_types += "飲食店" + ", "
+                        store_types += _("food") + ", "
                     case "restaurant":
-                        store_types += "レストラン" + ", "
+                        store_types += _("restaurant") + ", "
                     case _:
                         pass
             shop_detail["type"] = store_types
@@ -236,11 +237,11 @@ class ReservationDetailView(LoginRequiredMixin, DetailView):
                 "img_list":[
                     "https://raw.githubusercontent.com/crab85193/Tely/main/static/img/logo.png",
                     ],
-                "name":"電話番号指定予約",
-                "type":"情報なし",
-                "address":"情報なし",
+                "name":_("Reservations by phone number"),
+                "type":_("No information"),
+                "address":_("No information"),
                 "tel_number":obj_parent.shop_tel_number,
-                "open":"情報なし",
+                "open":_("No information"),
             }
 
         context["shop"] = shop_detail

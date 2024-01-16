@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 15:39+0900\n"
+"POT-Creation-Date: 2024-01-16 16:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,7 +168,7 @@ msgstr "非常に高価"
 msgid "No information"
 msgstr "情報なし"
 
-#: templates/main_app/index.html:284
+#: templates/main_app/index.html:285 templates/main_app/index.html:287
 #: templates/main_app/reservation/reservation_add.html:6
 #: templates/main_app/reservation/reservation_add.html:11
 #: templates/main_app/reservation/reservation_add.html:15
@@ -184,22 +184,23 @@ msgstr "情報なし"
 #: templates/main_app/shop/shop_detail.html:84
 #: templates/main_app/shop/shop_detail.html:87
 #: templates/main_app/shop/shop_list.html:99
+#: templates/main_app/shop/shop_list.html:101
 msgid "Make a reservation"
 msgstr "予約する"
 
-#: templates/main_app/index.html:285
+#: templates/main_app/index.html:289
 #: templates/main_app/reservation/reservation_list.html:166
 #: templates/main_app/reservation/reservation_list.html:305
 #: templates/main_app/reservation/reservation_list.html:443
-#: templates/main_app/shop/shop_list.html:100
+#: templates/main_app/shop/shop_list.html:103
 msgid "Details."
 msgstr "詳細を見る"
 
-#: templates/main_app/index.html:319
+#: templates/main_app/index.html:323
 msgid "Latest Reservations"
 msgstr "最新の予約状況"
 
-#: templates/main_app/index.html:367
+#: templates/main_app/index.html:371
 msgid "No reservation information"
 msgstr "予約情報がありません"
 
