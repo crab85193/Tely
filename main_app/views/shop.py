@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from ..store_manager import StoreManager
 from urllib.parse import urlencode
+from django.utils.translation import gettext_lazy as _
 
 class ShopListView(LoginRequiredMixin, TemplateView):
     template_name = 'main_app/shop/shop_list.html'
@@ -44,17 +45,17 @@ class ShopListView(LoginRequiredMixin, TemplateView):
             for type in store_info["type"]:
                 match type:
                     case "bakery":
-                        store_types += "パン屋" + ", "
+                        store_types += _("bakery") + ", "
                     case "bar":
-                        store_types += "バー" + ", "
+                        store_types += _("bar") + ", "
                     case "cafe":
-                        store_types += "カフェ" + ", "
+                        store_types += _("cafe") + ", "
                     case "convenience_store":
-                        store_types += "コンビニ" + ", "
+                        store_types += _("convenience_store") + ", "
                     case "food":
-                        store_types += "飲食店" + ", "
+                        store_types += _("food") + ", "
                     case "restaurant":
-                        store_types += "レストラン" + ", "
+                        store_types += _("restaurant") + ", "
                     case _:
                         pass
             detail["type"] = store_types
@@ -99,17 +100,17 @@ class ShopDetailView(LoginRequiredMixin, TemplateView):
             for type in store_info["type"]:
                 match type:
                     case "bakery":
-                        store_types += "パン屋" + ", "
+                        store_types += _("bakery") + ", "
                     case "bar":
-                        store_types += "バー" + ", "
+                        store_types += _("bar") + ", "
                     case "cafe":
-                        store_types += "カフェ" + ", "
+                        store_types += _("cafe") + ", "
                     case "convenience_store":
-                        store_types += "コンビニ" + ", "
+                        store_types += _("convenience_store") + ", "
                     case "food":
-                        store_types += "飲食店" + ", "
+                        store_types += _("food") + ", "
                     case "restaurant":
-                        store_types += "レストラン" + ", "
+                        store_types += _("restaurant") + ", "
                     case _:
                         pass
             shop_detail["type"] = store_types
