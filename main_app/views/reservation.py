@@ -103,7 +103,7 @@ class ReservationAddView(LoginRequiredMixin, FormView):
                     "https://raw.githubusercontent.com/crab85193/Tely/main/static/img/logo.png"
                     ],
                 "name":"テスト用店舗 001店",
-                "type":"レストラン",
+                "type":_("restaurant"),
                 "address":"沖縄県中頭郡西原町字千原",
                 "tel_number":"090-5516-9212",
                 "open":"月〜土 9:00〜Last",
@@ -136,8 +136,8 @@ class ReservationAddView(LoginRequiredMixin, FormView):
         else:
             obj_parent = ReservationParent.objects.create(
                 user = self.request.user,
-                shop_tel_number = "08042897797",
-                shop_name = "ガールズバー Macherie(マシェリ)",
+                shop_tel_number = "09055169212",
+                shop_name = "テスト用店舗 001店",
                 reservation_datetime = data["reservation_datetime"],
                 num_people = data["num_people"],
                 representative_name = data["representative_name"],
