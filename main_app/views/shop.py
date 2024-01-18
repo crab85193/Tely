@@ -92,7 +92,12 @@ class ShopDetailView(LoginRequiredMixin, TemplateView):
             
             shop_detail["img_list"] = store_info["photos"]
             shop_detail["name"] = store_info["name"]
-            shop_detail["address"] = store_info["address"]
+
+            if store_info["address"]:
+                shop_detail["address"] = store_info["address"]
+            else:
+                shop_detail["address"] = _("No information")
+            
             shop_detail["tel_number"] = store_info["tel_number"]
             shop_detail["add_url"] = f"{reverse('main_app:reservation_add')}?{urlencode({'place_id': store_info['place_id']})}"
             
@@ -116,8 +121,12 @@ class ShopDetailView(LoginRequiredMixin, TemplateView):
             shop_detail["type"] = store_types
 
             shop_detail["open"] = ""
-            for hours in store_info["open"]:
-                shop_detail["open"] += hours + "\n"
+
+            if store_info["open"]:
+                for hours in store_info["open"]:
+                    shop_detail["open"] += hours + "\n"
+            else:
+                shop_detail["open"] += _("No information")
 
         else:
             shop_detail = {
