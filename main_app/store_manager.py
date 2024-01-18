@@ -216,10 +216,22 @@ class StoreManager():
         store_info["place_id"] = place_id
         store_info["name"] = detail_response["name"]
         store_info["type"] = detail_response["types"]
-        store_info["open"] = detail_response["opening_hours"]["weekday_text"]
-        store_info["open_periods"] = detail_response["opening_hours"]["periods"]
-        store_info["address"] = detail_response["formatted_address"]
-        
+
+        try:
+            store_info["open"] = detail_response["opening_hours"]["weekday_text"]
+        except Exception as e:
+            store_info["open"] = None
+
+        try:
+            store_info["open_periods"] = detail_response["opening_hours"]["periods"]
+        except Exception as e:
+            store_info["open_periods"] = None
+
+        try:
+            store_info["address"] = detail_response["formatted_address"]
+        except Exception as e:
+            store_info["address"] = None
+
         try:
             store_info["tel_number"] = detail_response["formatted_phone_number"]
         except Exception as e:

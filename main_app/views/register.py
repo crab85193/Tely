@@ -81,8 +81,10 @@ class RegisterCompleteView(TemplateView):
                 if activated_user.is_active:
                     UserNotice.objects.create(
                         user=activated_user,
-                        title="ユーザー登録が完了しました",
-                        message=f"{activated_user.username} 様\n ユーザー登録が完了しました。ご登録いただきありがとうございます。\nご利用中、ご質問や不明点がありましたら、お気軽にご連絡ください。\nサイトをご利用いただく際には、安全なパスワードの使用やセキュリティにご注意いただくようお願いいたします。\n\nご登録いただき、ありがとうございます。\n\n[Tely] サポートチーム\n",
+                        title_ja="ユーザー登録が完了しました",
+                        title_en="User registration has been completed.",
+                        message_ja=f"{activated_user.username} 様\nユーザー登録が完了しました。ご登録いただきありがとうございます。\nご利用中、ご質問や不明点がありましたら、お気軽にご連絡ください。\nサイトをご利用いただく際には、安全なパスワードの使用やセキュリティにご注意いただくようお願いいたします。\n\nご登録いただき、ありがとうございます。\n\n[Tely] サポートチーム\n",
+                        message_en=f"Dear {activated_user.username}\nYour user registration has been completed. Thank you for registering.\nPlease feel free to contact us if you have any questions or concerns during your visit.\nWe ask that you use a secure password and take precautions for security when using the site.\n\nThank you for registering.\n\n[Tely] Support Team\n",
                         type=UserNotice.SUCCESS,
                     )
 
