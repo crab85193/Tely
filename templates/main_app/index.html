@@ -281,6 +281,7 @@ Top Page
                             {% if shop.test %}
                             <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary">{% trans "Make a reservation" %}</a></p>
                             {% else %}
+                            <p class="text-danger">{% trans "Due to the fact that the beta test is in progress, no transmissions can be made outside of the test store." %}</p>
                             <p class="card-text"><a href="{{ shop.add_url }}" class="btn btn-primary disabled">{% trans "Make a reservation" %}</a></p>
                             {% endif %}
                             <a href="{{ store.detail_url }}" class="card-link">{% trans 'Details.' %}</a>
